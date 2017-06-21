@@ -17,6 +17,113 @@
 
         <button id="start" onclick="Start()">Start</button>
     </div>
+    <div class="col-xs-4">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <table class="table table-bordered table-hover" id="tab_logic">
+                        <thead>
+                            <tr>
+
+                                <th class="text-center">
+                                    X
+                                </th>
+                                <th class="text-center">
+                                    Y
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id='addr0'>
+
+                                <td>
+                                    <input type="text" name='name0' placeholder='X' class="form-control" value="0" style="text-align: center" readonly />
+                                </td>
+                                <td>
+                                    <input type="number" id="table1" step="0.01" name='mail0' placeholder='Y' style="text-align: center" class="form-control" />
+                                </td>
+
+                            </tr>
+                            <tr id='addr1'></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <table class="table table-bordered table-hover" id="tab_logic">
+                        <thead>
+                            <tr>
+
+                                <th class="text-center">
+                                    X
+                                </th>
+                                <th class="text-center">
+                                    Y
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id='addr0'>
+
+                                <td>
+                                    <input type="text" name='name0' placeholder='X' class="form-control" style="text-align: center" value="1" readonly />
+                                </td>
+                                <td>
+                                    <input type="number" id="table2" step="0.01" name='mail0' placeholder='Y' style="text-align: center" class="form-control" />
+                                </td>
+
+                            </tr>
+                            <tr id='addr1'></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div><div class="col-xs-4">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <table class="table table-bordered table-hover" id="tab_logic">
+                    <thead>
+                        <tr>
+
+                            <th class="text-center">
+                                X
+                            </th>
+                            <th class="text-center">
+                                Y
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id='addr0'>
+
+                            <td>
+                                <input type="text" name='name0' placeholder='X' class="form-control" style="text-align: center" value="0" readonly />
+                            </td>
+                            <td>
+                                <input type="number" id="table3" step="0.01" name='mail0' placeholder='Y' style="text-align: center" class="form-control" />
+                            </td>
+
+                        </tr>
+                        <tr id='addr1'></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
 
     <div class="col-xs-6">
         <div id='VelocityBoard' class='jxgbox' style='width:100%; padding-bottom:100%'></div>
@@ -37,9 +144,14 @@
     var numberField = document.getElementById("number");
     var numberField2 = document.getElementById("number2");
     var numberField3 = document.getElementById("number3");
+    var numtable = document.getElementById("table1");
+    var numtable2 = document.getElementById("table2");
+    var numtable3 = document.getElementById("table3");
+
+
 
     var firstUpdate = true;
-
+    //UpInput
     function updateFromNumber() {
         if (firstUpdate) {
             firstUpdate = false;
@@ -48,6 +160,20 @@
             quadraticFunction.b = parseFloat(numberField2.value);
             linearFunction = quadraticFunction.derivate();
             updateAll();
+        }
+    }
+    //UpTable
+
+   function updateFromTable() {
+        if (firstUpdate) {
+            firstUpdate = false;
+
+
+            
+
+
+
+
         }
     }
 
@@ -153,11 +279,20 @@
     function updateAll() {
         updateFields();
         updateText();
+      updateTable();
         updateGraphs();
+        
 
         firstUpdate = true;
     }
 
+
+   function updateTable() {
+       numtable.value = linearIntPoint.Y();
+       numtable2.value = linearSlopePoint.Y();
+        numtable3.value = quadraticFunction.c;
+    }
+    
     function updateFields() {
         numberField3.value = quadraticFunction.a;
         numberField.value = quadraticFunction.c;
