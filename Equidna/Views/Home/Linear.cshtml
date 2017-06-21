@@ -4,6 +4,8 @@
 
 <h2>Modelo lineal</h2>
 <div id="FormulaDisplayDiv"></div>
+<input id="number2" type="number" step="0.01"  onchange="updateFromNumber();" />
+<input id="number" type="number" step="0.01" onchange="updateFromNumber();" />
 <div class="row">
     <div class="col-xs-12">
         <div id="sliderBox" class="jxgbox" style="width:100%;height:100px;"></div>
@@ -12,14 +14,87 @@
 
         <button id="start" onclick="Start()">Start</button>
     </div>
+    <div class="col-xs-6">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <table class="table table-bordered table-hover" id="tab_logic">
+                        <thead>
+                            <tr>
 
-    <div class="col-xs-6">
-        <div id='VelocityBoard' class='jxgbox' style='width:100%; padding-bottom:100%'></div>
+                                <th class="text-center">
+                                    X
+                                </th>
+                                <th class="text-center">
+                                    Y
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id='addr0'>
+
+                                <td>
+                                    <input type="text" name='name0' placeholder='X' class="form-control" value="0" style="text-align: center" readonly  />
+                                </td>
+                                <td>
+                                    <input type="number" step="0.01" name='mail0' placeholder='Y' style="text-align: center" class="form-control" />
+                                </td>
+
+                            </tr>
+                            <tr id='addr1'></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
     </div>
     <div class="col-xs-6">
-        <div id='PositionBoard' class='jxgbox' style='width:100%; padding-bottom:100%'></div>
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <table class="table table-bordered table-hover" id="tab_logic">
+                        <thead>
+                            <tr>
+
+                                <th class="text-center">
+                                    X
+                                </th>
+                                <th class="text-center">
+                                    Y
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id='addr0'>
+
+                                <td>
+                                    <input type="text" name='name0' placeholder='X' class="form-control" style="text-align: center" value="0"  readonly />
+                                </td>
+                                <td>
+                                    <input type="number" step="0.01" name='mail0' placeholder='Y' style="text-align: center" class="form-control" />
+                                </td>
+
+                            </tr>
+                            <tr id='addr1'></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
     </div>
-</div>
+
+        <div class="col-xs-6">
+            <div id='VelocityBoard' class='jxgbox' style='width:100%; padding-bottom:100%'></div>
+        </div>
+        <div class="col-xs-6">
+            <div id='PositionBoard' class='jxgbox' style='width:100%; padding-bottom:100%'></div>
+        </div>
+    </div>
+
 
 <script type='text/javascript'>
 
@@ -29,6 +104,18 @@
     var guidingLine;
     var maxX = 9, minX = -1, maxY = 5, minY = -5;
     var startButton = document.getElementById("start");
+    var numberField = document.getElementById("number");
+    var numberField2 = document.getElementById("number2");
+    var firstUpdate = true;
+
+    function updateFromNumber() {
+        if (firstUpdate) {
+            firstUpdate = false;
+          //  positionFunction.a = parseFloat(numberField.value);
+           // linearPoint = quadraticFunction.derivate();
+            updateFunction();
+        }
+    }
 
     function Start() {
         startButton.disabled = true;
@@ -102,8 +189,14 @@
         );
 
     function updateFunction() {
+
+        
         velocityFunction.a = constantPoint.Y();
         positionFunction = velocityFunction.integrate(linearPoint.Y());
+
+        numberField2.value = velocityFunction.a;
+        numberField.value = positionFunction.b;
+
         FormulaDiv.innerHTML = positionFunction.ToString();
 
         positionBoard.update();
