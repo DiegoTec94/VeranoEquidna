@@ -1,0 +1,181 @@
+﻿@{
+    ViewBag.Title = "Modelo cuadrático (Sin decimales)";
+}
+
+<h2>Modelo cuadrático</h2>
+<div id="FormulaDisplayDiv"></div>
+<input id="number" type="text" onchange="updateFromNumber();" />
+<input id="number2" type="text" onchange="updateFromNumber();" />
+<div class="row">
+    <div class="col-xs-12">
+        <div id="sliderBox" class="jxgbox" style="width:100%;height:100px;"></div>
+        <label for="startTime">Start time: <input name="startTime" type="number" value="0" /></label>
+        <label for="endTime">End time: <input name="endTime" type="number" value="9" /></label>
+
+        <button id="start" onclick="Start()">Start</button>
+    </div>
+
+    <div class="col-xs-6">
+        <div id='VelocityBoard' class='jxgbox' style='width:100%; padding-bottom:100%'></div>
+    </div>
+    <div class="col-xs-6">
+        <div id='PositionBoard' class='jxgbox' style='width:100%; padding-bottom:100%'></div>
+    </div>
+</div>
+
+<script type='text/javascript'>
+
+    var currentTime = 0;
+    var interval;
+    var timeInterval = 50;
+    var guidingLine;
+    var maxX = 9, minX = -1, maxY = 5, minY = -5;
+    var startButton = document.getElementById("start");
+    var numberField = document.getElementById("number");
+    var numberField2 = document.getElementById("number2");
+
+    var firstUpdate = true;
+
+    function updateFromNumber() {
+        if (firstUpdate) {
+            firstUpdate = false;
+            quadraticFunction.c = parseFloat(numberField.value);
+            quadraticFunction.b = parseFloat(numberField2.value);
+            linearFunction = quadraticFunction.derivate();
+            updateAll();
+        }
+    }
+
+    function Start()
+    {
+        startButton.disabled = true;
+        currentTime = parseInt(document.getElementsByName("startTime")[0].value);
+        interval = window.setInterval(Step, timeInterval);
+        guidingLine = quadraticBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
+    }
+
+    function Step()
+    {
+        currentTime += timeInterval / 1000;
+        if (currentTime >= parseInt(document.getElementsByName("endTime")[0].value))
+        {
+            clearInterval(interval);
+            quadraticBoard.removeObject(guidingLine);
+            startButton.disabled = false;
+        }
+        else
+        {
+            value = quadraticFunction.evaluate(currentTime);
+            slider.setValue(value);
+            sliderBox.update();
+
+            quadraticBoard.removeObject(guidingLine);
+            guidingLine = quadraticBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
+        }
+    }
+
+    var quadraticFunction = new QuadraticFunction(0.5, 0, 0);
+    var linearFunction = new LinearFunction(1, 0);
+
+    var FormulaDiv = document.getElementById("FormulaDisplayDiv");
+
+    var quadraticBoard = JXG.JSXGraph.initBoard('PositionBoard', { boundingbox: [minX, maxY, maxX, minY], axis: true, shownavigation: true, showCopyright: false });
+    var linearBoard = JXG.JSXGraph.initBoard('VelocityBoard', { boundingbox: [minX, maxY, maxX, minY], axis: true, shownavigation: false, showCopyright: false });
+
+    var sliderBox = JXG.JSXGraph.initBoard('sliderBox', { boundingbox: [-(minY * (maxX - minX)), 5, minY * (maxX - minX), -5], axis: false, shownavigation: false, showCopyright: false, keepAspectRatio: true });
+    var slider = sliderBox.create('slider', [[-(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0, -(minY * (maxX - minX))]], { ticks: { drawLabels: false, highlight: false }, color: "Blue" });
+
+    function SnapToGrid(x,y) {
+        return [Math.round(x * 100) / 100, Math.round(y * 100) / 100];
+    }
+
+    quadraticPoint = quadraticBoard.create('point', [0, 0], { size: 2, name: "", color: "Blue" });
+    linearIntPoint = linearBoard.create('point', [0, 0], { size: 2, name: "", color: "Red" });
+    linearSlopePoint = linearBoard.create('point', [1, 1], { size: 2, name: "", color: "Red" });
+
+    linearBoard.highlightInfobox = function (x, y, el) {
+        linearBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
+    };
+
+    quadraticBoard.highlightInfobox = function (x, y, el) {
+        quadraticBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
+    };
+
+    quadraticPoint.on(
+        'drag',
+        function() { quadraticPoint.moveTo(SnapToGrid( 0, quadraticPoint.Y())) }
+        );
+
+    var offset = 1;
+
+    linearIntPoint.on(
+        'drag',
+        function() {
+            linearSlopePoint.moveTo(SnapToGrid(linearSlopePoint.X(), linearIntPoint.Y() + offset));
+            linearIntPoint.moveTo(SnapToGrid( 0, linearIntPoint.Y() )); }
+        );
+
+    linearSlopePoint.on(
+        'drag',
+        function () {
+            linearSlopePoint.moveTo(SnapToGrid(linearSlopePoint.X(),linearSlopePoint.Y()));
+            offset = linearSlopePoint.Y() - linearIntPoint.Y();}
+        );
+
+    quadraticBoard.create(
+        'functiongraph',
+        [function (x) {return quadraticFunction.evaluate(x);}],
+        {strokeColor: "Blue"}
+        );
+
+    linearBoard.create(
+        'functiongraph',
+        [function (x) {return linearFunction.evaluate(x);}],
+        {strokeColor: "Red"}
+        );
+
+    function updateFunctionFromGraph() {
+        if (firstUpdate) {
+            firstUpdate = false;
+            linearFunction.a = (linearSlopePoint.Y() - linearIntPoint.Y()) / linearSlopePoint.X();
+            linearFunction.b = linearIntPoint.Y();
+            quadraticFunction = linearFunction.integrate(quadraticPoint.Y());
+
+            updateAll();
+        }
+    }
+
+    function updateAll() {
+        updateFields();
+        updateText();
+        updateGraphs();
+
+        firstUpdate = true;
+    }
+
+    function updateFields() {
+        numberField.value = quadraticFunction.c;
+        numberField2.value = quadraticFunction.b;
+    }
+
+    function updateText() {
+        FormulaDiv.innerHTML = quadraticFunction.ToString();
+    }
+
+    function updateGraphs() {
+        quadraticBoard.suspendUpdate();
+        linearBoard.suspendUpdate();
+        quadraticPoint.moveTo(SnapToGrid(0, quadraticFunction.c));
+        linearIntPoint.moveTo(SnapToGrid(0, linearFunction.b));
+        linearSlopePoint.moveTo(SnapToGrid(1, linearFunction.evaluate(1)));
+        quadraticBoard.unsuspendUpdate();
+        linearBoard.unsuspendUpdate();
+    }
+
+    updateFunctionFromGraph();
+    quadraticBoard.on('update', updateFunctionFromGraph);
+    linearBoard.on('update', updateFunctionFromGraph);
+</script>
+
+
+
