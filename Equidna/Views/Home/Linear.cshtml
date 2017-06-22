@@ -200,24 +200,33 @@
         );
 
     function updateFunction() {
-
-        
         velocityFunction.a = constantPoint.Y();
         positionFunction = velocityFunction.integrate(linearPoint.Y());
-         
-
         //input
-        numberField2.value = velocityFunction.a;
-        numberField.value = positionFunction.b;
+        updatenumerfield();
         //table
-        numtable.value = velocityFunction.a;
-        numtable2.value = positionFunction.b;
+        updatetablenum();
         //text html
-        FormulaDiv.innerHTML = positionFunction.ToString();
-
+        updateformhtml();
         positionBoard.update();
     }
+    function updatenumerfield() {
+        numberField2.value = velocityFunction.a;
+        numberField.value = positionFunction.b;
+        numberField2.value = Math.round(numberField2.value * 100) / 100;
+        numberField.value = Math.round(numberField.value * 100) / 100;
+    }
 
+    function updatetablenum() {
+        numtable.value = velocityFunction.a;
+        numtable2.value = positionFunction.b;
+        numtable.value = Math.round(numtable.value * 100) / 100;
+        numtable2.value = Math.round(numtable2.value * 100) / 100;
+    }
+
+    function updateformhtml(parameters) {
+        FormulaDiv.innerHTML = positionFunction.ToString();
+    }
     updateFunction();
     positionBoard.on('update', updateFunction);
     velocityBoard.on('update', updateFunction);
