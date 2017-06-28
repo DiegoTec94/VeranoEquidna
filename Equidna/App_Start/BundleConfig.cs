@@ -25,6 +25,7 @@ namespace Equidna
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/jsxgraph.css",
                       "~/Content/site.css"));
         }
     }

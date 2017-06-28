@@ -5,7 +5,8 @@
 
 <h2>Modelo cúbico</h2>
 
-<div id="FormulaDisplayDiv"></div>
+<div> <h1 id="FormulaDisplayDiv"></h1></div>
+<div class="col-xs-12 " align="center"></div>
 <input id="number" type="number" step="0.01"  onchange="updateFromNumber();" />
 <input id="number1" type="number" step="0.01" onchange="updateFromNumber();" />
 <input id="number2" type="number" step="0.01"  onchange="updateFromNumber();" />
@@ -166,10 +167,10 @@
 </div>
 
     <div class="col-xs-6">
-        <div id='VelocityBoard' class='jxgbox' style='width:100%; padding-bottom:100%'></div>
+        <div id='VelocityBoard' class='jxgbox graphbox'  style='user-select: none; overflow: hidden; position: relative;'></div>
     </div>
 <div class="col-xs-6">
-    <div id='PositionBoard' class='jxgbox' style='width:100%; padding-bottom:100%'></div>
+    <div id='PositionBoard' class='jxgbox graphbox'  style='user-select: none; overflow: hidden; position: relative;'></div>
 </div>
 </div>
 
@@ -181,7 +182,7 @@
     var interval;
     var timeInterval = 50;
     var guidingLine;
-    var maxX = 9, minX = -1, maxY = 5, minY = -5;
+    var maxX = 9, minX = -1, maxY = 9, minY = -2;
     var startButton = document.getElementById("start");
     var numberField = document.getElementById("number");
     var numberField1 = document.getElementById("number1");
@@ -247,8 +248,8 @@
 
     var FormulaDiv = document.getElementById("FormulaDisplayDiv");
 
-    var positionBoard = JXG.JSXGraph.initBoard('PositionBoard', { boundingbox: [minX, maxY, maxX, minY], axis: true, shownavigation: false, showCopyright: false});
-    var velocityBoard = JXG.JSXGraph.initBoard('VelocityBoard', { boundingbox: [minX, maxY, maxX, minY], axis: true, shownavigation: false, showCopyright: false});
+    var positionBoard = JXG.JSXGraph.initBoard('PositionBoard', { boundingbox: [minX, maxY, maxX, minY], axis: true, shownavigation: true, showCopyright: false});
+    var velocityBoard = JXG.JSXGraph.initBoard('VelocityBoard', { boundingbox: [minX, maxY, maxX, minY], axis: true, shownavigation: true, showCopyright: false});
 
     var sliderBox = JXG.JSXGraph.initBoard('sliderBox', { boundingbox: [-(minY * (maxX - minX)), 5, minY * (maxX - minX), -5], axis: false, shownavigation: false, showCopyright: false, keepAspectRatio: true });
     var slider = sliderBox.create('slider', [[-(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0, -(minY * (maxX - minX))]], { ticks: { drawLabels: false, highlight: false }, color: "Blue" });

@@ -3,18 +3,35 @@
 }
 
 <h2>Modelo lineal</h2>
-<div id="FormulaDisplayDiv"></div>
-<input id="number2" type="number" step="0.01"  onchange="updateFromNumber();" />
-<input id="number" type="number" step="0.01" onchange="updateFromNumber();" />
+
+<div><h1 id="FormulaDisplayDiv" style="text-align: center"></h1></div>
+<div class="col-xs-12" align="center">
+    <input id="number2"  type="number" step="0.01" onchange="updateFromNumber();" />
+    <input id="number" type="number" step="0.01" onchange="updateFromNumber();" />
+</div>
+
 <div class="row">
+    
     <div class="col-xs-12">
-        <div id="sliderBox" class="jxgbox" style="width:100%;height:100px;"></div>
-        <label for="startTime">Start time: <input name="startTime" type="number" value="0" /></label>
-        <label for="endTime">End time: <input name="endTime" type="number" value="9" /></label>
+        <div id="sliderBox" class="jxgbox" style="width: 100%; height: 100px;"></div>
+        <label for="startTime">Start time: <input name="startTime" type="number" value="0"/></label>
+        <label for="endTime">End time: <input name="endTime" type="number" value="9"/></label>
 
         <button id="start" onclick="Start()">Start</button>
     </div>
-    <div class="col-xs-6">
+</div>
+
+
+<!--<div class="row">
+
+   
+    
+    
+</div>
+    -->
+
+<div class="col-xs-6 col-md-offset-3">
+    <div class="col-xs-2" style="color: red">
         <div class="container">
             <div class="row clearfix">
                 <div class="col-md-12 column">
@@ -22,11 +39,9 @@
                         <thead>
                             <tr>
 
+
                                 <th class="text-center">
-                                    X
-                                </th>
-                                <th class="text-center">
-                                    Y
+                                    Velocidad
                                 </th>
 
                             </tr>
@@ -34,11 +49,9 @@
                         <tbody>
                             <tr id='addr0'>
 
+
                                 <td>
-                                    <input type="text" name='name0' placeholder='X' class="form-control" value="0" style="text-align: center" readonly  />
-                                </td>
-                                <td>
-                                    <input type="number" id="table1" step="0.01" name='mail0' placeholder='Y' style="text-align: center" class="form-control" />
+                                    <input type="number" id="table1" step="0.01" name='mail0' placeholder='Velocidad' style="text-align: center" class="form-control" />
                                 </td>
 
                             </tr>
@@ -50,7 +63,57 @@
 
         </div>
     </div>
-    <div class="col-xs-6">
+</div>
+<div class="row">
+    <div class="col-xs-5 ">
+        <div id='VelocityBoard' class='jxgbox graphbox'        style='user-select: none; overflow: hidden; position: relative;'></div>
+    </div>
+    
+    <div class="col-xs-4 ">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-2 column">
+                    <table class="table table-bordered table-hover" id="tab_logic">
+                        <thead>
+                            <tr>
+
+                                <th class="text-center" style="color: red">
+                                    Tiempo
+                                </th>
+                                <th class="text-center" style="color: blue">
+                                    Posición
+                                </th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id='addr0'>
+
+                                <td>
+                                    <input type="number" id="x2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                                </td>
+                                <td>
+                                    <input type="number" id="y1" step="0.01" name='mail0' style="text-align: center" class="form-control" />
+                                </td>
+
+                            </tr>
+                            <tr id='addr1'></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--<a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>-->
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="col-xs-5">
+        <div id='PositionBoard' class='jxgbox graphbox'        style='user-select: none; overflow: hidden; position: relative;'></div>
+    </div>
+    <div class="col-xs-2" style="color: blue">
         <div class="container">
             <div class="row clearfix">
                 <div class="col-md-12 column">
@@ -59,22 +122,18 @@
                             <tr>
 
                                 <th class="text-center">
-                                    X
+                                    Posición
                                 </th>
-                                <th class="text-center">
-                                    Y
-                                </th>
+
 
                             </tr>
                         </thead>
                         <tbody>
                             <tr id='addr0'>
 
+
                                 <td>
-                                    <input type="text" name='name0' placeholder='X' class="form-control" style="text-align: center" value="0"  readonly />
-                                </td>
-                                <td>
-                                    <input type="number" id="table2" step="0.01" name='mail0' placeholder='Y' style="text-align: center" class="form-control" />
+                                    <input type="number" id="table2" step="0.01" name='mail0' placeholder='Posición ' style="text-align: center" class="form-control" />
                                 </td>
 
                             </tr>
@@ -86,14 +145,51 @@
 
         </div>
     </div>
+    <div class="col-xs-4">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-2 column">
+                    <table class="table table-bordered table-hover" id="tab_logic">
+                        <thead>
+                            <tr>
 
-        <div class="col-xs-6">
-            <div id='VelocityBoard' class='jxgbox' style='width:100%; padding-bottom:100%'></div>
-        </div>
-        <div class="col-xs-6">
-            <div id='PositionBoard' class='jxgbox' style='width:100%; padding-bottom:100%'></div>
+                                <th class="text-center" style="color: red">
+                                    Tiempo
+                                </th>
+                                <th class="text-center" style="color: blue">
+                                    Posición
+                                </th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id='addr0'>
+
+                                <td>
+                                    <input type="number" id="x1" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                                </td>
+                                <td>
+                                    <input type="number" id="y2" step="0.01" name='mail0' style="text-align: center" class="form-control" readonly />
+                                </td>
+
+                            </tr>
+                            <tr id='addr1'></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--<a id="add_row" class="btn btn-default pull-left">Add Row</a><a id='delete_row' class="pull-right btn btn-default">Delete Row</a>-->
         </div>
     </div>
+</div>
+   
+    
+
+
+
+
+
 
 
 <script type='text/javascript'>
@@ -108,7 +204,18 @@
     var numberField2 = document.getElementById("number2");
     var numtable = document.getElementById("table1");
     var numtable2 = document.getElementById("table2");
+    var tablax1 = document.getElementById("x1");
+    var tablay1 = document.getElementById("y2");
+    var tablax2 = document.getElementById("x2");
+    var tablay2 = document.getElementById("y1");
+    var xxx =0;
     var firstUpdate = true;
+    var addrow = document.getElementById("add_row");
+    var delerow = document.getElementById("delete_row");
+    var value;
+    function add(parameters) {
+
+    }
 
     function updateFromNumber() {
         if (firstUpdate) {
@@ -122,7 +229,15 @@
     function updateFromTable() {
         if (firstUpdate) {
             firstUpdate = false;
-            
+            xxx = parseFloat(tablax1.value);
+            updateFunction();
+        }
+
+    }
+    function updateFromXY() {
+        if (firstUpdate) {
+            firstUpdate = false;
+
             updateFunction();
         }
 
@@ -132,35 +247,40 @@
         startButton.disabled = true;
         currentTime = parseInt(document.getElementsByName("startTime")[0].value);
         interval = window.setInterval(Step, timeInterval);
-        guidingLine = quadraticBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
+        guidingLine = positionBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
     }
 
     function Step() {
-        currentTime += timeInterval / 1000;
+        currentTime += timeInterval / 400;
         if (currentTime >= parseInt(document.getElementsByName("endTime")[0].value)) {
             clearInterval(interval);
-            quadraticBoard.removeObject(guidingLine);
+            positionBoard.removeObject(guidingLine);
             startButton.disabled = false;
         }
         else {
-            value = quadraticFunction.evaluate(currentTime);
+            value = positionFunction.evaluate(currentTime);
             slider.setValue(value);
             sliderBox.update();
 
-            quadraticBoard.removeObject(guidingLine);
-            guidingLine = quadraticBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
+            positionBoard.removeObject(guidingLine);
+            guidingLine = positionBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
         }
     }
 
     function SnapToGrid(x, y) {
-        return [Math.round(x * 100) / 100, Math.round(y * 100) / 100]
+        return [Math.round(x * 100) / 100, Math.round(y * 100) / 100];
     }
 
     var FormulaDiv = document.getElementById("FormulaDisplayDiv");
 
-    var positionBoard = JXG.JSXGraph.initBoard('PositionBoard', { boundingbox: [minX, maxY, maxX, minY], axis: true, shownavigation: false, showCopyright: false});
-    var velocityBoard = JXG.JSXGraph.initBoard('VelocityBoard', { boundingbox: [minX, maxY, maxX, minY], axis: true, shownavigation: false, showCopyright: false});
 
+    var positionBoard = JXG.JSXGraph.initBoard('PositionBoard', { boundingbox: [-2, 9, 9, -2], axis: true, grid: true, shownavigation: true, keepAspectRatio: true, showClearTraces:true });
+    positionBoard.create('text', [0.5, 8, "(m)"]);
+    positionBoard.create('text', [8, 0.5, "tiempo()"]);
+
+    var velocityBoard = JXG.JSXGraph.initBoard('VelocityBoard', { boundingbox: [-2, 9, 9, -2], axis: true, grid: true, shownavigation: true, keepAspectRatio: true, showClearTraces: true });
+    velocityBoard.create('text', [0.5, 8, "(m/s)"]);
+    velocityBoard.create('text', [8, 0.5, "tiempo()"]);
     var sliderBox = JXG.JSXGraph.initBoard('sliderBox', { boundingbox: [-(minY * (maxX - minX)), 5, minY * (maxX - minX), -5], axis: false, shownavigation: false, showCopyright: false, keepAspectRatio: true });
     var slider = sliderBox.create('slider', [[-(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0, -(minY * (maxX - minX))]], { ticks: { drawLabels: false, highlight: false }, color: "Blue" });
 
@@ -200,8 +320,13 @@
         );
 
     function updateFunction() {
+
         velocityFunction.a = constantPoint.Y();
         positionFunction = velocityFunction.integrate(linearPoint.Y());
+        //form
+        updateform();
+        //form2
+        updateform2();
         //input
         updatenumerfield();
         //table
@@ -210,6 +335,8 @@
         updateformhtml();
         positionBoard.update();
     }
+
+
     function updatenumerfield() {
         numberField2.value = velocityFunction.a;
         numberField.value = positionFunction.b;
@@ -222,6 +349,23 @@
         numtable2.value = positionFunction.b;
         numtable.value = Math.round(numtable.value * 100) / 100;
         numtable2.value = Math.round(numtable2.value * 100) / 100;
+    }
+    function updateform(parameters) {
+
+        tablay1.value = parseFloat(numtable2.value) + parseFloat(numtable.value * tablax1.value);
+        positionBoard.create('point', [tablax1.value, tablay1.value], { size: 2, name: "", color: "Red" });
+        tablay1.value = null;
+        tablax1.value = null;
+
+    }
+    function updateform2(parameters) {
+      
+
+        tablax2.value = ((parseFloat(tablay2.value) - parseFloat(numtable2.value)) / parseFloat(numtable.value));
+        var posi = positionBoard.create('point', [tablax2.value, tablay2.value], { size: 2, name: "", color: "Red" });
+        tablay2.value = null;
+        tablax2.value = null;
+       // posi.visible(false);
     }
 
     function updateformhtml(parameters) {
