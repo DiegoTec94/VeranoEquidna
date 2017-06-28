@@ -15,7 +15,21 @@
     height: 0;
     padding-bottom: 50%;
     }
-
+.table-fixed thead {
+  width: 50%;
+}
+.table-fixed tbody {
+  height: 100px;
+  overflow-y: auto;
+  width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}
         </style>
 </head>
 <body>
@@ -53,6 +67,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
