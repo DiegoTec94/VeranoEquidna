@@ -5,12 +5,14 @@
 
 <h2>Modelo cúbico</h2>
 
-<div> <h1 id="FormulaDisplayDiv"></h1></div>
-<div class="col-xs-12 " align="center"></div>
-<input id="number" type="number" step="0.01"  onchange="updateFromNumber();" />
-<input id="number1" type="number" step="0.01" onchange="updateFromNumber();" />
-<input id="number2" type="number" step="0.01"  onchange="updateFromNumber();" />
-<input id="number3" type="number" step="0.01" onchange="updateFromNumber();" />
+<div> <h1 id="FormulaDisplayDiv" style="text-align: center"></h1></div>
+<div class="col-xs-12 " align="center">
+    <input id="number" type="number" step="0.01" onchange="updateFromNumber();" />
+    <input id="number1" type="number" step="0.01" onchange="updateFromNumber();" />
+    <input id="number2" type="number" step="0.01" onchange="updateFromNumber();" />
+    <input id="number3" type="number" step="0.01" onchange="updateFromNumber();" />
+</div>
+
 
 <div class="row" onload="updateGraph()">
     <div class="col-xs-12">
@@ -20,7 +22,8 @@
 
         <button id="start" onclick="Start()">Start</button>
     </div>
-
+    </div>
+<div class="row">
     <div class="col-xs-3">
         <div class="container">
             <div class="row clearfix">
@@ -196,7 +199,7 @@
     var numtable5 = document.getElementById("table5");
     var numtable6 = document.getElementById("table6");
 
-
+    var value;
 
     var firstUpdate = true;
     //upnumber
@@ -222,23 +225,23 @@
         startButton.disabled = true;
         currentTime = parseInt(document.getElementsByName("startTime")[0].value);
         interval = window.setInterval(Step, timeInterval);
-        guidingLine = quadraticBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
+        guidingLine = positionBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
     }
 
     function Step() {
         currentTime += timeInterval / 1000;
         if (currentTime >= parseInt(document.getElementsByName("endTime")[0].value)) {
             clearInterval(interval);
-            quadraticBoard.removeObject(guidingLine);
+            positionBoard.removeObject(guidingLine);
             startButton.disabled = false;
         }
         else {
-            value = quadraticFunction.evaluate(currentTime);
+            value = positionFunction.evaluate(currentTime);
             slider.setValue(value);
             sliderBox.update();
 
-            quadraticBoard.removeObject(guidingLine);
-            guidingLine = quadraticBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
+            positionBoard.removeObject(guidingLine);
+            guidingLine = positionBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
         }
     }
 
@@ -251,8 +254,12 @@
     var positionBoard = JXG.JSXGraph.initBoard('PositionBoard', { boundingbox: [minX, maxY, maxX, minY], axis: true, shownavigation: true, showCopyright: false});
     var velocityBoard = JXG.JSXGraph.initBoard('VelocityBoard', { boundingbox: [minX, maxY, maxX, minY], axis: true, shownavigation: true, showCopyright: false});
 
-    var sliderBox = JXG.JSXGraph.initBoard('sliderBox', { boundingbox: [-(minY * (maxX - minX)), 5, minY * (maxX - minX), -5], axis: false, shownavigation: false, showCopyright: false, keepAspectRatio: true });
-    var slider = sliderBox.create('slider', [[-(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0, -(minY * (maxX - minX))]], { ticks: { drawLabels: false, highlight: false }, color: "Blue" });
+    var sliderBox = JXG.JSXGraph.initBoard('sliderBox', { boundingbox: [-(minY * (maxX - minX)), 5, minY * (maxX - minX), -5], axis: false, grid: true, shownavigation: true, showCopyright: false, keepAspectRatio: true });
+    var urlImg = "https://vignette4.wikia.nocookie.net/kirby/images/0/01/Kirby_Artwork_Caminando_%28KA%29.png/revision/latest?cb=20100808233646";
+    // var slider = sliderBox.create('slider', [urlImg,[1,1],[1,1] ]);
+    var slider = sliderBox.create('slider', [[-(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0, -(minY * (maxX - minX))]], { ticks: { drawLabels: false, highlight: false, size: 5, opacity: 0.3 } });
+    var im = sliderBox.create('image', [urlImg, [function () { return slider.X(); }, function () { return slider.Y(); }], [5, 5]]);
+    // var im = sliderBox.create('image', [], [function() { return slider.X(); }], [1, 1]]);
 
     velocityBoard.highlightInfobox = function (x, y, el) {
         velocityBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');

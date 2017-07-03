@@ -186,9 +186,7 @@
         startButton.disabled = true;
         currentTime = parseInt(document.getElementsByName("startTime")[0].value);
         interval = window.setInterval(Step, timeInterval);
-        guidingLine = quadraticBoard.create('line',
-            [[currentTime, minY], [currentTime, maxY]],
-            { straightFirst: false, straightLast: false, strokeWidth: 2 });
+        guidingLine = quadraticBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
     }
 
     function Step()
@@ -223,8 +221,12 @@
     var quadraticBoard = JXG.JSXGraph.initBoard('PositionBoard', { boundingbox: [minX, maxY, maxX, minY], axis: true, shownavigation: true, showCopyright: false });
     var linearBoard = JXG.JSXGraph.initBoard('VelocityBoard', { boundingbox: [minX, maxY, maxX, minY], axis: true, shownavigation: true, showCopyright: false });
 
-    var sliderBox = JXG.JSXGraph.initBoard('sliderBox', { boundingbox: [-(minY * (maxX - minX)), 5, minY * (maxX - minX), -5], axis: false, shownavigation: true, showCopyright: false, keepAspectRatio: true });
-    var slider = sliderBox.create('slider', [[-(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0, -(minY * (maxX - minX))]], { ticks: { drawLabels: false, highlight: false }, color: "Blue" });
+    var sliderBox = JXG.JSXGraph.initBoard('sliderBox', { boundingbox: [-(minY * (maxX - minX)), 5, minY * (maxX - minX), -5], axis: false, grid: true, shownavigation: true, showCopyright: false, keepAspectRatio: true });
+    var urlImg = "https://vignette4.wikia.nocookie.net/kirby/images/0/01/Kirby_Artwork_Caminando_%28KA%29.png/revision/latest?cb=20100808233646";
+    // var slider = sliderBox.create('slider', [urlImg,[1,1],[1,1] ]);
+    var slider = sliderBox.create('slider', [[-(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0, -(minY * (maxX - minX))]], { ticks: { drawLabels: false, highlight: false, size: 5, opacity: 0.3 } });
+    var im = sliderBox.create('image', [urlImg, [function () { return slider.X(); }, function () { return slider.Y(); }], [5, 5]]);
+    // var im = sliderBox.create('image', [], [function() { return slider.X(); }], [1, 1]]);
 
     function SnapToGrid(x,y) {
         return [Math.round(x * 100) / 100, Math.round(y * 100) / 100];
