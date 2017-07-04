@@ -218,8 +218,35 @@
 
     var FormulaDiv = document.getElementById("FormulaDisplayDiv");
 
-    var quadraticBoard = JXG.JSXGraph.initBoard('PositionBoard', { boundingbox: [minX, maxY, maxX, minY], axis: true, shownavigation: true, showCopyright: false });
-    var linearBoard = JXG.JSXGraph.initBoard('VelocityBoard', { boundingbox: [minX, maxY, maxX, minY], axis: true, shownavigation: true, showCopyright: false });
+    var quadraticBoard = JXG.JSXGraph.initBoard('PositionBoard', {
+        boundingbox: [minX, maxY, maxX, minY],
+        axis: true,
+        grid: true,
+        shownavigation: true,
+        keepAspectRatio: true,
+        showClearTraces: true,
+        keepaspectratio: false, zoom: {
+            factorX: 1.25,
+            factorY: 1.25,
+            wheel: true,
+            needshift: true,
+            eps: 0.1
+        }
+    });
+    var linearBoard = JXG.JSXGraph.initBoard('VelocityBoard', {
+        boundingbox: [minX, maxY, maxX, minY], axis: true,
+        grid: true,
+        shownavigation: true,
+        keepAspectRatio: true,
+        showClearTraces: true,
+        keepaspectratio: false, zoom: {
+            factorX: 1.25,
+            factorY: 1.25,
+            wheel: true,
+            needshift: true,
+            eps: 0.1
+        }
+    });
 
     var sliderBox = JXG.JSXGraph.initBoard('sliderBox', { boundingbox: [-(minY * (maxX - minX)), 5, minY * (maxX - minX), -5], axis: false, grid: true, shownavigation: true, showCopyright: false, keepAspectRatio: true });
     var urlImg = "https://vignette4.wikia.nocookie.net/kirby/images/0/01/Kirby_Artwork_Caminando_%28KA%29.png/revision/latest?cb=20100808233646";
