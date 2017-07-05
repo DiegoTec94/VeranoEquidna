@@ -11,6 +11,8 @@ namespace Equidna.Controllers
 
         public ActionResult Linear()
         {
+           // ViewBag.Imagen = Server.MapPath("~") + @"Content\images\frente.png";
+         
             return View();
         }
 

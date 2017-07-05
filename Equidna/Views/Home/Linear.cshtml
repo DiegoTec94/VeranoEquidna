@@ -4,6 +4,21 @@
 
 <h2>Modelo lineal</h2>
 
+
+<div class="eq-c">
+    <i>X</i>(t) =
+    <div class="fraction">
+        <span class="fup" id="nuevo"><i></i></span>
+        <span class="bar">/</span>
+        <span class="fdn" id="nuevo2"><i></i></span>
+    </div>
+    X + 
+    <div class="fraction">
+        <span class="fup" id="nuevo3"><i></i></span>
+        <span class="bar">/</span>
+        <span class="fdn" id="nuevo4"><i></i></span>
+    </div>
+</div>
 <div><h1 id="FormulaDisplayDiv" style="text-align: center"></h1></div>
 <div class="col-xs-12" align="center">
     <input id="number2"  type="number" step="0.01" onchange="updateFromNumber();" />
@@ -11,7 +26,9 @@
 </div>
 
 <div class="row">
-    
+   <!--<img src="@Url.Content("~/Content/images/frente.png")"alt="IMAGES" />
+    <img src="@ViewBag.Imagen" alt="IMAGES"/>
+       --> 
     <div class="col-xs-12">
         <div id="sliderBox" class="jxgbox" style="width: 100%; height: 100px;"></div>
         <label for="startTime">Start time: <input name="startTime" type="number" value="0"/></label>
@@ -25,7 +42,7 @@
    
 
 <div class="row">
-    <div class="col-xs-6 ">
+    <div class="col-xs-8 ">
         <div id='VelocityBoard' class='jxgbox graphbox'        style='user-select: none; overflow: hidden; position: relative;'></div>
     </div>
     
@@ -33,95 +50,99 @@
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4 id="Formuvelo" style="text-align: center">
-                        
-                    </h4>
+                    <h6 id="Formuvelo" style="text-align: center; font-weight: bold"></h6>
                 </div>
-                <table class="table table-fixed">
-                    <thead >
-                        <tr >
-                            <th class="col-xs-2 " >X</th>
-                            <th class="col-xs-8"></th>
-                            <th class="col-xs-2 " >Y</th>
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th class="text-center" style="  background-color: red;
+    color: white;">t</th>
+                            <th class="text-center" style="  background-color: red;
+    color: white;">V</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="col-xs-10">
+                            <td class="col-xs-6">
                                 <input type="number" id="x1" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                               
+
                             </td>
-                          
-                            <td class="col-xs-2">
-                                <h6 id="hx1" style="text-align: left"></h6>
-                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx1" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
                         </tr>
                         <tr>
-                            <td class="col-xs-10">
+                            <td class="col-xs-6">
                                 <input type="number" id="x2" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
                             </td>
 
-                            <td class="col-xs-2">
-                               0
+                            <td class="col-xs-6">
+                                <input type="number" id="hx2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
                             </td>
                         </tr>
                         <tr>
-                            <td class="col-xs-10">
+                            <td class="col-xs-6">
                                 <input type="number" id="x3" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
                             </td>
 
-                            <td class="col-xs-2">
-                               0
+                            <td class="col-xs-6">
+                                <input type="number" id="hx3" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
                             </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-10">
-                                <input type="number" id="x4" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                            </td>
+                        </tr><tr>
+    <td class="col-xs-6">
+        <input type="number" id="x4" name='x1' step="0.01" class="form-control" style="text-align: center" />
 
-                            <td class="col-xs-2">
-                               0
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-10">
-                                <input type="number" id="x5" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                            </td>
+    </td>
 
-                            <td class="col-xs-2">
-                                0
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-10">
-                                <input type="number" id="x6" name='x1' step="0.01" class="form-control" style="text-align: center"/>
-                            </td>
+    <td class="col-xs-6">
+        <input type="number" id="hx4" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+    </td>
+</tr><tr>
+    <td class="col-xs-6">
+        <input type="number" id="x5" name='x1' step="0.01" class="form-control" style="text-align: center" />
 
-                            <td class="col-xs-2">
-                               0
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-10">
-                                <input type="number" id="x7" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                            </td>
+    </td>
 
-                            <td class="col-xs-2">
-                                0
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-10">
-                                <input type="number" id="x8" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                            </td>
+    <td class="col-xs-6">
+        <input type="number" id="hx5" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+    </td>
+</tr><tr>
+    <td class="col-xs-6">
+        <input type="number" id="x6" name='x1' step="0.01" class="form-control" style="text-align: center" />
 
-                            <td class="col-xs-2">
-                               0
-                            </td>
-                        </tr>
-                        
+    </td>
+
+    <td class="col-xs-6">
+        <input type="number" id="hx6" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+    </td>
+</tr><tr>
+    <td class="col-xs-6">
+        <input type="number" id="x7" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+    </td>
+
+    <td class="col-xs-6">
+        <input type="number" id="hx7" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+    </td>
+</tr><tr>
+    <td class="col-xs-6">
+        <input type="number" id="x8" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+    </td>
+
+    <td class="col-xs-6">
+        <input type="number" id="hx8" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+    </td>
+</tr>
                     </tbody>
                 </table>
             </div>
+
         </div>
     </div>
     
@@ -205,99 +226,118 @@
 </div>
 
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-8">
         <div id='PositionBoard' class='jxgbox graphbox'        style='user-select: none; overflow: hidden; position: relative;'></div>
     </div>
     
+    
+    <!--  nueva tabla -->
     <div class="col-xs-4">
         <div class="row">
-            <div class="panel panel-default">
+            <div class="panel panel-default" >
                 <div class="panel-heading">
-                    <h4 id="Formuposi" style="text-align: center">
-                        
-                    </h4>
+                    <h6 id="Formuposi" style="text-align: center;font-weight: bold"></h6>
                 </div>
-                <table class="table table-fixed">
+                <table class="table table-striped ">
                     <thead>
                         <tr>
-                            <th class="col-xs-2 ">X</th>
-                            <th class="col-xs-8 "></th>
-                            <th class="col-xs-2 ">Y</th>
+                            <th class="text-center" style="  background-color: blue;
+    color: white;">X</th>
+                            <th class="text-center" style="  background-color: blue;
+    color: white;">t</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="col-xs-2">
-                                <h6 id="hy1" style="text-align: left" ></h6>
+                            <td class="col-xs-6">
+                                <input type="number" id="hy1" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                               
                             </td>
 
-                            <td class="col-xs-10">
-                                <input type="number" id="y1" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-2">
-                                <h6 id="hy2" style="text-align: left"></h6>
-                            </td>
+                    <td class="col-xs-6">
+                        <input type="number" id="y1" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                  
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hy2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            
+                        </td>
 
-                            <td class="col-xs-10">
-                                <input type="number" id="y2" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-2">
-                                <h6 id="hy3" style="text-align: left"></h6>
-                            </td>
+                        <td class="col-xs-6">
+                            <input type="number" id="y2" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hy3" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                           
+                        </td>
 
-                            <td class="col-xs-10">
-                                <input type="number" id="y3" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-2">
-                                <h6 id="hy4" style="text-align: left"></h6>
-                            </td>
+                        <td class="col-xs-6">
+                            <input type="number" id="y3" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hy4" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                           
+                        </td>
 
-                            <td class="col-xs-10">
-                                <input type="number" id="y4" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-2"><h6 id="hy5" style="text-align: left"></h6></td>
+                        <td class="col-xs-6">
+                            <input type="number" id="y4" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hy5" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                          
+                        </td>
 
-                            <td class="col-xs-10">
-                                <input type="number" id="y5" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-2"><h6 id="hy6" style="text-align: left"></h6></td>
+                        <td class="col-xs-6">
+                            <input type="number" id="y5" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hy6" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            
+                        </td>
 
-                            <td class="col-xs-10">
-                                <input type="number" id="y6" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-2"><h6 id="hy7" style="text-align: left"></h6></td>
+                        <td class="col-xs-6">
+                            <input type="number" id="y6" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hy7" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            
+                        </td>
 
-                            <td class="col-xs-10">
-                                <input type="number" id="y7" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-2"><h6 id="hy8" style="text-align: left"></h6></td>
+                        <td class="col-xs-6">
+                            <input type="number" id="y7" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hy8" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                        </td>
 
-                            <td class="col-xs-10">
-                                <input type="number" id="y8" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                            </td>
-                        </tr>
-
+                        <td class="col-xs-6">
+                            <input type="number" id="y8" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
+
         </div>
     </div>
 
-   <!--<div class="col-xs-4">
+
+
+    <!--<div class="col-xs-4">
         <div class="container">
             <div class="row clearfix">
                 <div class="col-md-2 column">
@@ -336,386 +376,485 @@
     </div>--> 
 </div>
    
-    
 
 
 
 
 
+        <script type='text/javascript'>
 
 
-<script type='text/javascript'>
-   
+            var currentTime = 0;
+            var interval;
+            var timeInterval = 50;
+            var guidingLine;
+            var guidingLine2;
+            var maxX = 9, minX = -1, maxY = 5, minY = -5;
+            var startButton = document.getElementById("start");
+            var numberField = document.getElementById("number");
+            var numberField2 = document.getElementById("number2");
+            var numtable = document.getElementById("table1");
+            var numtable2 = document.getElementById("table2");
+            var tablax1 = document.getElementById("x1");
+            var tablax2 = document.getElementById("x2");
+            var tablax3 = document.getElementById("x3");
+            var tablax4 = document.getElementById("x4");
+            var tablax5 = document.getElementById("x5");
+            var tablax6 = document.getElementById("x6");
+            var tablax7 = document.getElementById("x7");
+            var tablax8 = document.getElementById("x8");
+            var tablay1 = document.getElementById("y1");
+            var tablay2 = document.getElementById("y2");
+            var tablay3 = document.getElementById("y3");
+            var tablay4 = document.getElementById("y4");
+            var tablay5 = document.getElementById("y5");
+            var tablay6 = document.getElementById("y6");
+            var tablay7 = document.getElementById("y7");
+            var tablay8 = document.getElementById("y8");
+            var tablafhy1 = document.getElementById("hx1");
+            var tablafhx1 = document.getElementById("hy1");
+            var tablafhx2 = document.getElementById("hy2");
+            var tablafhx3 = document.getElementById("hy3");
+            var tablafhx4 = document.getElementById("hy4");
+            var tablafhx5 = document.getElementById("hy5");
+            var tablafhx6 = document.getElementById("hy6");
+            var tablafhx7 = document.getElementById("hy7");
+            var tablafhx8 = document.getElementById("hy8");
 
-    var currentTime = 0;
-    var interval;
-    var timeInterval = 50;
-    var guidingLine;
-    var maxX = 9, minX = -1, maxY = 5, minY = -5;
-    var startButton = document.getElementById("start");
-    var numberField = document.getElementById("number");
-    var numberField2 = document.getElementById("number2");
-    var numtable = document.getElementById("table1");
-    var numtable2 = document.getElementById("table2");
-    var tablax1 = document.getElementById("x1");
-    var tablax2 = document.getElementById("x2");
-    var tablax3 = document.getElementById("x3");
-    var tablax4 = document.getElementById("x4");
-    var tablax5 = document.getElementById("x5");
-    var tablax6 = document.getElementById("x6");
-    var tablax7 = document.getElementById("x7");
-    var tablax8 = document.getElementById("x8");
-    var tablay1 = document.getElementById("y1");
-    var tablay2 = document.getElementById("y2");
-    var tablay3 = document.getElementById("y3");
-    var tablay4 = document.getElementById("y4");
-    var tablay5 = document.getElementById("y5");
-    var tablay6 = document.getElementById("y6");
-    var tablay7 = document.getElementById("y7");
-    var tablay8 = document.getElementById("y8");
-    var tablafhy1 = document.getElementById("hx1");
-    var tablafhx1 = document.getElementById("hy1");
-    var tablafhx2 = document.getElementById("hy2");
-    var tablafhx3 = document.getElementById("hy3");
-    var tablafhx4 = document.getElementById("hy4");
-    var tablafhx5 = document.getElementById("hy5");
-    var tablafhx6 = document.getElementById("hy6");
-    var tablafhx7 = document.getElementById("hy7");
-    var tablafhx8 = document.getElementById("hy8");
-    
-    var xxx =0;
-    var firstUpdate = true;
-    var addrow = document.getElementById("add_row");
-    var delerow = document.getElementById("delete_row");
-    var value;
-    var Formulapos = document.getElementById("Formuposi");
-    var Formulavelo = document.getElementById("Formuvelo");
-    var check = true;
-    var pintarotrosPuntos;
-    var pintarPuntos;
-    
-    
-    
+            //cambio
+            var nuevotem = document.getElementById("nuevo");
+            var nuevotem2 = document.getElementById("nuevo2");
+            var nuevotem3 = document.getElementById("nuevo3");
+            var nuevotem4 = document.getElementById("nuevo4");
 
-    function updateFromNumber() {
-        if (firstUpdate) {
-            firstUpdate = false;
-            //  positionFunction.a = parseFloat(numberField.value);
-            // linearPoint = quadraticFunction.derivate();
-            updateFunction();
-        }
-    }
+            //
+            var xxx = 0;
+            var firstUpdate = true;
+            var addrow = document.getElementById("add_row");
+            var delerow = document.getElementById("delete_row");
+            var value;
+            var Formulapos = document.getElementById("Formuposi");
+            var Formulavelo = document.getElementById("Formuvelo");
+            var check = true;
+            var pintarotrosPuntos;
+            var pintarPuntos;
+            var movi=true;
+            // var Fraccion = require('fraction.js');
+            //math.Fraccion
 
-    function updateFromTable() {
-        if (firstUpdate) {
-            firstUpdate = false;
-            xxx = parseFloat(tablax1.value);
-            updateFunction();
-        }
+            var k = 0;
 
-    }
-    function updateFromXY() {
-        if (firstUpdate) {
-            firstUpdate = false;
+            function updateFromNumber() {
+                if (firstUpdate) {
+                    firstUpdate = false;
+                    //  positionFunction.a = parseFloat(numberField.value);
+                    // linearPoint = quadraticFunction.derivate();
+                    updateFunction();
+                }
+            }
 
-            updateFunction();
-        }
+            function updateFromTable() {
+                if (firstUpdate) {
+                    firstUpdate = false;
+                    xxx = parseFloat(tablax1.value);
+                    updateFunction();
+                }
 
-    }
+            }
+            function updateFromXY() {
+                if (firstUpdate) {
+                    firstUpdate = false;
 
-    function Start() {
-        startButton.disabled = true;
-        currentTime = parseInt(document.getElementsByName("startTime")[0].value);
-        interval = window.setInterval(Step, timeInterval);
-        guidingLine = positionBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
-    }
+                    updateFunction();
+                }
 
-    function Step() {
-        currentTime += timeInterval / 1000;
-        if (currentTime >= parseInt(document.getElementsByName("endTime")[0].value)) {
-            clearInterval(interval);
-            positionBoard.removeObject(guidingLine);
-            startButton.disabled = false;
-        }
-        else {
-            value = positionFunction.evaluate(currentTime);
-            slider.setValue(value);
-            sliderBox.update();
+            }
 
-            positionBoard.removeObject(guidingLine);
-            guidingLine = positionBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
-        }
-    }
+            function Start() {
+                startButton.disabled = true;
+              
+                k = 0;
+                currentTime = parseInt(document.getElementsByName("startTime")[0].value);
+                interval = window.setInterval(Step, timeInterval);
+                guidingLine = positionBoard.create('line',
+                    [[currentTime, 60], [currentTime, -60]],
+                    { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#00ff00' });
+                guidingLine2 = velocityBoard.create('line',
+                    [[currentTime, 60], [currentTime, -60]],
+                    { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#00ff00' });
+            }
 
-    function SnapToGrid(x, y) {
-        return [Math.round(x * 100) / 100, Math.round(y * 100) / 100];
-    }
+            function Step() {
+                currentTime += timeInterval / 10000;
+                if (currentTime >= parseInt(document.getElementsByName("endTime")[0].value)) {
+                    clearInterval(interval);
+                    positionBoard.removeObject(guidingLine);
+                    velocityBoard.removeObject(guidingLine2);
+                    startButton.disabled = false;
+                    
+                  
+                }
+                else {
+                    value = positionFunction.evaluate(currentTime);
+                    slider.setValue(value);
+                    sliderBox.update();
 
-    var FormulaDiv = document.getElementById("FormulaDisplayDiv");
+                    positionBoard.removeObject(guidingLine);
+                    velocityBoard.removeObject(guidingLine2);
+                    guidingLine = positionBoard.create('line',
+                        [[currentTime, 60], [currentTime, -60]],
+                        { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#00ff00' });
+                    guidingLine2 = velocityBoard.create('line',
+                    [[currentTime, 60], [currentTime, -60]],
+                    { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#00ff00' });
+                    k++;
+                    if (k == 6) {
+                        k = 1;
+                    }
+                  //  alert(k);
+                    
+                }
+
+            }
+
+            function SnapToGrid(x, y) {
+                return [Math.round(x * 100) / 100, Math.round(y * 100) / 100];
+            }
+
+            var FormulaDiv = document.getElementById("FormulaDisplayDiv");
 
 
-    var positionBoard = JXG.JSXGraph.initBoard('PositionBoard',
-    {
-        boundingbox: [-2, 9, 9, -2],
-        axis: true,
-        grid: true,
-        shownavigation: true,
-        keepAspectRatio: true,
-        showClearTraces: true,
-        keepaspectratio: false, zoom: {
-            factorX: 1.25,
-            factorY: 1.25,
-            wheel: true,
-            needshift: true,
-            eps: 0.1
-        }
-    });
-  
+            var positionBoard = JXG.JSXGraph.initBoard('PositionBoard',
+            {
+                boundingbox: [-2, 9, 9, -2],
+                axis: true,
+                grid: true,
+                shownavigation: true,
+                keepAspectRatio: true,
+                showClearTraces: true,
+                keepaspectratio: false, zoom: {
+                    factorX: 1.25,
+                    factorY: 1.25,
+                    wheel: true,
+                    needshift: true,
+                    eps: 0.1
+                }
+            });
+            positionBoard.create('text', [0.5, 8, "X"]);
+            positionBoard.create('text', [8, 0.5, "t"]);
 
-    var velocityBoard = JXG.JSXGraph.initBoard('VelocityBoard', {
-        boundingbox: [-2, 9, 9, -2], axis: true, grid: true, shownavigation: true, keepAspectRatio: true, showClearTraces: true, keepaspectratio: false, zoom: {
-            factorX: 1.25,
-            factorY: 1.25,
-            wheel: true,
-            needshift: true,
-            eps: 0.1
-        }
-    });
-    
+            var velocityBoard = JXG.JSXGraph.initBoard('VelocityBoard', {
+                boundingbox: [-2, 9, 9, -2], axis: true, grid: true, shownavigation: true, keepAspectRatio: true, showClearTraces: true, keepaspectratio: false, zoom: {
+                    factorX: 1.25,
+                    factorY: 1.25,
+                    wheel: true,
+                    needshift: true,
+                    eps: 0.1
+                }
+            });
+            velocityBoard.create('text', [0.5, 8, "V"]);
+            velocityBoard.create('text', [8, 0.5, "t"]);
 
 
-    var sliderBox = JXG.JSXGraph.initBoard('sliderBox', { boundingbox: [-(minY * (maxX - minX)), 5, minY * (maxX - minX), -5], axis: false,grid: true, shownavigation: true, showCopyright: false, keepAspectRatio: true });
-    var urlImg = "https://vignette4.wikia.nocookie.net/kirby/images/0/01/Kirby_Artwork_Caminando_%28KA%29.png/revision/latest?cb=20100808233646";
-    // var slider = sliderBox.create('slider', [urlImg,[1,1],[1,1] ]);
-    var slider = sliderBox.create('slider', [[-(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0, -(minY * (maxX - minX))]], { ticks: { drawLabels: false, highlight: false,size:5,opacity:0.3 } });
-    var im = sliderBox.create('image', [urlImg, [function () { return slider.X(); }, function () { return slider.Y(); }], [5, 5]]);
-    // var im = sliderBox.create('image', [], [function() { return slider.X(); }], [1, 1]]);
 
-    velocityBoard.highlightInfobox = function (x, y, el) {
-        velocityBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
-    };
-
-    positionBoard.highlightInfobox = function (x, y, el) {
-        positionBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
-    };
-
-    var positionFunction = new LinearFunction(1, 0);
-    var velocityFunction = positionFunction.derivate();
-
-    positionBoard.create(
-        'functiongraph',
-        [function (x) { return positionFunction.evaluate(x); }],
-        { strokeColor: "Blue" }
-    );
-
-    velocityBoard.create(
-        'functiongraph',
-        [function (x) { return velocityFunction.evaluate(x); }],
-        { strokeColor: "Red" }
-    );
-
-    linearPoint = positionBoard.create('point', [0, 0], { size: 2, name: "", color: "Blue" });
-    linearPoint.on(
-        'drag',
-        function() {
-            linearPoint.moveTo([0, linearPoint.Y()]);
-
+            var sliderBox = JXG.JSXGraph.initBoard('sliderBox', { boundingbox: [-(minY * (maxX - minX)), 5, minY * (maxX - minX), -5], axis: false, grid: true, shownavigation: true, showCopyright: false, keepAspectRatio: true });
+            var frente = '@Url.Content("~/Content/images/frente.png")';
+            var uno = '@Url.Content("~/Content/images/uno.png")';
+            var dos = '@Url.Content("~/Content/images/dos.png")';
+            var tres = '@Url.Content("~/Content/images/tres.png")';
             
-        }
-    );
+            
+            // var slider = sliderBox.create('slider', [urlImg,[1,1],[1,1] ]);
+            var slider = sliderBox.create('slider', [[-(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0, -(minY * (maxX - minX))]], { ticks: { drawLabels: false, highlight: false, size: 5, opacity: 0.3 } });
+            var im = sliderBox.create('image',
+            [
+                function() {
+                    if (slider.X<= 0) {
+                       
+                        return frente;
+                    }  else if (k==0) {
 
-    constantPoint = velocityBoard.create('point', [0, positionFunction.a], { size: 2, name: "", color: "Red" });
-    constantPoint.on(
-        'drag',
-        function() {
-            constantPoint.moveTo([0, constantPoint.Y()]);
-         
-        }
-    );
+                        return uno;
+                    } else if(k== 3) {
+                        return dos;
+                    }
+                    else if (k == 4) {
+                        return tres;
+                    }
+                    else if (k == 5) {
+                        return dos;
+                    }
+                    else if (k == 6) {
+                        return uno;
+                    } else {
+                        return tres;
+                    }
+                    
+                },
+                [function () { return slider.X(); }, function () { return slider.Y(); }], [5, 5]
 
-    function updateFunction() {
-       
+            ]);// [frente, [function () { return slider.X(); }, function () { return slider.Y(); }], [5, 5]]);
+            // var im = sliderBox.create('image', [], [function() { return slider.X(); }], [1, 1]]);
 
-        velocityFunction.a = constantPoint.Y();
-        positionFunction = velocityFunction.integrate(linearPoint.Y());
+            velocityBoard.highlightInfobox = function (x, y, el) {
+                velocityBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
+            };
 
-        positionBoard.removeObject(pintarPuntos);
-        positionBoard.removeObject(pintarotrosPuntos);
-      
-        //velocityBoard.removeObject(pintarPuntos);
-        //velocityBoard.removeObject(pintarotrosPuntos);
-        //form
+            positionBoard.highlightInfobox = function (x, y, el) {
+                positionBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
+            };
 
-        
-        //input
-        updatenumerfield();
-        //table
-       // updatetablenum();
-        //text html
-        updateformhtml();
-        //positionBoard.update();
-        //velocityBoard.update();
-        updateform2();
-        updateform();
-        //form2
-       
-        checar();
-        positionBoard.update();
-    }
-    
-   
+            var positionFunction = new LinearFunction(1, 0);
+            var velocityFunction = positionFunction.derivate();
 
-    function updatenumerfield() {
-        numberField2.value = positionFunction.a;
-        numberField.value =positionFunction.b;
-        numberField2.value = Math.round(numberField2.value * 100) / 100;
-        numberField.value = Math.round(numberField.value * 100) / 100;
-    }
+            positionBoard.create(
+                'functiongraph',
+                [function (x) { return positionFunction.evaluate(x); }],
+                { strokeColor: "Blue" }
+            );
 
-   /* function updatetablenum() {
-        numtable.value = velocityFunction.a;
-        numtable2.value = positionFunction.b;
-        numtable.value = Math.round(numtable.value * 100) / 100;
-        numtable2.value = Math.round(numtable2.value * 100) / 100;
-    }*/
-    function updateform(parameters) {
+            velocityBoard.create(
+                'functiongraph',
+                [function (x) { return velocityFunction.evaluate(x); }],
+                { strokeColor: "Red" }
+            );
 
-        if (tablay1.value.length == 0) {
-            tablafhy1.innerHTML = "0";
-            check = false;
-        } else {
-            var otronum = 0.00;
-            otronum = parseFloat(numberField.value) + parseFloat(numberField2.value * tablax1.value);
-            tablafhy1.innerHTML = otronum.toString();
-            pintarPuntos = positionBoard.create('point', [tablax1.value, otronum], { size: 2, name: "", color: "Red", trace: true });
-            check = true;
-            //velocityBoard.addChild(positionBoard);
-
-        }
-
-       
-
-    }
-    function updateform2(parameters) {
-
-        if (tablay1.value.length==0) {
-            tablafhx1.innerHTML = "0";
-            check = false;
-        } else {
-            var otro2 = 0;
-            otro2 = ((parseFloat(tablay1.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
-            tablafhx1.innerHTML = otro2.toString();
-            pintarotrosPuntos = positionBoard.create('point', [otro2, tablay1.value], { size: 2, name: "", color: "Red", trace: true });
-            //velocityBoard.addChild(positionBoard);
-            check = true;
-        }
-        if (tablay2.value.length == 0) {
-            tablafhx2.innerHTML = "0";
-            check = false;
-        } else {
-            var otro3 = 0;
-            otro3 = ((parseFloat(tablay2.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
-            tablafhx2.innerHTML = otro3.toString();
-            pintarotrosPuntos = positionBoard.create('point', [otro3, tablay2.value], { size: 2, name: "", color: "Red", trace: true });
-            //velocityBoard.addChild(positionBoard);
-            check = true;
-        }
-        if (tablay3.value.length == 0) {
-            tablafhx3.innerHTML = "0";
-            check = false;
-        } else {
-            var otro4 = 0;
-            otro4 = ((parseFloat(tablay3.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
-            tablafhx3.innerHTML = otro4.toString();
-            pintarotrosPuntos = positionBoard.create('point', [otro4, tablay3.value], { size: 2, name: "", color: "Red", trace: true });
-            //velocityBoard.addChild(positionBoard);
-            check = true;
-        }
-        if (tablay4.value.length == 0) {
-            tablafhx4.innerHTML = "0";
-            check = false;
-        } else {
-            var otro5 = 0;
-            otro5 = ((parseFloat(tablay4.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
-            tablafhx4.innerHTML = otro5.toString();
-            pintarotrosPuntos = positionBoard.create('point', [otro5, tablay4.value], { size: 2, name: "", color: "Red", trace: true });
-            //velocityBoard.addChild(positionBoard);
-            check = true;
-        }
-        if (tablay5.value.length == 0) {
-            tablafhx5.innerHTML = "0";
-            check = false;
-        } else {
-            var otro6 = 0;
-            otro6 = ((parseFloat(tablay5.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
-            tablafhx5.innerHTML = otro6.toString();
-            pintarotrosPuntos = positionBoard.create('point', [otro6, tablay5.value], { size: 2, name: "", color: "Red", trace: true });
-            //velocityBoard.addChild(positionBoard);
-            check = true;
-        }
-        if (tablay6.value.length == 0) {
-            tablafhx6.innerHTML = "0";
-            check = false;
-        } else {
-            var otro7 = 0;
-            otro7 = ((parseFloat(tablay6.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
-            tablafhx6.innerHTML = otro7.toString();
-            pintarotrosPuntos = positionBoard.create('point', [otro7, tablay6.value], { size: 2, name: "", color: "Red", trace: true });
-            //velocityBoard.addChild(positionBoard);
-            check = true;
-        }
-        if (tablay7.value.length == 0) {
-            tablafhx7.innerHTML = "0";
-            check = false;
-        } else {
-            var otro8 = 0;
-            otro8 = ((parseFloat(tablay7.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
-            tablafhx7.innerHTML = otro8.toString();
-            pintarotrosPuntos = positionBoard.create('point', [otro8, tablay7.value], { size: 2, name: "", color: "Red", trace: true });
-            //velocityBoard.addChild(positionBoard);
-            check = true;
-        }
-        if (tablay8.value.length == 0) {
-            tablafhx8.innerHTML = "0";
-            check = false;
-        } else {
-            var otro9 = 0;
-            otro9= ((parseFloat(tablay8.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
-            tablafhx8.innerHTML = otro9.toString();
-            pintarotrosPuntos = positionBoard.create('point', [otro9, tablay8.value], { size: 2, name: "", color: "Red", trace: true });
-            //velocityBoard.addChild(positionBoard);
-            check = true;
-        }
-       
-
-    }
-
-    function checar(parameters) {
-
-        if (check) {
-            pintarPuntos.setAttribute({ visible: false });
-            pintarotrosPuntos.setAttribute({ visible: false });
-        }
-        // board.clearTraces(pintarPuntos);
-
-        // tablax1.value = " ";
-        //tablay1.value = " ";
+            linearPoint = positionBoard.create('point', [0, 0], { size: 2, name: "", color: "Blue" });
+            linearPoint.on(
+                'drag',
+                function () {
+                    linearPoint.moveTo([0, linearPoint.Y()]);
 
 
-    }
-    function updateformhtml(parameters) {
-        FormulaDiv.innerHTML = positionFunction.ToString();
-        Formulavelo.innerHTML = "X:0    Y:" + numberField2.value;
-        Formulapos.innerHTML = "X:0     Y:" + numberField.value;
-    }
-    updateFunction();
-    positionBoard.on('update', updateFunction);
-    velocityBoard.on('update', updateFunction);
-   // positionBoard.on('update', checar);
-    //velocityBoard.on('update', checar);
-   // linearPoint.on('update', updateFunction);
-    //constantPoint.on('update', updateFunction);
-   // linearPoint.on('drag', updateFunction);
-    //constantPoint.on('drag', updateFunction);
-  
-</script>
+                }
+            );
+
+            constantPoint = velocityBoard.create('point', [0, positionFunction.a], { size: 2, name: "", color: "Red" });
+            constantPoint.on(
+                'drag',
+                function () {
+                    constantPoint.moveTo([0, constantPoint.Y()]);
+
+                }
+            );
+
+            function updateFunction() {
+
+
+                velocityFunction.a = constantPoint.Y();
+                positionFunction = velocityFunction.integrate(linearPoint.Y());
+
+                positionBoard.removeObject(pintarPuntos);
+                positionBoard.removeObject(pintarotrosPuntos);
+
+                //velocityBoard.removeObject(pintarPuntos);
+                //velocityBoard.removeObject(pintarotrosPuntos);
+                //form
+
+
+                //input
+                updatenumerfield();
+                //table
+                // updatetablenum();
+                //text html
+                updateformhtml();
+                //positionBoard.update();
+                //velocityBoard.update();
+                updateform2();
+                updateform();
+                //form2
+                checar();
+
+                positionBoard.update();
+                velocityBoard.update();
+
+            }
+
+
+
+            function updatenumerfield() {
+                numberField2.value = positionFunction.a;
+                numberField.value = positionFunction.b;
+                numberField2.value = Math.round(numberField2.value * 100) / 100;
+                numberField.value = Math.round(numberField.value * 100) / 100;
+            }
+
+
+
+            /*
+            //intento de fracciones
+          var numerador;
+            var denominador = 100;
+            numerador =.25 * 100;
+
+            function Simplificar() {
+                var m = mcd(this.numerador, this.denominador);
+                this.numerador /= m;
+                this.denominador /= m;
+            }
+
+            function mcd(a, b) {
+                var r = a % b;
+                if (r == 0) {
+                    return b;
+                }
+                else {
+                    return mcd(b, r);
+                }
+            }
+            alert(b + ' ' + r);
+
+            //fin de intento
+            */
+
+            /* function updatetablenum() {
+                 numtable.value = velocityFunction.a;
+                 numtable2.value = positionFunction.b;
+                 numtable.value = Math.round(numtable.value * 100) / 100;
+                 numtable2.value = Math.round(numtable2.value * 100) / 100;
+             }*/
+            function updateform(parameters) {
+
+                if (tablay1.value.length == 0) {
+                    tablafhy1.innerHTML = "0";
+                    check = false;
+                } else {
+                    var otronum = 0.00;
+                    otronum = parseFloat(numberField.value) + parseFloat(numberField2.value * tablax1.value);
+                    tablafhy1.innerHTML = otronum.toString();
+                    pintarPuntos = positionBoard.create('point', [tablax1.value, otronum], { size: 2, name: "", color: "Red", trace: true });
+                    check = true;
+                    //velocityBoard.addChild(positionBoard);
+
+                }
+
+
+
+            }
+            function updateform2(parameters) {
+
+                if (tablay1.value.length == 0) {
+                    tablafhx1.innerHTML = "0";
+                    check = false;
+                } else {
+                    var otro2 = 0;
+                    otro2 = ((parseFloat(tablay1.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
+                    tablafhx1.innerHTML = otro2.toString();
+                    pintarotrosPuntos = positionBoard.create('point', [otro2, tablay1.value], { size: 2, name: "", color: "Red", trace: true });
+                    //velocityBoard.addChild(positionBoard);
+                    check = true;
+                }
+                if (tablay2.value.length == 0) {
+                    tablafhx2.innerHTML = "0";
+                    check = false;
+                } else {
+                    var otro3 = 0;
+                    otro3 = ((parseFloat(tablay2.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
+                    tablafhx2.innerHTML = otro3.toString();
+                    pintarotrosPuntos = positionBoard.create('point', [otro3, tablay2.value], { size: 2, name: "", color: "Red", trace: true });
+                    //velocityBoard.addChild(positionBoard);
+                    check = true;
+                }
+                if (tablay3.value.length == 0) {
+                    tablafhx3.innerHTML = "0";
+                    check = false;
+                } else {
+                    var otro4 = 0;
+                    otro4 = ((parseFloat(tablay3.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
+                    tablafhx3.innerHTML = otro4.toString();
+                    pintarotrosPuntos = positionBoard.create('point', [otro4, tablay3.value], { size: 2, name: "", color: "Red", trace: true });
+                    //velocityBoard.addChild(positionBoard);
+                    check = true;
+                }
+                if (tablay4.value.length == 0) {
+                    tablafhx4.innerHTML = "0";
+                    check = false;
+                } else {
+                    var otro5 = 0;
+                    otro5 = ((parseFloat(tablay4.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
+                    tablafhx4.innerHTML = otro5.toString();
+                    pintarotrosPuntos = positionBoard.create('point', [otro5, tablay4.value], { size: 2, name: "", color: "Red", trace: true });
+                    //velocityBoard.addChild(positionBoard);
+                    check = true;
+                }
+                if (tablay5.value.length == 0) {
+                    tablafhx5.innerHTML = "0";
+                    check = false;
+                } else {
+                    var otro6 = 0;
+                    otro6 = ((parseFloat(tablay5.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
+                    tablafhx5.innerHTML = otro6.toString();
+                    pintarotrosPuntos = positionBoard.create('point', [otro6, tablay5.value], { size: 2, name: "", color: "Red", trace: true });
+                    //velocityBoard.addChild(positionBoard);
+                    check = true;
+                }
+                if (tablay6.value.length == 0) {
+                    tablafhx6.innerHTML = "0";
+                    check = false;
+                } else {
+                    var otro7 = 0;
+                    otro7 = ((parseFloat(tablay6.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
+                    tablafhx6.innerHTML = otro7.toString();
+                    pintarotrosPuntos = positionBoard.create('point', [otro7, tablay6.value], { size: 2, name: "", color: "Red", trace: true });
+                    //velocityBoard.addChild(positionBoard);
+                    check = true;
+                }
+                if (tablay7.value.length == 0) {
+                    tablafhx7.innerHTML = "0";
+                    check = false;
+                } else {
+                    var otro8 = 0;
+                    otro8 = ((parseFloat(tablay7.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
+                    tablafhx7.innerHTML = otro8.toString();
+                    pintarotrosPuntos = positionBoard.create('point', [otro8, tablay7.value], { size: 2, name: "", color: "Red", trace: true });
+                    //velocityBoard.addChild(positionBoard);
+                    check = true;
+                }
+                if (tablay8.value.length == 0) {
+                    tablafhx8.innerHTML = "0";
+                    check = false;
+                } else {
+                    var otro9 = 0;
+                    otro9 = ((parseFloat(tablay8.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
+                    tablafhx8.innerHTML = otro9.toString();
+                    pintarotrosPuntos = positionBoard.create('point', [otro9, tablay8.value], { size: 2, name: "", color: "Red", trace: true });
+                    //velocityBoard.addChild(positionBoard);
+                    check = true;
+                }
+
+
+            }
+
+            function checar(parameters) {
+
+                if (check) {
+                    pintarPuntos.setAttribute({ visible: false });
+                    pintarotrosPuntos.setAttribute({ visible: false });
+                }
+                // board.clearTraces(pintarPuntos);
+
+                // tablax1.value = " ";
+                //tablay1.value = " ";
+
+
+            }
+
+
+            function updateformhtml(parameters) {
+                FormulaDiv.innerHTML = "X(t)=" + positionFunction.ToString();
+                Formulavelo.innerHTML = "VALOR INICIAL t=0 " + " V=" + numberField2.value;
+                Formulapos.innerHTML = "VALOR INICIAL t=0   " + "  X=" + numberField.value;
+
+            }
+            updateFunction();
+            velocityBoard.on('update', updateFunction);
+            positionBoard.on('update', updateFunction);
+
+            // positionBoard.on('update', checar);
+            //velocityBoard.on('update', checar);
+            // linearPoint.on('update', updateFunction);
+            //constantPoint.on('update', updateFunction);
+            // linearPoint.on('drag', updateFunction);
+            //constantPoint.on('drag', updateFunction);
+
+        </script>

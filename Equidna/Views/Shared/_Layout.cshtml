@@ -15,21 +15,40 @@
     height: 0;
     padding-bottom: 50%;
     }
-.table-fixed thead {
-  width: 50%;
-}
-.table-fixed tbody {
-  height: 100px;
-  overflow-y: auto;
-  width: 100%;
-}
-.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
-  display: block;
-}
-.table-fixed tbody td, .table-fixed thead > tr> th {
-  float: left;
-  border-bottom-width: 0;
-}
+  table {
+                width: 100%;
+            }
+
+            thead, tbody, tr, td, th {
+                display: block;
+            }
+
+                tr:after {
+                    content: ' ';
+                    display: block;
+                    visibility: hidden;
+                    clear: both;
+                }
+
+                thead th {
+                    height: 30px;
+                    /*text-align: left;*/
+                }
+
+            tbody {
+                height: 120px;
+                overflow-y: auto;
+            }
+
+            thead {
+                /* fallback */
+            }
+    
+
+                tbody td, thead th {
+                    width: 50%;
+                    float: left;
+                }
         </style>
 </head>
 <body>

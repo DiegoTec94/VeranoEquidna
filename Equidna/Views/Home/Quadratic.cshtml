@@ -186,7 +186,9 @@
         startButton.disabled = true;
         currentTime = parseInt(document.getElementsByName("startTime")[0].value);
         interval = window.setInterval(Step, timeInterval);
-        guidingLine = quadraticBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
+        guidingLine = quadraticBoard.create('line',
+            [[currentTime, minY], [currentTime, maxY]],
+            { straightFirst: false, straightLast: false, strokeWidth: 2 });
     }
 
     function Step()
