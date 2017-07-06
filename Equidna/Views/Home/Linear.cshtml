@@ -2,17 +2,17 @@
     ViewBag.Title = "Modelo lineal";
 }
 
-<h2>Modelo lineal</h2>
+<h1 style="text-align: center">Modelo lineal</h1>
 
 
 <div class="eq-c">
-    <i>X</i>(t) =
+    <i>x</i>(t) =
     <div class="fraction">
         <span class="fup" id="nuevo"><i></i></span>
         <span class="bar">/</span>
         <span class="fdn" id="nuevo2"><i></i></span>
     </div>
-    X + 
+    x + 
     <div class="fraction">
         <span class="fup" id="nuevo3"><i></i></span>
         <span class="bar">/</span>
@@ -31,8 +31,8 @@
        --> 
     <div class="col-xs-12">
         <div id="sliderBox" class="jxgbox" style="width: 100%; height: 100px;"></div>
-        <label for="startTime">Start time: <input name="startTime" type="number" value="0"/></label>
-        <label for="endTime">End time: <input name="endTime" type="number" value="9"/></label>
+        <label for="startTime">Start time: <input name="startTime" type="number" value="0" readonly/></label>
+        <label for="endTime">End time: <input name="endTime" type="number" value="0"/></label>
 
         <button id="start" onclick="Start()">Start</button>
     </div>
@@ -50,7 +50,19 @@
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h6 id="Formuvelo" style="text-align: center; font-weight: bold"></h6>
+                    <h6 style="text-align: center; font-weight: bold">Valor Inicial</h6> 
+                    <table>
+                        <thead>
+                        <tr>
+                            <th class="text-center" >
+                                <h6 style="text-align: center; font-weight: bold">t=0</h6> 
+                            </th >
+                            <th class="text-center" >
+                                <h6 id="Formuvelo" style="text-align: center; font-weight: bold" ></h6>
+                            </th>
+                        </tr>
+                        </thead>
+                    </table>
                 </div>
                 <table class="table table-striped ">
                     <thead>
@@ -58,7 +70,7 @@
                             <th class="text-center" style="  background-color: red;
     color: white;">t</th>
                             <th class="text-center" style="  background-color: red;
-    color: white;">V</th>
+    color: white;">v</th>
 
                         </tr>
                     </thead>
@@ -236,13 +248,26 @@
         <div class="row">
             <div class="panel panel-default" >
                 <div class="panel-heading">
-                    <h6 id="Formuposi" style="text-align: center;font-weight: bold"></h6>
+                    <h6 style="text-align: center; font-weight: bold">Valor Inicial</h6>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    <h6 style="text-align: center; font-weight: bold">t=0</h6>
+                                </th>
+                                <th class="text-center">
+                                    <h6 id="Formuposi" style="text-align: center; font-weight: bold"></h6>
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                   
                 </div>
                 <table class="table table-striped ">
                     <thead>
                         <tr>
                             <th class="text-center" style="  background-color: blue;
-    color: white;">X</th>
+    color: white;">x</th>
                             <th class="text-center" style="  background-color: blue;
     color: white;">t</th>
 
@@ -438,11 +463,9 @@
             var check = true;
             var pintarotrosPuntos;
             var pintarPuntos;
-            var movi=true;
-            // var Fraccion = require('fraction.js');
-            //math.Fraccion
-
-            var k = 0;
+            var lado = true;
+            var final;
+          
 
             function updateFromNumber() {
                 if (firstUpdate) {
@@ -472,49 +495,102 @@
 
             function Start() {
                 startButton.disabled = true;
-              
-                k = 0;
+                 final = parseFloat(numberField.value) + parseFloat(numberField2.value * parseInt(document.getElementsByName("endTime")[0].value));
+              //  alert(final);
+
+                if (parseInt(document.getElementsByName("endTime")[0].value) < 0) {
+                    lado = false;
+                   // alert(parseInt(document.getElementsByName("endTime")[0].value));
+                } else if (parseInt(document.getElementsByName("endTime")[0].value) > 0) {
+                    lado = true;
+                    //alert(parseInt(document.getElementsByName("endTime")[0].value));
+                }    
                 currentTime = parseInt(document.getElementsByName("startTime")[0].value);
+               
                 interval = window.setInterval(Step, timeInterval);
                 guidingLine = positionBoard.create('line',
                     [[currentTime, 60], [currentTime, -60]],
-                    { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#00ff00' });
+                    { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#8f918f' });
                 guidingLine2 = velocityBoard.create('line',
                     [[currentTime, 60], [currentTime, -60]],
-                    { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#00ff00' });
+                    { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#8f918f' });
+                
+                im.update();
             }
 
             function Step() {
-                currentTime += timeInterval / 10000;
-                if (currentTime >= parseInt(document.getElementsByName("endTime")[0].value)) {
-                    clearInterval(interval);
-                    positionBoard.removeObject(guidingLine);
-                    velocityBoard.removeObject(guidingLine2);
-                    startButton.disabled = false;
-                    
-                  
-                }
-                else {
-                    value = positionFunction.evaluate(currentTime);
-                    slider.setValue(value);
-                    sliderBox.update();
 
-                    positionBoard.removeObject(guidingLine);
-                    velocityBoard.removeObject(guidingLine2);
-                    guidingLine = positionBoard.create('line',
-                        [[currentTime, 60], [currentTime, -60]],
-                        { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#00ff00' });
-                    guidingLine2 = velocityBoard.create('line',
-                    [[currentTime, 60], [currentTime, -60]],
-                    { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#00ff00' });
-                    k++;
-                    if (k == 6) {
-                        k = 1;
+                if(lado==true) {
+                    currentTime += timeInterval / 10000;
+                    if (currentTime >= parseInt(document.getElementsByName("endTime")[0].value)) {
+
+                        clearInterval(interval);
+                        positionBoard.removeObject(guidingLine);
+                        velocityBoard.removeObject(guidingLine2);
+                        startButton.disabled = false;
+                        //sliderBox.update();
+
+
                     }
-                  //  alert(k);
-                    
-                }
+                    else {
+                        value = positionFunction.evaluate(currentTime);
+                        slider.setValue(value);
+                        sliderBox.update();
+                        positionBoard.removeObject(guidingLine);
+                        velocityBoard.removeObject(guidingLine2);
+                        guidingLine = positionBoard.create('line',
+                            [[currentTime, 60], [currentTime, -60]],
+                            { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 3, strokeColor: '#cecece' });
+                        guidingLine2 = velocityBoard.create('line',
+                        [[currentTime, 60], [currentTime, -60]],
+                        { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 3, strokeColor: '#cecece' });
 
+                        //  alert(k);
+
+                    }
+                
+                } else if (!lado) {
+                    currentTime -= timeInterval / 10000;
+                    if (currentTime <= parseInt(document.getElementsByName("endTime")[0].value)) {
+
+                        clearInterval(interval);
+                        positionBoard.removeObject(guidingLine);
+                        velocityBoard.removeObject(guidingLine2);
+                        startButton.disabled = false;
+                        //sliderBox.update();
+
+
+                    } else {
+                        value = positionFunction.evaluate(currentTime);
+                        slider.setValue(value);
+                        sliderBox.update();
+                        positionBoard.removeObject(guidingLine);
+                        velocityBoard.removeObject(guidingLine2);
+                        guidingLine = positionBoard.create('line',
+                            [[currentTime, 60], [currentTime, -60]],
+                            {
+                                straightFirst: false,
+                                straightLast: false,
+                                strokeWidth: 2,
+                                dash: 3,
+                                strokeColor: '#cecece'
+                            });
+                        guidingLine2 = velocityBoard.create('line',
+                            [[currentTime, 60], [currentTime, -60]],
+                            {
+                                straightFirst: false,
+                                straightLast: false,
+                                strokeWidth: 2,
+                                dash: 3,
+                                strokeColor: '#cecece'
+                            });
+
+                        //  alert(k);
+
+                    } 
+                }
+                
+                im.update();
             }
 
             function SnapToGrid(x, y) {
@@ -540,7 +616,7 @@
                     eps: 0.1
                 }
             });
-            positionBoard.create('text', [0.5, 8, "X"]);
+            positionBoard.create('text', [0.5, 8, "x"]);
             positionBoard.create('text', [8, 0.5, "t"]);
 
             var velocityBoard = JXG.JSXGraph.initBoard('VelocityBoard', {
@@ -552,46 +628,49 @@
                     eps: 0.1
                 }
             });
-            velocityBoard.create('text', [0.5, 8, "V"]);
+            velocityBoard.create('text', [0.5, 8, "v"]);
             velocityBoard.create('text', [8, 0.5, "t"]);
 
 
 
-            var sliderBox = JXG.JSXGraph.initBoard('sliderBox', { boundingbox: [-(minY * (maxX - minX)), 5, minY * (maxX - minX), -5], axis: false, grid: true, shownavigation: true, showCopyright: false, keepAspectRatio: true });
+            var sliderBox = JXG.JSXGraph.initBoard('sliderBox', {
+                boundingbox: [-50, 10, 50, -2], axis: true, grid: true, shownavigation: true, showCopyright: false, keepAspectRatio: true, zoom: {
+                    factorX: 1.25,
+                    factorY: 1.25,
+                    wheel: true,
+                    needshift: true,
+                    eps: 0.1
+                }
+            });
             var frente = '@Url.Content("~/Content/images/frente.png")';
-            var uno = '@Url.Content("~/Content/images/uno.png")';
-            var dos = '@Url.Content("~/Content/images/dos.png")';
-            var tres = '@Url.Content("~/Content/images/tres.png")';
+           
+            var camina = '@Url.Content("~/Content/images/cominar.gif")';
+            var inverso = '@Url.Content("~/Content/images/inverso.gif")';
             
-            
+
+
             // var slider = sliderBox.create('slider', [urlImg,[1,1],[1,1] ]);
-            var slider = sliderBox.create('slider', [[-(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0, -(minY * (maxX - minX))]], { ticks: { drawLabels: false, highlight: false, size: 5, opacity: 0.3 } });
+            var slider = sliderBox.create('slider', [[(minY * (maxX - minX)), 0], [-(minY * (maxX - minX)), 0], [-50, 0, 50]], {size:3, opacity:0.5, ticks: { drawLabels: false, highlight:true} });
             var im = sliderBox.create('image',
             [
                 function() {
-                    if (slider.X<= 0) {
-                       
+                    if (slider.X() == 0) {
                         return frente;
-                    }  else if (k==0) {
+                    }
+                    else if (slider.X() > 0 && slider.X() <(final - 0.01)) {
+                        return camina;
+                }
+                    else if (slider.X() < 0 && slider.X() > (final + 0.01)) {
+                        return inverso;
+                        }
+                    else {
+                        return frente;
+                    }
+                   
+                  
 
-                        return uno;
-                    } else if(k== 3) {
-                        return dos;
-                    }
-                    else if (k == 4) {
-                        return tres;
-                    }
-                    else if (k == 5) {
-                        return dos;
-                    }
-                    else if (k == 6) {
-                        return uno;
-                    } else {
-                        return tres;
-                    }
-                    
                 },
-                [function () { return slider.X(); }, function () { return slider.Y(); }], [5, 5]
+                [function () { return slider.X()-5.5; }, function () { return slider.Y(); }], [10, 10]
 
             ]);// [frente, [function () { return slider.X(); }, function () { return slider.Y(); }], [5, 5]]);
             // var im = sliderBox.create('image', [], [function() { return slider.X(); }], [1, 1]]);
@@ -841,9 +920,9 @@
 
 
             function updateformhtml(parameters) {
-                FormulaDiv.innerHTML = "X(t)=" + positionFunction.ToString();
-                Formulavelo.innerHTML = "VALOR INICIAL t=0 " + " V=" + numberField2.value;
-                Formulapos.innerHTML = "VALOR INICIAL t=0   " + "  X=" + numberField.value;
+                FormulaDiv.innerHTML = "x(t)=" + positionFunction.ToString();
+                Formulavelo.innerHTML = "v=" + numberField2.value;
+                Formulapos.innerHTML = "x=" + numberField.value;
 
             }
             updateFunction();
