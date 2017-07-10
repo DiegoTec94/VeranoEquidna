@@ -5,25 +5,39 @@
 <h1 style="text-align: center">Modelo lineal</h1>
 
 
-<div class="eq-c">
+
+
+<div class="eq-c" align="center" style="font-family: 'Walter Turncoat', cursive; font-size: 200%">
+    <i>x</i>(t) =
+    <div class="fraction" id="vamoaver">
+        
+    </div>
+    t +
+    <div class="fraction" id="vamoaver2">
+       
+    </div>
+</div>
+
+<div class="eq-c" align="center">
     <i>x</i>(t) =
     <div class="fraction">
-        <span class="fup" id="nuevo"><i></i></span>
+        <span class="fup" id="nuevo"><i><input id="den1" type="number" style="text-align: center" onchange="updateFromNumberfraction();" /> </i></span>
         <span class="bar">/</span>
-        <span class="fdn" id="nuevo2"><i></i></span>
+        <span class="fdn" id="nuevo2"><i><input id="den2" type="number" style="text-align: center" onchange="updateFromNumberfraction();" /></i></span>
     </div>
-    x + 
+    t +
     <div class="fraction">
-        <span class="fup" id="nuevo3"><i></i></span>
+        <span class="fup" id="nuevo3"><i> <input id="nom1" type="number" style="text-align: center" onchange="updateFromNumberfraction();" /></i></span>
         <span class="bar">/</span>
-        <span class="fdn" id="nuevo4"><i></i></span>
+        <span class="fdn" id="nuevo4"><i><input id="nom2" type="number" style="text-align: center" onchange="updateFromNumberfraction();" /></i></span>
     </div>
 </div>
-<div><h1 id="FormulaDisplayDiv" style="text-align: center"></h1></div>
+
+<!--<div><h1 id="FormulaDisplayDiv" style="text-align: center"></h1></div>
 <div class="col-xs-12" align="center">
-    <input id="number2"  type="number" step="0.01" onchange="updateFromNumber();" />
-    <input id="number" type="number" step="0.01" onchange="updateFromNumber();" />
-</div>
+    <input id="number2"  type="number" step="0.01" style="text-align: center" onchange="updateFromNumber();" />
+    <input id="number" type="number" step="0.01"  style="text-align: center" onchange="updateFromNumber();" />
+</div>-->
 
 <div class="row">
    <!--<img src="@Url.Content("~/Content/images/frente.png")"alt="IMAGES" />
@@ -31,8 +45,8 @@
        --> 
     <div class="col-xs-12">
         <div id="sliderBox" class="jxgbox" style="width: 100%; height: 100px;"></div>
-        <label for="startTime">Start time: <input name="startTime" type="number" value="0" readonly/></label>
-        <label for="endTime">End time: <input name="endTime" type="number" value="0"/></label>
+        <label for="startTime">Start time: <input name="startTime" type="number" value="0" style="text-align: center" readonly/></label>
+        <label for="endTime">End time: <input name="endTime" type="number" style="text-align: center" value="0"/></label>
 
         <button id="start" onclick="Start()">Start</button>
     </div>
@@ -50,15 +64,21 @@
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h6 style="text-align: center; font-weight: bold">Valor Inicial</h6> 
-                    <table>
+                   
+                    <table class="table table-striped ">
                         <thead>
                         <tr>
-                            <th class="text-center" >
-                                <h6 style="text-align: center; font-weight: bold">t=0</h6> 
+                          
+                         
+                            <th class="text-center">
+                                
+                                <h6 style="text-align: left; font-weight: bold">Valor Inicial &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t=0</h6>
                             </th >
-                            <th class="text-center" >
-                                <h6 id="Formuvelo" style="text-align: center; font-weight: bold" ></h6>
+                            <th class="text-center">
+                                <div class="fraction" id="Formuvelo">
+
+                                </div>
+                              
                             </th>
                         </tr>
                         </thead>
@@ -248,17 +268,22 @@
         <div class="row">
             <div class="panel panel-default" >
                 <div class="panel-heading">
-                    <h6 style="text-align: center; font-weight: bold">Valor Inicial</h6>
-                    <table>
+                   
+                    <table class="table table-striped ">
                         <thead>
-                            <tr>
+                        <tr>
+                           
+                            <th class="text-left">
+                                <div class="fraction" id="Formuposi">
+
+                                </div>
+                               
+                            </th>
                                 <th class="text-center">
-                                    <h6 style="text-align: center; font-weight: bold">t=0</h6>
-                                </th>
-                                <th class="text-center">
-                                    <h6 id="Formuposi" style="text-align: center; font-weight: bold"></h6>
-                                </th>
-                            </tr>
+                                    <h6 style="text-align: center; font-weight: bold">t=0 </h6>
+                                
+                            </th>
+                        </tr>
                         </thead>
                     </table>
                    
@@ -416,8 +441,8 @@
             var guidingLine2;
             var maxX = 9, minX = -1, maxY = 5, minY = -5;
             var startButton = document.getElementById("start");
-            var numberField = document.getElementById("number");
-            var numberField2 = document.getElementById("number2");
+            var numberField=0;
+            var numberField2=0;
             var numtable = document.getElementById("table1");
             var numtable2 = document.getElementById("table2");
             var tablax1 = document.getElementById("x1");
@@ -451,7 +476,8 @@
             var nuevotem2 = document.getElementById("nuevo2");
             var nuevotem3 = document.getElementById("nuevo3");
             var nuevotem4 = document.getElementById("nuevo4");
-
+            //
+            var visua = true;
             //
             var xxx = 0;
             var firstUpdate = true;
@@ -465,15 +491,52 @@
             var pintarPuntos;
             var lado = true;
             var final;
-          
+            //fraction;
+            var fracciondem = document.getElementById("den1");
+            var fracciondem1 = document.getElementById("den2");
+            var fraccionnom = document.getElementById("nom1");
+            var fraccionnom1 = document.getElementById("nom2");
+            var vamoaver = document.getElementById("vamoaver");
+            var vamoaver2 = document.getElementById("vamoaver2");
 
-            function updateFromNumber() {
-                if (firstUpdate) {
-                    firstUpdate = false;
-                    //  positionFunction.a = parseFloat(numberField.value);
-                    // linearPoint = quadraticFunction.derivate();
-                    updateFunction();
+            
+
+            function updateFromNumberfraction() {
+
+                var deno = parseFloat(fracciondem.value / fracciondem1.value);
+                var nomi = parseFloat(fraccionnom.value / fraccionnom1.value);
+
+                if (deno - Math.floor(deno) == 0) {
+                    vamoaver.innerHTML = deno.toString();
+                } else {
+                    vamoaver
+                        .innerHTML =
+                        "<span class='fup' ><i>" + fracciondem.value + " </i></span><span class='bar'>/</span><span class='fdn' ><i>" + fracciondem1.value + "</i></span>";
                 }
+                if (nomi - Math.floor(nomi) == 0) {
+                    vamoaver2.innerHTML = nomi.toString();
+                } else {
+                    vamoaver2
+                        .innerHTML =
+                        "<span class='fup' ><i>" + fraccionnom.value + "</i></span><span class='bar'>/</span><span class='fdn' ><i> "+fraccionnom1.value+"</i></span>";
+                }
+
+                velocityFunction.a = parseFloat(deno);
+                positionFunction = velocityFunction.integrate(nomi);
+                updateFunction();
+            }
+          
+        /*    function updateFromNumber() {
+                //if (firstUpdate) {
+                //    firstUpdate = false;
+                
+                velocityFunction.a = parseFloat(numberField2.value);
+                    //positionFunction.a = parseFloat(numberField2.value);
+              //  positionFunction.b = parseFloat(numberField.value);  
+                positionFunction = velocityFunction.integrate(numberField.value);
+                 //velocityFunction = positionFunction.derivate();
+                updateFunction();
+               // }
             }
 
             function updateFromTable() {
@@ -491,7 +554,7 @@
                     updateFunction();
                 }
 
-            }
+            }*/
 
             function Start() {
                 startButton.disabled = true;
@@ -515,7 +578,7 @@
                     [[currentTime, 60], [currentTime, -60]],
                     { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#8f918f' });
                 
-                im.update();
+             
             }
 
             function Step() {
@@ -590,7 +653,7 @@
                     } 
                 }
                 
-                im.update();
+                
             }
 
             function SnapToGrid(x, y) {
@@ -718,11 +781,12 @@
             );
 
             function updateFunction() {
+               
+               // velocityFunction.a = constantPoint.Y();
 
+                //positionFunction = velocityFunction.integrate(linearPoint.Y());
 
-                velocityFunction.a = constantPoint.Y();
-                positionFunction = velocityFunction.integrate(linearPoint.Y());
-
+                updateGraphs();
                 positionBoard.removeObject(pintarPuntos);
                 positionBoard.removeObject(pintarotrosPuntos);
 
@@ -730,18 +794,21 @@
                 //velocityBoard.removeObject(pintarotrosPuntos);
                 //form
 
-
+             
                 //input
                 updatenumerfield();
                 //table
                 // updatetablenum();
                 //text html
                 updateformhtml();
+                visua = false;
                 //positionBoard.update();
                 //velocityBoard.update();
                 updateform2();
                 updateform();
                 //form2
+              
+               // updateFromNumberfraction();
                 checar();
 
                 positionBoard.update();
@@ -752,13 +819,16 @@
 
 
             function updatenumerfield() {
-                numberField2.value = positionFunction.a;
-                numberField.value = positionFunction.b;
-                numberField2.value = Math.round(numberField2.value * 100) / 100;
-                numberField.value = Math.round(numberField.value * 100) / 100;
+                numberField2 = positionFunction.a;
+                numberField = positionFunction.b;
+                numberField2 = Math.round(numberField2.value * 100) / 100;
+                numberField = Math.round(numberField.value * 100) / 100;
             }
 
-
+          
+               
+               // updateFromNumberfraction();
+            
 
             /*
             //intento de fracciones
@@ -920,11 +990,45 @@
 
 
             function updateformhtml(parameters) {
-                FormulaDiv.innerHTML = "x(t)=" + positionFunction.ToString();
-                Formulavelo.innerHTML = "v=" + numberField2.value;
-                Formulapos.innerHTML = "x=" + numberField.value;
+                if (visua==true) {
+                    vamoaver.innerHTML = velocityFunction.a;
+                    vamoaver2.innerHTML = positionFunction.b;
+                    fracciondem.value = 1;
+                    fracciondem1.value = 1;
+                    fraccionnom.value = 0;
+                    fraccionnom1.value = 1;
+                }
+                
+                // FormulaDiv.innerHTML = "x(t)=" + positionFunction.ToString();
+                if (velocityFunction.a - Math.floor(velocityFunction.a) == 0) {
+                    Formulavelo.innerHTML = velocityFunction.a.toString();
+                } else {
+                    Formulavelo
+                        .innerHTML =
+                        "<span class='fup' ><i>" + fracciondem.value + " </i></span><span class='bar'>/</span><span class='fdn' ><i>" + fracciondem1.value + "</i></span>";
+                }
+                if (positionFunction.b - Math.floor(positionFunction.b) == 0) {
+                    Formulapos.innerHTML ="Valor Inicial &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x="+ positionFunction.b.toString();
+                } else {
+                    Formulapos
+                        .innerHTML =
+                       "<span class='fup' ><i>" + fraccionnom.value + " </i></span><span class='bar'>/</span><span class='fdn' ><i>" + fraccionnom1.value + "</i></span>";
+                }
+             
+               // Formulavelo.innerHTML = "v=" + velocityFunction.a;
+               // Formulapos.innerHTML = "Valor Inicial &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x=" + positionFunction.b;
 
             }
+            function updateGraphs() {
+                positionBoard.suspendUpdate();
+               velocityBoard.suspendUpdate();
+                constantPoint.moveTo(SnapToGrid(0, velocityFunction.a));
+                linearPoint.moveTo(SnapToGrid(0, positionFunction.b));
+               // linearSlopePoint.moveTo(SnapToGrid(1, linearFunction.evaluate(1)));
+                positionBoard.unsuspendUpdate();
+                velocityBoard.unsuspendUpdate();
+            }
+            updateGraphs();
             updateFunction();
             velocityBoard.on('update', updateFunction);
             positionBoard.on('update', updateFunction);
