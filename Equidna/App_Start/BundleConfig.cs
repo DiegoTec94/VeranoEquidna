@@ -22,12 +22,15 @@ namespace Equidna
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/math.js",
-                      "~/Scripts/fraction.js",
+                      "~/Scripts/fraction.js", 
+                      "~/Scripts/classie.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/jsxgraph.css",
+                      "~/Content/component.css",
+                     
                       "~/Content/site.css"));
         }
     }

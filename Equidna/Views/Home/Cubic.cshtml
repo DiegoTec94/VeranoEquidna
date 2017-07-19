@@ -3,9 +3,9 @@
     ViewBag.Title = "Modelo cúbico";
 }
 
-<h2>Modelo cúbico</h2>
+<h1 align="center">Modelo cúbico</h1>
 
-<div> <h1 id="FormulaDisplayDiv" style="text-align: center"></h1></div>
+<div> <h1 id="FormulaDisplayDiv" style="text-align: center; font-family: 'Walter Turncoat', cursive; font-size: 250%"></h1></div>
 <div class="col-xs-12 " align="center">
     <input id="number" type="number" step="0.01" onchange="updateFromNumber();" />
     <input id="number1" type="number" step="0.01" onchange="updateFromNumber();" />
@@ -13,17 +13,47 @@
     <input id="number3" type="number" step="0.01" onchange="updateFromNumber();" />
 </div>
 
+<div class="eq-c styc" align="center" data-toggle="validator">
+    <i>x</i>(t) =
+    <div class="fraction">
+        <span class="fup" id="nuevo"><i><input id="nom1" type="number" min="-99" max="99" style="text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; " onchange="updateFromNumberfraction();" value="1" /> </i></span>
+
+        <span class="fdn" id="nuevo2"><i><input id="nom2" type="number" min="1" max="99" style="text-align: center;  width:50px; border: none " onchange="updateFromNumberfraction();" value="1" /></i></span>
+    </div>
+    +
+    <div class="fraction">
+        <span class="fup" id="nuevo7"><i> <input id="cua1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" value="1" /></i></span>
+
+        <span class="fdn" id="nuevo8"><i><input id="cua2" type="number" min="1" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" value="1" /></i></span>
+    </div>
+    t<sup>3</sup>
+    +
+    <div class="fraction">
+        <span class="fup" id="nuevo3"><i> <input id="den1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" value="1" /></i></span>
+
+        <span class="fdn" id="nuevo4"><i><input id="den2" type="number" min="1" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" value="1" /></i></span>
+    </div>
+    t<sup>2</sup>
+    +
+    <div class="fraction">
+        <span class="fup" id="nuevo5"><i> <input id="tre1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" value="1" /></i></span>
+
+        <span class="fdn" id="nuevo6"><i><input id="tre2" type="number" min="1" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" value="1" /></i></span>
+    </div>
+    t
+    <div class="help-block with-errors"></div>
+</div>
 
 <div class="row" onload="updateGraph()">
-    <div class="col-xs-12">
+    <div class="col-xs-12" align="center">
         <div id="sliderBox" class="jxgbox" style="width:100%;height:100px;"></div>
-        <label for="startTime">Start time: <input name="startTime" type="number" value="0" /></label>
-        <label for="endTime">End time: <input name="endTime" type="number" value="9" /></label>
+        <label for="startTime">Start time: <input name="startTime" type="number" value="0" min="-99" max="99" style="text-align: center; width: 30%;" readonly /></label>
+        <label for="endTime">End time: <input name="endTime" type="number" min="-99" max="99" style="text-align: center; width: 30%;" value="0" /></label>
 
-        <button id="start" onclick="Start()">Start</button>
+        <button id="start" onclick="Start()" class="btn btn-7 btn-7a icon-truck">Start</button>
     </div>
     </div>
-<div class="row">
+<!--<div class="row">
     <div class="col-xs-3">
         <div class="container">
             <div class="row clearfix">
@@ -167,265 +197,522 @@
         </div>
 
     </div>
-</div>
+</div>-->
 
-    <div class="col-xs-6">
-        <div id='VelocityBoard' class='jxgbox graphbox'  style='user-select: none; overflow: hidden; position: relative;'></div>
+    
+
+
+
+<div class="row">
+    <div class="col-xs-8">
+        <div id='VelocityBoard' class='jxgbox graphbox' style='user-select: none; overflow: hidden; position: relative;'></div>
     </div>
-<div class="col-xs-6">
-    <div id='PositionBoard' class='jxgbox graphbox'  style='user-select: none; overflow: hidden; position: relative;'></div>
+
+    <div class="col-xs-4">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="border: #17aa56 3px solid;">
+
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+
+
+                                <th class="text-center" style="text-align: left; font-weight: bold; font-family: 'Swanky and Moo Moo', cursive; font-size: 130%;">
+                                    VALOR INICIAL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t=0
+
+                                    <!--<h6 style="text-align: left; font-weight: bold; font-family: 'Swanky and Moo Moo', cursive; font-size: 120%; padding-bottom: 20px; margin-bottom: 20px;"></h6>
+                                    <h1></h1><br/>-->
+                                </th>
+                                <th class="text-center">
+                                    <div class="fraction" id="Formuvelo">
+
+                                    </div>
+
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th class="text-center" style="background-color: red;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   color: white;">t</th>
+                            <th class="text-center" style="background-color: red;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         color: white;">v</th>
+
+                        </tr>
+                    </thead>
+                    <tbody style="border: #17aa56 3px solid;">
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x1" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx1" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x2" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x3" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx3" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x4" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx4" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x5" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx5" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x6" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx6" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x7" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx7" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x8" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx8" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
 </div>
-</div>
+
+    <div class="row">
+        <div class="col-xs-8">
+            <div id='PositionBoard' class='jxgbox graphbox' style='user-select: none; overflow: hidden; position: relative;'></div>
+        </div>
+
+        <!--  nueva tabla -->
+        <div class="col-xs-4">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="border: #17aa56 3px solid;">
+
+                        <table class="table table-striped ">
+                            <thead>
+                                <tr>
+
+                                    <th class="text-center" style="font-family: 'Swanky and Moo Moo', cursive; font-size: 125%;">
+                                        <div class="fraction" id="Formuposi">
+
+                                        </div>
+
+                                    </th>
+                                    <th class="text-center" style="font-family: 'Swanky and Moo Moo', cursive; font-size: 100%; padding-left: 20%">
+                                        t=0
+                                        <!--<h6 style="text-align: center; font-weight: bold"> </h6>-->
+
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+
+                    </div>
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="background-color: blue;
+                                    color: white;">x</th>
+                                <th class="text-center" style="background-color: blue;
+                                    color: white;">t</th>
+
+                            </tr>
+                        </thead>
+                        <tbody style="border: #17aa56 3px solid;">
+                            <tr>
+                                <td class="col-xs-6">
+                                    <input type="number" id="hy1" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                                </td>
+
+                                <td class="col-xs-6">
+                                    <input type="number" id="y1" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                            </tr>
+                            <tr>
+                                <td class="col-xs-6">
+                                    <input type="number" id="hy2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                                </td>
+
+                                <td class="col-xs-6">
+                                    <input type="number" id="y2" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-6">
+                                    <input type="number" id="hy3" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                                </td>
+
+                                <td class="col-xs-6">
+                                    <input type="number" id="y3" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-6">
+                                    <input type="number" id="hy4" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                                </td>
+
+                                <td class="col-xs-6">
+                                    <input type="number" id="y4" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-6">
+                                    <input type="number" id="hy5" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                                </td>
+
+                                <td class="col-xs-6">
+                                    <input type="number" id="y5" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-6">
+                                    <input type="number" id="hy6" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                                </td>
+
+                                <td class="col-xs-6">
+                                    <input type="number" id="y6" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-6">
+                                    <input type="number" id="hy7" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                                </td>
+
+                                <td class="col-xs-6">
+                                    <input type="number" id="y7" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-6">
+                                    <input type="number" id="hy8" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                                </td>
+
+                                <td class="col-xs-6">
+                                    <input type="number" id="y8" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
+    <script type='text/javascript'>
 
-<script type='text/javascript'>
+        var currentTime = 0;
+        var interval;
+        var timeInterval = 50;
+        var guidingLine;
+        var maxX = 9, minX = -1, maxY = 9, minY = -2;
+        var startButton = document.getElementById("start");
+        var numberField = document.getElementById("number");
+        var numberField1 = document.getElementById("number1");
+        var numberField2 = document.getElementById("number2");
+        var numberField3 = document.getElementById("number3");
 
-    var currentTime = 0;
-    var interval;
-    var timeInterval = 50;
-    var guidingLine;
-    var maxX = 9, minX = -1, maxY = 9, minY = -2;
-    var startButton = document.getElementById("start");
-    var numberField = document.getElementById("number");
-    var numberField1 = document.getElementById("number1");
-    var numberField2= document.getElementById("number2");
-    var numberField3 = document.getElementById("number3");
+        var numtable = document.getElementById("table1");
+        var numtable2 = document.getElementById("table2");
+        var numtable3 = document.getElementById("table3");
+        var numtable4 = document.getElementById("table4");
+        var numtable5 = document.getElementById("table5");
+        var numtable6 = document.getElementById("table6");
 
-    var numtable = document.getElementById("table1");
-    var numtable2 = document.getElementById("table2");
-    var numtable3 = document.getElementById("table3");
-    var numtable4 = document.getElementById("table4");
-    var numtable5 = document.getElementById("table5");
-    var numtable6 = document.getElementById("table6");
+        var value;
 
-    var value;
+        var firstUpdate = true;
+        //upnumber
+        function updateFromNumber() {
+            if (firstUpdate) {
+                firstUpdate = false;
+                //
 
-    var firstUpdate = true;
-    //upnumber
-    function updateFromNumber() {
-        if (firstUpdate) {
-            firstUpdate = false;
-           // 
-            
-           
+
+            }
         }
-    }
-    //uptable
-    function updateFromTable() {
-        if (firstUpdate) {
-            firstUpdate = false;
-            
+        //uptable
+        function updateFromTable() {
+            if (firstUpdate) {
+                firstUpdate = false;
 
 
+
+            }
         }
-    }
 
-    function Start() {
-        startButton.disabled = true;
-        currentTime = parseInt(document.getElementsByName("startTime")[0].value);
-        interval = window.setInterval(Step, timeInterval);
-        guidingLine = positionBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
-    }
-
-    function Step() {
-        currentTime += timeInterval / 1000;
-        if (currentTime >= parseInt(document.getElementsByName("endTime")[0].value)) {
-            clearInterval(interval);
-            positionBoard.removeObject(guidingLine);
-            startButton.disabled = false;
-        }
-        else {
-            value = positionFunction.evaluate(currentTime);
-            slider.setValue(value);
-            sliderBox.update();
-
-            positionBoard.removeObject(guidingLine);
+        function Start() {
+            startButton.disabled = true;
+            currentTime = parseInt(document.getElementsByName("startTime")[0].value);
+            interval = window.setInterval(Step, timeInterval);
             guidingLine = positionBoard.create('line', [[currentTime, minY], [currentTime, maxY]], { straightFirst: false, straightLast: false, strokeWidth: 2 })
         }
-    }
 
-    function SnapToGrid(x, y) {
-        return [Math.round(x * 100) / 100, Math.round(y * 100) / 100]
-    }
+        function Step() {
+            currentTime += timeInterval / 1000;
+            if (currentTime >= parseInt(document.getElementsByName("endTime")[0].value)) {
+                clearInterval(interval);
+                positionBoard.removeObject(guidingLine);
+                startButton.disabled = false;
+            }
+            else {
+                value = positionFunction.evaluate(currentTime);
+                slider.setValue(value);
+                sliderBox.update();
 
-    var FormulaDiv = document.getElementById("FormulaDisplayDiv");
-
-    var positionBoard = JXG.JSXGraph.initBoard('PositionBoard', {
-        boundingbox: [minX, maxY, maxX, minY], axis: true,
-        grid: true,
-        shownavigation: true,
-        keepAspectRatio: true,
-        showClearTraces: true,
-        keepaspectratio: false, zoom: {
-            factorX: 1.25,
-            factorY: 1.25,
-            wheel: true,
-            needshift: true,
-            eps: 0.1
+                positionBoard.removeObject(guidingLine);
+                guidingLine = positionBoard.create('line',
+                    [[currentTime, minY], [currentTime, maxY]],
+                    { straightFirst: false, straightLast: false, strokeWidth: 2 });
+            }
         }
-    });
-    var velocityBoard = JXG.JSXGraph.initBoard('VelocityBoard', {
-        boundingbox: [minX, maxY, maxX, minY], axis: true,
-        grid: true,
-        shownavigation: true,
-        keepAspectRatio: true,
-        showClearTraces: true,
-        keepaspectratio: false, zoom: {
-            factorX: 1.25,
-            factorY: 1.25,
-            wheel: true,
-            needshift: true,
-            eps: 0.1
+
+        function SnapToGrid(x, y) {
+            return [Math.round(x * 100) / 100, Math.round(y * 100) / 100]
         }
-    });
 
-    var sliderBox = JXG.JSXGraph.initBoard('sliderBox', { boundingbox: [-(minY * (maxX - minX)), 5, minY * (maxX - minX), -5], axis: false, grid: true, shownavigation: true, showCopyright: false, keepAspectRatio: true });
-    var urlImg = "https://vignette4.wikia.nocookie.net/kirby/images/0/01/Kirby_Artwork_Caminando_%28KA%29.png/revision/latest?cb=20100808233646";
-    // var slider = sliderBox.create('slider', [urlImg,[1,1],[1,1] ]);
-    var slider = sliderBox.create('slider', [[-(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0, -(minY * (maxX - minX))]], { ticks: { drawLabels: false, highlight: false, size: 5, opacity: 0.3 } });
-    var im = sliderBox.create('image', [urlImg, [function () { return slider.X(); }, function () { return slider.Y(); }], [5, 5]]);
-    // var im = sliderBox.create('image', [], [function() { return slider.X(); }], [1, 1]]);
+        var FormulaDiv = document.getElementById("FormulaDisplayDiv");
 
-    velocityBoard.highlightInfobox = function (x, y, el) {
-        velocityBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
-    };
+        var positionBoard = JXG.JSXGraph.initBoard('PositionBoard', {
+            boundingbox: [minX, maxY, maxX, minY], axis: true,
+            grid: true,
+            shownavigation: true,
+            keepAspectRatio: true,
+            showClearTraces: true,
+            keepaspectratio: false, zoom: {
+                factorX: 1.25,
+                factorY: 1.25,
+                wheel: true,
+                needshift: true,
+                eps: 0.1
+            }
+        });
+        var velocityBoard = JXG.JSXGraph.initBoard('VelocityBoard', {
+            boundingbox: [minX, maxY, maxX, minY], axis: true,
+            grid: true,
+            shownavigation: true,
+            keepAspectRatio: true,
+            showClearTraces: true,
+            keepaspectratio: false, zoom: {
+                factorX: 1.25,
+                factorY: 1.25,
+                wheel: true,
+                needshift: true,
+                eps: 0.1
+            }
+        });
 
-    positionBoard.highlightInfobox = function (x, y, el) {
-        positionBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
-    };
+        var sliderBox = JXG.JSXGraph.initBoard('sliderBox', { boundingbox: [-(minY * (maxX - minX)), 5, minY * (maxX - minX), -5], axis: false, grid: true, shownavigation: true, showCopyright: false, keepAspectRatio: true });
+        var urlImg = "https://vignette4.wikia.nocookie.net/kirby/images/0/01/Kirby_Artwork_Caminando_%28KA%29.png/revision/latest?cb=20100808233646";
+        // var slider = sliderBox.create('slider', [urlImg,[1,1],[1,1] ]);
+        var slider = sliderBox.create('slider', [[-(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0, -(minY * (maxX - minX))]], { ticks: { drawLabels: false, highlight: false, size: 5, opacity: 0.3 } });
+        var im = sliderBox.create('image', [urlImg, [function () { return slider.X(); }, function () { return slider.Y(); }], [5, 5]]);
+        // var im = sliderBox.create('image', [], [function() { return slider.X(); }], [1, 1]]);
 
-    var positionFunction = new CubicFunction(1 / 6, -1 / 2, 1 / 2, 0);
-    var velocityFunction = positionFunction.derivate();
+        velocityBoard.highlightInfobox = function (x, y, el) {
+            velocityBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
+        };
 
-    positionBoard.create(
-        'functiongraph',
-        [function (x) { return positionFunction.evaluate(x); }],
-        { strokeColor: "Blue" }
-        );
+        positionBoard.highlightInfobox = function (x, y, el) {
+            positionBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
+        };
 
-    velocityBoard.create(
-        'functiongraph',
-        [function (x) { return velocityFunction.evaluate(x); }],
-        { strokeColor: "Red" }
-        );
+        var positionFunction = new CubicFunction(1 / 6, -1 / 2, 1 / 2, 0);
+        var velocityFunction = positionFunction.derivate();
 
-    //  Create the points.
-    var quadraticAxisPoint = velocityBoard.create('point', [0, 0], { size: 2, name: "", color: "Red" });
-    var quadraticIntPoint = velocityBoard.create('point', [0, 0], { size: 2, name: "", color: "Red" });
-    var quadraticSlopePoint = velocityBoard.create('point', [0, 0], { size: 2, name: "", color: "Red" });
-    var cubicIntPoint = positionBoard.create('point', [0, 0], { size: 2, name: "", color: "Blue" });
+        positionBoard.create(
+            'functiongraph',
+            [function (x) { return positionFunction.evaluate(x); }],
+            { strokeColor: "Blue" }
+            );
 
-    //  Initial setup
-    updateUI();
+        velocityBoard.create(
+            'functiongraph',
+            [function (x) { return velocityFunction.evaluate(x); }],
+            { strokeColor: "Red" }
+            );
 
-    //  Add functionality to points.
+        //  Create the points.
+        var quadraticAxisPoint = velocityBoard.create('point', [0, 0], { size: 2, name: "", color: "Red" });
+        var quadraticIntPoint = velocityBoard.create('point', [0, 0], { size: 2, name: "", color: "Red" });
+        var quadraticSlopePoint = velocityBoard.create('point', [0, 0], { size: 2, name: "", color: "Red" });
+        var cubicIntPoint = positionBoard.create('point', [0, 0], { size: 2, name: "", color: "Blue" });
 
-    var intOldY = quadraticIntPoint.Y();
-    quadraticIntPoint.on('mousedrag', function () {
-        var offset = quadraticIntPoint.Y() - intOldY;
-        quadraticIntPoint.moveTo([0, quadraticIntPoint.Y()]);
-        velocityBoard.suspendUpdate();
-
-        quadraticSlopePoint.moveTo([quadraticSlopePoint.X(), quadraticSlopePoint.Y() + offset]);
-        quadraticAxisPoint.moveTo([quadraticAxisPoint.X(), quadraticAxisPoint.Y() + offset]);
-
-        velocityBoard.unsuspendUpdate();
-        intOldY = quadraticIntPoint.Y();
-        axisOldY = quadraticAxisPoint.Y();
-    });
-
-    quadraticSlopePoint.on('mousedrag', function () {
-        velocityBoard.suspendUpdate();
-
-        quadraticSlopePoint.moveTo([quadraticSlopePoint.X(), quadraticIntPoint.Y()]);
-        quadraticAxisPoint.moveTo([quadraticSlopePoint.X() / 2, quadraticAxisPoint.Y()]);
-
-        velocityBoard.unsuspendUpdate();
-        axisOldX = quadraticAxisPoint.X();
-    });
-
-    var axisOldX = quadraticAxisPoint.X();
-    var axisOldY = quadraticAxisPoint.Y();
-    quadraticAxisPoint.on('mousedrag', function () {
-        var offset = quadraticAxisPoint.X() - axisOldX;
-        velocityBoard.suspendUpdate();
-
-        quadraticAxisPoint.moveTo([quadraticAxisPoint.X(), axisOldY])
-        quadraticIntPoint.moveTo([0, velocityFunction.evaluate(-offset)]);
-        quadraticSlopePoint.moveTo([quadraticAxisPoint.X() * 2, velocityFunction.evaluate(-offset)]);
-
-        velocityBoard.unsuspendUpdate();
-        axisOldX = quadraticAxisPoint.X();
-        intOldY = quadraticIntPoint.Y();
-    });
-
-    cubicIntPoint.on("mousedrag", function () {
-        cubicIntPoint.moveTo([0, cubicIntPoint.Y()]);
-    });
-
-    //  Update function
-    function updateFunction() {
-        var c = quadraticIntPoint.Y();
-        var h = quadraticAxisPoint.X();
-        var k = quadraticAxisPoint.Y();
-        var m = quadraticSlopePoint.X();
-        var n = quadraticSlopePoint.Y();
-
-        velocityFunction.c = c;
-        velocityFunction.b = (m * m * (k - c) + h * h * (c - n)) / (m * h * (m - h));
-        velocityFunction.a = (n - c - m * velocityFunction.b) / (m * m);
-        positionFunction = velocityFunction.integrate(cubicIntPoint.Y());
-
-        updatenumbertext();
-        updateTable();
+        //  Initial setup
         updateUI();
-    }
-    //Update number
-    function updatenumbertext() {
-        numberField.value = Math.round(positionFunction.a * 100) / 100;
-        numberField1.value = Math.round(positionFunction.b * 100) / 100;
-        numberField2.value = Math.round(velocityFunction.c * 100) / 100;
-        numberField3.value = Math.round(positionFunction.d * 100) / 100;
-    }
-    //Update table
-    function updateTable() {
 
-        numtable.value = Math.round(quadraticIntPoint.Y() * 100) / 100; 
-        numtable2.value = Math.round(quadraticAxisPoint.X() * 100) / 100; 
-        numtable3.value = Math.round(quadraticAxisPoint.Y() * 100) / 100;
-        numtable4.value = Math.round(quadraticSlopePoint.X() * 100) / 100;
-        numtable5.value = Math.round(quadraticSlopePoint.Y() * 100) / 100;
-        numtable6.value = Math.round(cubicIntPoint.Y() * 100) / 100; 
+        //  Add functionality to points.
 
-    }
+        var intOldY = quadraticIntPoint.Y();
+        quadraticIntPoint.on('mousedrag', function () {
+            var offset = quadraticIntPoint.Y() - intOldY;
+            quadraticIntPoint.moveTo([0, quadraticIntPoint.Y()]);
+            velocityBoard.suspendUpdate();
 
-    //  Update UI
-    function updateUI() {
-        updateGraph();
-        FormulaDiv.innerHTML = positionFunction.ToString();
-    }
+            quadraticSlopePoint.moveTo([quadraticSlopePoint.X(), quadraticSlopePoint.Y() + offset]);
+            quadraticAxisPoint.moveTo([quadraticAxisPoint.X(), quadraticAxisPoint.Y() + offset]);
 
-    function updateGraph() {
-        var axisX = -velocityFunction.b / (2 * velocityFunction.a);
-        var axisY = velocityFunction.evaluate(axisX);
+            velocityBoard.unsuspendUpdate();
+            intOldY = quadraticIntPoint.Y();
+            axisOldY = quadraticAxisPoint.Y();
+        });
 
-        positionBoard.suspendUpdate();
-        velocityBoard.suspendUpdate();
+        quadraticSlopePoint.on('mousedrag', function () {
+            velocityBoard.suspendUpdate();
 
-        cubicIntPoint.moveTo([0, positionFunction.d]);
-        quadraticIntPoint.moveTo([0, velocityFunction.c]);
-        quadraticAxisPoint.moveTo([axisX, axisY]);
-        quadraticSlopePoint.moveTo([axisX * 2, velocityFunction.c]);
+            quadraticSlopePoint.moveTo([quadraticSlopePoint.X(), quadraticIntPoint.Y()]);
+            quadraticAxisPoint.moveTo([quadraticSlopePoint.X() / 2, quadraticAxisPoint.Y()]);
 
-        velocityBoard.unsuspendUpdate();
-        velocityBoard.fullUpdate();
-        positionBoard.unsuspendUpdate();
-        positionBoard.fullUpdate();
-    }
+            velocityBoard.unsuspendUpdate();
+            axisOldX = quadraticAxisPoint.X();
+        });
 
-    updateFunction();
+        var axisOldX = quadraticAxisPoint.X();
+        var axisOldY = quadraticAxisPoint.Y();
+        quadraticAxisPoint.on('mousedrag', function () {
+            var offset = quadraticAxisPoint.X() - axisOldX;
+            velocityBoard.suspendUpdate();
 
-    positionBoard.on('update', updateFunction);
-    velocityBoard.on('update', updateFunction);
-</script>
+            quadraticAxisPoint.moveTo([quadraticAxisPoint.X(), axisOldY])
+            quadraticIntPoint.moveTo([0, velocityFunction.evaluate(-offset)]);
+            quadraticSlopePoint.moveTo([quadraticAxisPoint.X() * 2, velocityFunction.evaluate(-offset)]);
+
+            velocityBoard.unsuspendUpdate();
+            axisOldX = quadraticAxisPoint.X();
+            intOldY = quadraticIntPoint.Y();
+        });
+
+        cubicIntPoint.on("mousedrag", function () {
+            cubicIntPoint.moveTo([0, cubicIntPoint.Y()]);
+        });
+
+        //  Update function
+        function updateFunction() {
+            var c = quadraticIntPoint.Y();
+            var h = quadraticAxisPoint.X();
+            var k = quadraticAxisPoint.Y();
+            var m = quadraticSlopePoint.X();
+            var n = quadraticSlopePoint.Y();
+
+            velocityFunction.c = c;
+            velocityFunction.b = (m * m * (k - c) + h * h * (c - n)) / (m * h * (m - h));
+            velocityFunction.a = (n - c - m * velocityFunction.b) / (m * m);
+            positionFunction = velocityFunction.integrate(cubicIntPoint.Y());
+
+            updatenumbertext();
+            updateTable();
+            updateUI();
+        }
+        //Update number
+        function updatenumbertext() {
+            numberField.value = Math.round(positionFunction.a * 100) / 100;
+            numberField1.value = Math.round(positionFunction.b * 100) / 100;
+            numberField2.value = Math.round(velocityFunction.c * 100) / 100;
+            numberField3.value = Math.round(positionFunction.d * 100) / 100;
+        }
+        //Update table
+        function updateTable() {
+
+            numtable.value = Math.round(quadraticIntPoint.Y() * 100) / 100;
+            numtable2.value = Math.round(quadraticAxisPoint.X() * 100) / 100;
+            numtable3.value = Math.round(quadraticAxisPoint.Y() * 100) / 100;
+            numtable4.value = Math.round(quadraticSlopePoint.X() * 100) / 100;
+            numtable5.value = Math.round(quadraticSlopePoint.Y() * 100) / 100;
+            numtable6.value = Math.round(cubicIntPoint.Y() * 100) / 100;
+
+        }
+
+        //  Update UI
+        function updateUI() {
+            updateGraph();
+            FormulaDiv.innerHTML = positionFunction.ToString();
+        }
+
+        function updateGraph() {
+            var axisX = -velocityFunction.b / (2 * velocityFunction.a);
+            var axisY = velocityFunction.evaluate(axisX);
+
+            positionBoard.suspendUpdate();
+            velocityBoard.suspendUpdate();
+
+            cubicIntPoint.moveTo([0, positionFunction.d]);
+            quadraticIntPoint.moveTo([0, velocityFunction.c]);
+            quadraticAxisPoint.moveTo([axisX, axisY]);
+            quadraticSlopePoint.moveTo([axisX * 2, velocityFunction.c]);
+
+            velocityBoard.unsuspendUpdate();
+            velocityBoard.fullUpdate();
+            positionBoard.unsuspendUpdate();
+            positionBoard.fullUpdate();
+        }
+
+        updateFunction();
+
+        positionBoard.on('update', updateFunction);
+        velocityBoard.on('update', updateFunction);
+    </script>

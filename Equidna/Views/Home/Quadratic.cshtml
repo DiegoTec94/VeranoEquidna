@@ -2,141 +2,431 @@
     ViewBag.Title = "Modelo cuadrático (Sin decimales)";
 }
 
-<h2>Modelo cuadrático</h2>
-<div><h1 id="FormulaDisplayDiv" style="text-align: center"> </h1></div>
+<h1 align="center">Modelo cuadrático</h1>
+<div><h1 id="FormulaDisplayDiv" style="text-align: center; font-family: 'Walter Turncoat', cursive; font-size: 250%"> </h1></div>
+
+<div class="eq-c" align="center" style="font-family: 'Walter Turncoat', cursive; font-size: 250%">
+    <i>x</i>(t) =
+    <div class="fraction" id="vamoaver2">
+
+    </div>
+    +
+    <div class="fraction" id="vamoaver">
+
+    </div>
+    t
+</div>
+<!--
 <div class="col-xs-12 " align="center">
     <input id="number3" type="number" step="0.01" onchange="updateFromNumber();" />
     <input id="number2" type="number" step="0.01" onchange="updateFromNumber();" />
     <input id="number" type="number" step="0.01" onchange="updateFromNumber();" />
 </div>
+-->
+<div class="eq-c styc" align="center" data-toggle="validator">
+    <i>x</i>(t) =
+    <div class="fraction">
+        <span class="fup" id="nuevo"><i><input id="nom1" type="number" min="-99" max="99" style="text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; " onchange="updateFromNumberfraction();" value="1"/> </i></span>
 
+        <span class="fdn" id="nuevo2"><i><input id="nom2" type="number" min="1" max="99" style="text-align: center;  width:50px; border: none " onchange="updateFromNumberfraction();" value="1"/></i></span>
+    </div>
+    +
+    <div class="fraction">
+        <span class="fup" id="nuevo3"><i> <input id="den1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" value="1" /></i></span>
+
+        <span class="fdn" id="nuevo4"><i><input id="den2" type="number" min="1" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" value="1"/></i></span>
+    </div>
+    t<sup>2</sup>
+    +
+    <div class="fraction">
+        <span class="fup" id="nuevo5"><i> <input id="tre1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" value="1"/></i></span>
+
+        <span class="fdn" id="nuevo6"><i><input id="tre2" type="number" min="1" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" value="1"/></i></span>
+    </div>
+    t
+    <div class="help-block with-errors"></div>
+</div>
+
+<div class="row"></div>
 <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-12" align="center">
         <div id="sliderBox" class="jxgbox" style="width:100%;height:100px;"></div>
-        <label for="startTime">Start time: <input name="startTime" type="number" value="0" /></label>
-        <label for="endTime">End time: <input name="endTime" type="number" value="0" /></label>
+        <label for="startTime">Start time: <input name="startTime" type="number" value="0" min="-99" max="99" style="text-align: center; width: 30%;" readonly /></label>
+        <label for="endTime">End time: <input name="endTime" type="number" min="-99" max="99" style="text-align: center; width: 30%;" value="0" /></label>
 
-        <button id="start" onclick="Start()">Start</button>
+        <button id="start" onclick="Start()" class="btn btn-7 btn-7a icon-truck">Start</button>
     </div>
    </div>
 <div class="row">
-    <div class="col-xs-4">
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-                    <table class="table table-bordered table-hover" id="tab_logic">
-                        <thead>
-                            <tr>
-
-                                <th class="text-center">
-                                    X
-                                </th>
-                                <th class="text-center">
-                                    Y
-                                </th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr id='addr0'>
-
-                                <td>
-                                    <input type="text" name='name0' placeholder='X' class="form-control" value="0" style="text-align: center" readonly />
-                                </td>
-                                <td>
-                                    <input type="number" id="table1" step="0.01" name='mail0' placeholder='Y' style="text-align: center" class="form-control" />
-                                </td>
-
-                            </tr>
-                            <tr id='addr1'></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="col-xs-4">
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-                    <table class="table table-bordered table-hover" id="tab_logic">
-                        <thead>
-                            <tr>
-
-                                <th class="text-center">
-                                    X
-                                </th>
-                                <th class="text-center">
-                                    Y
-                                </th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr id='addr0'>
-
-                                <td>
-                                    <input type="text" name='name0' placeholder='X' class="form-control" style="text-align: center" value="1" readonly />
-                                </td>
-                                <td>
-                                    <input type="number" id="table2" step="0.01" name='mail0' placeholder='Y' style="text-align: center" class="form-control" />
-                                </td>
-
-                            </tr>
-                            <tr id='addr1'></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-    </div><div class="col-xs-4">
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-                    <table class="table table-bordered table-hover" id="tab_logic">
-                        <thead>
-                            <tr>
-
-                                <th class="text-center">
-                                    X
-                                </th>
-                                <th class="text-center">
-                                    Y
-                                </th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr id='addr0'>
-
-                                <td>
-                                    <input type="text" name='name0' placeholder='X' class="form-control" style="text-align: center" value="0" readonly />
-                                </td>
-                                <td>
-                                    <input type="number" id="table3" step="0.01" name='mail0' placeholder='Y' style="text-align: center" class="form-control" />
-                                </td>
-
-                            </tr>
-                            <tr id='addr1'></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="col-xs-6">
+    <div class="col-xs-8">
         <div id='VelocityBoard' class='jxgbox graphbox' style='user-select: none; overflow: hidden; position: relative;'></div>
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-4">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="border: #17aa56 3px solid;">
+
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+
+
+                                <th class="text-center" style="text-align: left; font-weight: bold; font-family: 'Swanky and Moo Moo', cursive; font-size: 130%;">
+                                    VALOR INICIAL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t=0
+
+                                    <!--<h6 style="text-align: left; font-weight: bold; font-family: 'Swanky and Moo Moo', cursive; font-size: 120%; padding-bottom: 20px; margin-bottom: 20px;"></h6>
+                                    <h1></h1><br/>-->
+                                </th>
+                                <th class="text-center">
+                                    <div class="fraction" id="Formuvelo">
+
+                                    </div>
+
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th class="text-center" style="background-color: red;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             color: white;">t</th>
+                            <th class="text-center" style="background-color: red;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         color: white;">v</th>
+
+                        </tr>
+                    </thead>
+                    <tbody style="border: #17aa56 3px solid;">
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x1" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx1" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x2" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x3" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx3" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x4" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx4" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x5" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx5" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x6" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx6" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x7" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx7" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="x8" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="hx8" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+    
+<div class="row">
+    <div class="col-xs-8">
         <div id='PositionBoard' class='jxgbox graphbox' style='user-select: none; overflow: hidden; position: relative;'></div>
+    </div>
+    <div class="col-xs-4">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="border: #17aa56 3px solid;">
+
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+
+                                <th class="text-center" style="font-family: 'Swanky and Moo Moo', cursive; font-size: 125%;">VALOR INICIAL
+                                    <div class="fraction" id="Formuposi">
+
+                                    </div>
+
+                                </th>
+                                <th class="text-center" style="font-family: 'Swanky and Moo Moo', cursive; font-size: 100%; padding-left: 20%">
+                                    t=0
+                                    <!--<h6 style="text-align: center; font-weight: bold"> </h6>-->
+
+                                </th>
+                            </tr>
+                        </thead>
+                    </table>
+
+                </div>
+                <table class="table table-striped ">
+                    <thead>
+                        <tr>
+                            <th class="text-center" style="background-color: blue; color: white;">x</th>
+                            <th class="text-center" style="background-color: blue; color: white;">t</th>
+
+                        </tr>
+                    </thead>
+                    <tbody style="border: #17aa56 3px solid;">
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="hy1" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="y1" name='x1' step="0.01" class="form-control" style="text-align: center" />
+
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="hy2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="y2" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="hy3" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="y3" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="hy4" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="y4" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="hy5" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="y5" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="hy6" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="y6" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="hy7" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="y7" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-6">
+                                <input type="number" id="hy8" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                            </td>
+
+                            <td class="col-xs-6">
+                                <input type="number" id="y8" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
     </div>
 </div>
 
 <script type='text/javascript'>
+    
+    //fraction;
+    var fracciondem = document.getElementById("den1");
+    var fracciondem1 = document.getElementById("den2");
+    var fraccionnom = document.getElementById("nom1");
+    var fraccionnom1 = document.getElementById("nom2");
+    var fracciontre = document.getElementById("tre3");
+    var fracciontre1 = document.getElementById("tre3");
+    var vamoaver = document.getElementById("vamoaver");
+    var vamoaver2 = document.getElementById("vamoaver2");
+    var vamoaver3 = document.getElementById("vamoaver3");
+
+
+
+    function updateFromNumberfraction() {
+        var deno = parseFloat(fracciondem.value / fracciondem1.value);
+        var nomi = parseFloat(fraccionnom.value / fraccionnom1.value);
+        var tre = parseFloat(fracciontre.value / fracciontre1.value);
+        alert(nomi+" hola");
+        
+        if (deno - Math.floor(deno) === 0) {
+            
+            vamoaver.innerHTML = deno.toString();
+            
+        } else {
+            
+            vamoaver.innerHTML = "<span class='fup' ><i>" + fracciondem.value + " </i></span><span class='bar'>/</span><span class='fdn' ><i>" + fracciondem1.value + "</i></span>";
+            
+        }
+        if (nomi - Math.floor(nomi) === 0) {
+            alert("uno bien");
+            vamoaver2.innerHTML = nomi.toString();
+        } else {
+            alert("dos bien");
+            vamoaver2.innerHTML ="<span class='fup' ><i>" + fraccionnom.value + "</i></span><span class='bar'>/</span><span class='fdn' ><i> " + fraccionnom1.value + "</i></span>";
+        }
+        if (tre - Math.floor(tre) === 0) {
+            vamoaver3.innerHTML = tre.toString();
+        } else {
+            vamoaver3.innerHTML =
+                "<span class='fup' ><i>" + fracciontre.value + "</i></span><span class='bar'>/</span><span class='fdn' ><i> " + fracciontre1.value + "</i></span>";
+        }
+
+       /* velocityFunction.a = parseFloat(deno);
+        positionFunction = velocityFunction.integrate(nomi);
+        updateFunction();*/
+    }
+
+    function updateformhtml(parameters) {
+        if (visua == true) {
+            vamoaver.innerHTML = velocityFunction.a;
+            vamoaver2.innerHTML = positionFunction.b;
+            fracciondem.value = 1;
+            fracciondem1.value = 1;
+            fraccionnom.value = 0;
+            fraccionnom1.value = 1;
+        }
+
+        // FormulaDiv.innerHTML = "x(t)=" + positionFunction.ToString();
+        if (velocityFunction.a - Math.floor(velocityFunction.a) == 0) {
+            Formulavelo.innerHTML = velocityFunction.a.toString();
+        } else {
+            Formulavelo
+                .innerHTML =
+                "<span class='fup' ><i>" + fracciondem.value + " </i></span><span class='bar'>/</span><span class='fdn' ><i>" + fracciondem1.value + "</i></span>";
+        }
+        if (positionFunction.b - Math.floor(positionFunction.b) == 0) {
+            Formulapos.innerHTML = "Valor Inicial &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x=" + positionFunction.b.toString();
+        } else {
+            Formulapos
+                .innerHTML =
+               "<span class='fup' ><i>" + fraccionnom.value + " </i></span><span class='bar'>/</span><span class='fdn' ><i>" + fraccionnom1.value + "</i></span>";
+        }
+
+        // Formulavelo.innerHTML = "v=" + velocityFunction.a;
+        // Formulapos.innerHTML = "Valor Inicial &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x=" + positionFunction.b;
+
+    }
+
+    function updateFunction() {
+
+        // velocityFunction.a = constantPoint.Y();
+
+        //positionFunction = velocityFunction.integrate(linearPoint.Y());
+
+        updateGraphs();
+        positionBoard.removeObject(pintarPuntos);
+        positionBoard.removeObject(pintarotrosPuntos);
+
+        //velocityBoard.removeObject(pintarPuntos);
+        //velocityBoard.removeObject(pintarotrosPuntos);
+        //form
+
+
+        //input
+        updatenumerfield();
+        //table
+        // updatetablenum();
+        //text html
+        updateformhtml();
+        visua = false;
+        //positionBoard.update();
+        //velocityBoard.update();
+        updateform2();
+        updateform();
+        //form2
+
+        // updateFromNumberfraction();
+        checar();
+
+        positionBoard.update();
+        velocityBoard.update();
+
+    }
 
     var currentTime = 0;
     var interval;
@@ -165,10 +455,10 @@
             linearFunction = quadraticFunction.derivate();
             updateAll();
         }
-    }
-    //UpTable
+        //UpTable
 
-   function updateFromTable() {
+        function updateFromTable() {
+    }
         if (firstUpdate) {
             firstUpdate = false;
 
@@ -276,7 +566,7 @@
     quadraticPoint.on(
         'drag',
         function() { quadraticPoint.moveTo(SnapToGrid( 0, quadraticPoint.Y())) }
-        );
+    );
 
     var offset = 1;
 
@@ -285,26 +575,26 @@
         function() {
             linearSlopePoint.moveTo(SnapToGrid(linearSlopePoint.X(), linearIntPoint.Y() + offset));
             linearIntPoint.moveTo(SnapToGrid( 0, linearIntPoint.Y() )); }
-        );
+    );
 
     linearSlopePoint.on(
         'drag',
         function () {
             linearSlopePoint.moveTo(SnapToGrid(linearSlopePoint.X(),linearSlopePoint.Y()));
             offset = linearSlopePoint.Y() - linearIntPoint.Y();}
-        );
+    );
 
     quadraticBoard.create(
         'functiongraph',
         [function (x) {return quadraticFunction.evaluate(x);}],
         {strokeColor: "Blue"}
-        );
+    );
 
     linearBoard.create(
         'functiongraph',
         [function (x) {return linearFunction.evaluate(x);}],
         {strokeColor: "Red"}
-        );
+    );
 
     function updateFunctionFromGraph() {
         if (firstUpdate) {
@@ -321,16 +611,16 @@
         updateGraphs();
         updateFields();
         updateText();
-      updateTable();
+        updateTable();
         firstUpdate = true;
     }
 
 
-   function updateTable() {
-       numtable.value = linearIntPoint.Y();
-       numtable2.value = linearSlopePoint.Y();
-       numtable3.value = quadraticPoint.Y();
-   }
+    function updateTable() {
+        numtable.value = linearIntPoint.Y();
+        numtable2.value = linearSlopePoint.Y();
+        numtable3.value = quadraticPoint.Y();
+    }
     
     function updateFields() {
         numberField3.value = quadraticFunction.a;
