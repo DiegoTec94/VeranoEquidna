@@ -1,103 +1,106 @@
 ﻿@{
     ViewBag.Title = "Modelo cuadrático (Sin decimales)";
 }
-
-<h1 align="center">Modelo cuadrático</h1>
-<div><h1 id="FormulaDisplayDiv" style="text-align: center; font-family: 'Walter Turncoat', cursive; font-size: 250%"> </h1></div>
-
-<div class="eq-c" align="center" style="font-family: 'Walter Turncoat', cursive; font-size: 250%">
-    <i>x</i>(t) =
-    <div class="fraction" id="vamoaver2">
-
-    </div>
-    +
-    <div class="fraction" id="vamoaver">
-
-    </div>
-    t
-</div>
-<!--
-<div class="col-xs-12 " align="center">
-    <input id="number3" type="number" step="0.01" onchange="updateFromNumber();" />
-    <input id="number2" type="number" step="0.01" onchange="updateFromNumber();" />
-    <input id="number" type="number" step="0.01" onchange="updateFromNumber();" />
-</div>
--->
-<div class="eq-c styc" align="center" data-toggle="validator">
-    <i>x</i>(t) =
-    <div class="fraction">
-        <span class="fup" id="nuevo"><i><input id="nom1" type="number" min="-99" max="99" style="text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; " onchange="updateFromNumberfraction();" value="1"/> </i></span>
-
-        <span class="fdn" id="nuevo2"><i><input id="nom2" type="number" min="1" max="99" style="text-align: center;  width:50px; border: none " onchange="updateFromNumberfraction();" value="1"/></i></span>
-    </div>
-    +
-    <div class="fraction">
-        <span class="fup" id="nuevo3"><i> <input id="den1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" value="1" /></i></span>
-
-        <span class="fdn" id="nuevo4"><i><input id="den2" type="number" min="1" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" value="1"/></i></span>
-    </div>
-    t<sup>2</sup>
-    +
-    <div class="fraction">
-        <span class="fup" id="nuevo5"><i> <input id="tre1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" value="1"/></i></span>
-
-        <span class="fdn" id="nuevo6"><i><input id="tre2" type="number" min="1" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" value="1"/></i></span>
-    </div>
-    t
-    <div class="help-block with-errors"></div>
+<div class="col-xs-4">
+    <h1>Modelo cuadrático</h1>
 </div>
 
-<div class="row"></div>
-<div class="row">
-    <div class="col-xs-12" align="center">
-        <div id="sliderBox" class="jxgbox" style="width:100%;height:100px;"></div>
-        <label for="startTime">Start time: <input name="startTime" type="number" value="0" min="-99" max="99" style="text-align: center; width: 30%;" readonly /></label>
-        <label for="endTime">End time: <input name="endTime" type="number" min="-99" max="99" style="text-align: center; width: 30%;" value="0" /></label>
+    <!--<div><h1 id="FormulaDisplayDiv" style="text-align: center; font-family: 'Walter Turncoat', cursive; font-size: 250%"> </h1></div>
+    -->   
+    <div class="eq-c stec" align="left" data-toggle="validator">
+        <i>x</i>(t) =
+        <div class="fraction">
+            <span class="fup" id="nuevo"><i><input id="nom1" type="number" min="-99" max="99" style="text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; " onchange="updateFromNumberfraction();"  /> </i></span>
 
-        <button id="start" onclick="Start()" class="btn btn-7 btn-7a icon-truck">Start</button>
+            <span class="fdn" id="nuevo2"><i><input id="nom2" type="number" min="-99" max="99" style="text-align: center;  width:50px; border: none " onchange="updateFromNumberfraction();"  /></i></span>
+        </div>
+
+        +
+        <div class="fraction">
+            <span class="fup" id="nuevo5"><i> <input id="tre1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" /></i></span>
+
+            <span class="fdn" id="nuevo6"><i><input id="tre2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();"  /></i></span>
+        </div>
+        t
+        +
+        <div class="fraction">
+            <span class="fup" id="nuevo3"><i> <input id="den1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" /></i></span>
+
+            <span class="fdn" id="nuevo4"><i><input id="den2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" /></i></span>
+        </div>
+        t<sup>2</sup>
+        =
+        <i id="vamoaver1">
+            
+        </i>
+        
+        <i id="vamoaver3">
+            
+        </i>
+        <i id="vamoaver2">
+
+        </i>
     </div>
-   </div>
+    
+    <!--
+    <div class="col-xs-12 " align="center">
+        <input id="number3" type="number" step="0.01" onchange="updateFromNumber();" />
+        <input id="number2" type="number" step="0.01" onchange="updateFromNumber();" />
+        <input id="number" type="number" step="0.01" onchange="updateFromNumber();" />
+    </div>
+    -->
+   
+
+
+<div class="row" align="center">
+    <section class="color-7" id="btn-click">
+        <div class="col-xs-12">
+            <div id="sliderBox" class="jxgbox" style="width: 100%; height: 200px; user-select: none; overflow: hidden; position: relative;"></div>
+        </div>
+            <label for="startTime">Start time: <input name="startTime" type="number" value="0" min="-99" max="99" style="text-align: center; width: 30%;" readonly /></label>
+            <label for="endTime">End time: <input name="endTime" type="number" min="-99" max="99" style="text-align: center; width: 30%;" value="0" /></label>
+
+            <button id="start" onclick="Start()" class="btn btn-7 btn-7a icon-truck">Start</button>
+        
+    </section>
+</div>
+
+
 <div class="row">
     <div class="col-xs-8">
         <div id='VelocityBoard' class='jxgbox graphbox' style='user-select: none; overflow: hidden; position: relative;'></div>
     </div>
+
     <div class="col-xs-4">
         <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading" style="border: #17aa56 3px solid;">
-
-                    <table class="table table-striped ">
-                        <thead>
-                            <tr>
-
-
-                                <th class="text-center" style="text-align: left; font-weight: bold; font-family: 'Swanky and Moo Moo', cursive; font-size: 130%;">
-                                    VALOR INICIAL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t=0
-
-                                    <!--<h6 style="text-align: left; font-weight: bold; font-family: 'Swanky and Moo Moo', cursive; font-size: 120%; padding-bottom: 20px; margin-bottom: 20px;"></h6>
-                                    <h1></h1><br/>-->
-                                </th>
-                                <th class="text-center">
-                                    <div class="fraction" id="Formuvelo">
-
-                                    </div>
-
-                                </th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
+         
                 <table class="table table-striped ">
                     <thead>
                         <tr>
-                            <th class="text-center" style="background-color: red;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             color: white;">t</th>
-                            <th class="text-center" style="background-color: red;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         color: white;">v</th>
-
+                            <td colspan="2" class="text-center" style="background-color:#17aa56">Valores Iniciales</td>
                         </tr>
+                        <tr>
+                            <td class="col-xs-6"><input type="text" id="tiempo" class="form-control" style="text-align: center" value="t=0" readonly /></td>
+                            <td class="col-xs-6">
+                                <i id="velocidad" style="font-size: 18px">
+
+                                </i>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2" style="background-color: #17aa56; text-align: center">Representación Numérica</td>
+                        </tr>
+
+                    <tr>
+                        <th class="text-center" style="background-color: red; color: white;">t</th>
+                        <th class="text-center" style="background-color: red; color: white;">v</th>
+
+                    </tr>
                     </thead>
-                    <tbody style="border: #17aa56 3px solid;">
+                    <tbody >
                         <tr>
                             <td class="col-xs-6">
                                 <input type="number" id="x1" name='x1' step="0.01" class="form-control" style="text-align: center" />
@@ -191,40 +194,34 @@
     <div class="col-xs-8">
         <div id='PositionBoard' class='jxgbox graphbox' style='user-select: none; overflow: hidden; position: relative;'></div>
     </div>
+
     <div class="col-xs-4">
         <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading" style="border: #17aa56 3px solid;">
-
-                    <table class="table table-striped ">
-                        <thead>
-                            <tr>
-
-                                <th class="text-center" style="font-family: 'Swanky and Moo Moo', cursive; font-size: 125%;">VALOR INICIAL
-                                    <div class="fraction" id="Formuposi">
-
-                                    </div>
-
-                                </th>
-                                <th class="text-center" style="font-family: 'Swanky and Moo Moo', cursive; font-size: 100%; padding-left: 20%">
-                                    t=0
-                                    <!--<h6 style="text-align: center; font-weight: bold"> </h6>-->
-
-                                </th>
-                            </tr>
-                        </thead>
-                    </table>
-
-                </div>
                 <table class="table table-striped ">
                     <thead>
                         <tr>
-                            <th class="text-center" style="background-color: blue; color: white;">x</th>
-                            <th class="text-center" style="background-color: blue; color: white;">t</th>
-
+                            <td colspan="2" class="text-center" style="background-color:#17aa56">Valores Iniciales</td>
                         </tr>
+                        <tr>
+                            <td class="col-xs-6"> <input type="text" id="tiempo" class="form-control" style="text-align: center" value="t=0" readonly /></td>
+                            <td class="col-xs-6">
+                                <i id="posicion11" style="font-size: 18px">
+
+                                </i>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="background-color: #17aa56;text-align: center"> Representación Numérica</td>
+                        </tr>
+                    <tr>
+                        <th class="text-center" style="background-color: blue; color: white;">t</th>
+                        <th class="text-center" style="background-color: blue; color: white;">x</th>
+
+                    </tr>
                     </thead>
-                    <tbody style="border: #17aa56 3px solid;">
+                    <tbody>
                         <tr>
                             <td class="col-xs-6">
                                 <input type="number" id="hy1" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
@@ -312,121 +309,44 @@
     </div>
 </div>
 
+<script>
+			var buttons7Click = Array.prototype.slice.call( document.querySelectorAll( '#btn-click button' ) ),
+				buttons9Click = Array.prototype.slice.call( document.querySelectorAll( 'button.btn-8g' ) ),
+				totalButtons7Click = buttons7Click.length,
+				totalButtons9Click = buttons9Click.length;
+
+			buttons7Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
+			buttons9Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
+
+			function activate() {
+				var self = this, activatedClass = 'btn-activated';
+
+				if( classie.has( this, 'btn-7h' ) ) {
+					// if it is the first of the two btn-7h then activatedClass = 'btn-error';
+					// if it is the second then activatedClass = 'btn-success'
+					activatedClass = buttons7Click.indexOf( this ) === totalButtons7Click-2 ? 'btn-error' : 'btn-success';
+				}
+				else if( classie.has( this, 'btn-8g' ) ) {
+					// if it is the first of the two btn-8g then activatedClass = 'btn-success3d';
+					// if it is the second then activatedClass = 'btn-error3d'
+					activatedClass = buttons9Click.indexOf( this ) === totalButtons9Click-2 ? 'btn-success3d' : 'btn-error3d';
+				}
+
+				if( !classie.has( this, activatedClass ) ) {
+					classie.add( this, activatedClass );
+					setTimeout( function() { classie.remove( self, activatedClass ) }, 1000 );
+				}
+			}
+
+
+</script>
 <script type='text/javascript'>
     
-    //fraction;
-    var fracciondem = document.getElementById("den1");
-    var fracciondem1 = document.getElementById("den2");
-    var fraccionnom = document.getElementById("nom1");
-    var fraccionnom1 = document.getElementById("nom2");
-    var fracciontre = document.getElementById("tre3");
-    var fracciontre1 = document.getElementById("tre3");
-    var vamoaver = document.getElementById("vamoaver");
-    var vamoaver2 = document.getElementById("vamoaver2");
-    var vamoaver3 = document.getElementById("vamoaver3");
 
 
 
-    function updateFromNumberfraction() {
-        var deno = parseFloat(fracciondem.value / fracciondem1.value);
-        var nomi = parseFloat(fraccionnom.value / fraccionnom1.value);
-        var tre = parseFloat(fracciontre.value / fracciontre1.value);
-        alert(nomi+" hola");
-        
-        if (deno - Math.floor(deno) === 0) {
-            
-            vamoaver.innerHTML = deno.toString();
-            
-        } else {
-            
-            vamoaver.innerHTML = "<span class='fup' ><i>" + fracciondem.value + " </i></span><span class='bar'>/</span><span class='fdn' ><i>" + fracciondem1.value + "</i></span>";
-            
-        }
-        if (nomi - Math.floor(nomi) === 0) {
-            alert("uno bien");
-            vamoaver2.innerHTML = nomi.toString();
-        } else {
-            alert("dos bien");
-            vamoaver2.innerHTML ="<span class='fup' ><i>" + fraccionnom.value + "</i></span><span class='bar'>/</span><span class='fdn' ><i> " + fraccionnom1.value + "</i></span>";
-        }
-        if (tre - Math.floor(tre) === 0) {
-            vamoaver3.innerHTML = tre.toString();
-        } else {
-            vamoaver3.innerHTML =
-                "<span class='fup' ><i>" + fracciontre.value + "</i></span><span class='bar'>/</span><span class='fdn' ><i> " + fracciontre1.value + "</i></span>";
-        }
-
-       /* velocityFunction.a = parseFloat(deno);
-        positionFunction = velocityFunction.integrate(nomi);
-        updateFunction();*/
-    }
-
-    function updateformhtml(parameters) {
-        if (visua == true) {
-            vamoaver.innerHTML = velocityFunction.a;
-            vamoaver2.innerHTML = positionFunction.b;
-            fracciondem.value = 1;
-            fracciondem1.value = 1;
-            fraccionnom.value = 0;
-            fraccionnom1.value = 1;
-        }
-
-        // FormulaDiv.innerHTML = "x(t)=" + positionFunction.ToString();
-        if (velocityFunction.a - Math.floor(velocityFunction.a) == 0) {
-            Formulavelo.innerHTML = velocityFunction.a.toString();
-        } else {
-            Formulavelo
-                .innerHTML =
-                "<span class='fup' ><i>" + fracciondem.value + " </i></span><span class='bar'>/</span><span class='fdn' ><i>" + fracciondem1.value + "</i></span>";
-        }
-        if (positionFunction.b - Math.floor(positionFunction.b) == 0) {
-            Formulapos.innerHTML = "Valor Inicial &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x=" + positionFunction.b.toString();
-        } else {
-            Formulapos
-                .innerHTML =
-               "<span class='fup' ><i>" + fraccionnom.value + " </i></span><span class='bar'>/</span><span class='fdn' ><i>" + fraccionnom1.value + "</i></span>";
-        }
-
-        // Formulavelo.innerHTML = "v=" + velocityFunction.a;
-        // Formulapos.innerHTML = "Valor Inicial &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x=" + positionFunction.b;
-
-    }
-
-    function updateFunction() {
-
-        // velocityFunction.a = constantPoint.Y();
-
-        //positionFunction = velocityFunction.integrate(linearPoint.Y());
-
-        updateGraphs();
-        positionBoard.removeObject(pintarPuntos);
-        positionBoard.removeObject(pintarotrosPuntos);
-
-        //velocityBoard.removeObject(pintarPuntos);
-        //velocityBoard.removeObject(pintarotrosPuntos);
-        //form
 
 
-        //input
-        updatenumerfield();
-        //table
-        // updatetablenum();
-        //text html
-        updateformhtml();
-        visua = false;
-        //positionBoard.update();
-        //velocityBoard.update();
-        updateform2();
-        updateform();
-        //form2
-
-        // updateFromNumberfraction();
-        checar();
-
-        positionBoard.update();
-        velocityBoard.update();
-
-    }
 
     var currentTime = 0;
     var interval;
@@ -441,12 +361,278 @@
     var numtable2 = document.getElementById("table2");
     var numtable3 = document.getElementById("table3");
     var value;
+    var fraccionuno = document.getElementById("nom1");
+    var fraccionunode = document.getElementById("nom2");
+    var fracciondos = document.getElementById("den1");
+    var fracciondosde = document.getElementById("den2");
+    var fracciontres = document.getElementById("tre1");
+    var fracciontresde = document.getElementById("tre2");
+    var vamoaver1 = document.getElementById("vamoaver1");
+    var vamoaver2 = document.getElementById("vamoaver2");
+    var vamoaver3 = document.getElementById("vamoaver3");
+
 
 
 
     var firstUpdate = true;
+
+
+
+    function updateFromNumberfraction() {
+
+        if (fraccionunode.value == 0) {
+            alert("MENSAJE: ERROR");
+            fraccionunode.value = -1;
+
+        }
+        if (fracciondosde.value == 0) {
+            alert("MENSAJE: ERROR");
+            fracciondosde.value = -1;
+
+        }
+        if (fracciontresde.value == 0) {
+            alert("MENSAJE: ERROR");
+            fracciontresde.value = -1;
+
+        }
+
+        if (fraccionunode.value != fraccionuno.value && fraccionunode.value < 0 && fraccionuno.value < 0) {
+            fraccionunode.value = Math.abs(fraccionunode.value);
+            fraccionuno.value = Math.abs(fraccionuno.value);
+        }
+
+        if (fracciondos.value != fracciondosde.value && fracciondos.value < 0 && fracciondosde.value < 0) {
+            fracciondos.value = Math.abs(fracciondos.value);
+            fracciondosde.value = Math.abs(fracciondosde.value);
+        }
+        if (fracciontresde.value != fracciontres.value && fracciontresde.value < 0 && fracciontres.value < 0) {
+            fracciontresde.value = Math.abs(fracciontresde.value);
+            fracciontres.value = Math.abs(fracciontres.value);
+        }
+        var deno = parseFloat(fraccionuno.value / fraccionunode.value);
+        var nomi = parseFloat(fracciondos.value / fracciondosde.value);
+        var nominatre = parseFloat(fracciontres.value / fracciontresde.value);
+
+        //uno
+        if (deno - Math.floor(deno) === 0) {
+            if (deno != 0) {
+                if (deno == 1) {
+                    vamoaver1.innerHTML = "1";
+                  //  valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "1";
+                }
+                else if (deno == -1) {
+                    vamoaver1.innerHTML = "-1";
+                    //valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "-1";
+                }
+                else {
+                    if (deno < 0) {
+                        vamoaver1.innerHTML =deno.toString();
+                      //  valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + deno.toString();
+
+                    } else {
+                        vamoaver1.innerHTML = deno.toString();
+                        //valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + deno.toString();
+                    }
+
+                }
+
+
+            }
+            else {
+                vamoaver1.innerHTML = "";
+               // valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= 0";
+            }
+
+        }
+        else {
+
+            if (fraccionuno.value < 0 || fraccionunode.value < 0) {
+                vamoaver1
+.innerHTML =
+"<a>-</a><div class='fraction'><span class='fup' ><i><input id='ju' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='je' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
+                var jj = document.getElementById("ju");
+                var jjj = document.getElementById("je");
+                jj.value = Math.abs(fraccionuno.value);
+                jjj.value = Math.abs(fraccionunode.value);
+              //  valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "<a>-</a><div class='fraction'><span class='fup' ><i><input id='vv' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '   readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='vva' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' readonly> </input></i></span></div>";
+               // var vv = document.getElementById("vv");
+                //var vva = document.getElementById("vva");
+               // vv.value = Math.abs(fracciondem.value);
+                //vva.value = Math.abs(fracciondem1.value);
+
+            } else {
+                vamoaver1
+       .innerHTML =
+       "<div class='fraction'><span class='fup' ><i><input id='ju' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='je' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
+                var ju = document.getElementById("ju");
+                var je = document.getElementById("je");
+                ju.value = fraccionuno.value;
+                je.value = fraccionunode.value;
+              //  valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "<div class='fraction'><span class='fup' ><i><input id='vv' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='vva' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
+               // var vvj = document.getElementById("vv");
+                //var vvaj = document.getElementById("vva");
+                //vvj.value = fracciondem.value;
+                //vvaj.value = fracciondem1.value;
+            }
+
+
+        }
+
+
+
+        //dos
+        if (nomi - Math.floor(nomi) === 0) {
+            if (nomi != 0) {
+                if (nomi == 1) {
+                    vamoaver2.innerHTML = "+t<sup>2</sup>";
+
+                }
+
+                else if (nomi == -1) {
+                    vamoaver2.innerHTML = "-t<sup>2</sup>";
+                }
+
+                else {
+                    if (nomi < 0) {
+                        vamoaver2.innerHTML = nomi.toString() + "t<sup>2</sup>";
+                    } else {
+                        vamoaver2.innerHTML = "+"+nomi.toString() + "t<sup>2</sup>";
+                    }
+                }
+               // vamoaver2.innerHTML = nomi.toString();
+               // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + nomi.toString();
+            }
+
+            else {
+                vamoaver2.innerHTML = "";
+               // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= 0";
+            }
+
+        }
+        else {
+            if (fracciondos.value < 0 || fracciondosde.value < 0) {
+                vamoaver2
+                    .innerHTML =
+                    "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='js' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='so' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>t<sup>2</sup>";
+                var qi = document.getElementById("js");
+                var io = document.getElementById("so");
+                io.value = Math.abs(fracciondosde.value);
+                qi.value = Math.abs(fracciondos.value);
+
+               // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='valpo' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valso' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
+                //var varpo = document.getElementById("valpo");
+                //var varpofa = document.getElementById("valso");
+               // varpo.value = Math.abs(fraccionnom1.value);
+               // varpofa.value = Math.abs(fraccionnom.value);
+            }
+            else {
+                vamoaver2
+                .innerHTML =
+                "<a> + </a> <div class='fraction'><span class='fup' ><i><input id='ji' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='jo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span> </div>t<sup>2</sup>";
+                var ji = document.getElementById("ji");
+                var jo = document.getElementById("jo");
+                ji.value = fracciondos.value;
+                jo.value = fracciondosde.value;
+               // valorposicion
+              // .innerHTML =
+             //  "x(0)=" + "x<sub>0</sub>= " + "<div class='fraction'><span class='fup' ><i><input id='valpo1' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valjo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
+              //  var varposi = document.getElementById("valpo1");
+            //    var varposix = document.getElementById("valjo");
+              //  varposi.value = fraccionnom.value;
+            //    varposix.value = fraccionnom1.value;
+            }
+
+
+        }
+
+
+        //tres
+
+        if (nominatre - Math.floor(nominatre) === 0) {
+            if (nominatre != 0) {
+                if (nominatre == 1) {
+                    vamoaver3.innerHTML = "+t";
+
+                }
+                else if (nominatre == -1) {
+                    vamoaver3.innerHTML = "-t";
+                } else {
+                    if (nominatre < 0) {
+                        vamoaver3.innerHTML = nominatre.toString() + "t";
+                    } else {
+                        vamoaver3.innerHTML = "+" + nominatre.toString() + "t";
+                    }
+
+
+                }
+                // vamoaver2.innerHTML = nomi.toString();
+                // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + nomi.toString();
+            }
+
+
+
+            else {
+                vamoaver3.innerHTML = "";
+                // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= 0";
+            }
+
+        } else {
+            if (fracciontres.value < 0 || fracciontresde.value < 0) {
+                vamoaver3
+                    .innerHTML =
+                    "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='jsss' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='sooo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>t";
+                var qii = document.getElementById("jsss");
+                var ioo = document.getElementById("sooo");
+                ioo.value = Math.abs(fracciontresde.value);
+                qii.value = Math.abs(fracciontres.value);
+
+                // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='valpo' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valso' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
+                //var varpo = document.getElementById("valpo");
+                //var varpofa = document.getElementById("valso");
+                // varpo.value = Math.abs(fraccionnom1.value);
+                // varpofa.value = Math.abs(fraccionnom.value);
+            }
+            else {
+                vamoaver3
+                .innerHTML =
+                "<a> + </a> <div class='fraction'><span class='fup' ><i><input id='jiii' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='jooo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>t";
+                var jiii = document.getElementById("jiii");
+                var jooo = document.getElementById("jooo");
+                jiii.value = fracciontres.value;
+                jooo.value = fracciontresde.value;
+                // valorposicion
+                // .innerHTML =
+                //  "x(0)=" + "x<sub>0</sub>= " + "<div class='fraction'><span class='fup' ><i><input id='valpo1' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valjo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
+                //  var varposi = document.getElementById("valpo1");
+                //    var varposix = document.getElementById("valjo");
+                //  varposi.value = fraccionnom.value;
+                //    varposix.value = fraccionnom1.value;
+            }
+
+
+        }
+
+      //  velocityFunction.a = parseFloat(deno);
+       // positionFunction = velocityFunction.integrate(nomi);
+        // updateFunction();
+
+
+        quadraticFunction.a = parseFloat(nomi);
+        quadraticFunction.c = parseFloat(deno);
+        quadraticFunction.b = parseFloat(nominatre);
+        linearFunction = quadraticFunction.derivate();
+        updateAll();
+    }
+
+
+
+
+
+
+
+
     //UpInput
-    function updateFromNumber() {
+  /*  function updateFromNumber() {
         if (firstUpdate) {
             firstUpdate = false;
             quadraticFunction.a = parseFloat(numberField3.value);
@@ -458,7 +644,7 @@
         //UpTable
 
         function updateFromTable() {
-    }
+        }
         if (firstUpdate) {
             firstUpdate = false;
 
@@ -469,7 +655,7 @@
 
 
         }
-    }
+    }*/
 
     function Start()
     {
@@ -525,6 +711,8 @@
             eps: 0.1
         }
     });
+    quadraticBoard.create('text', [-0.3, 8.3, "x"], { fontSize: 20 });
+    quadraticBoard.create('text', [8.5, -0.5, "t"], { fontSize: 20 });
     var linearBoard = JXG.JSXGraph.initBoard('VelocityBoard', {
         boundingbox: [minX, maxY, maxX, minY], axis: true,
         grid: true,
@@ -539,13 +727,52 @@
             eps: 0.1
         }
     });
+    linearBoard.create('text', [-0.3, 8.3, "v"], { fontSize: 20 });
+    linearBoard.create('text', [8.5, -0.5, "t"], { fontSize: 20 });
+    var sliderBox = JXG.JSXGraph.initBoard('sliderBox', {
+        boundingbox: [-2, 1, 9, -1], axis: true, grid: true, shownavigation: true, keepAspectRatio: true, showClearTraces: true, keepaspectratio: false, zoom: {
+            factorX: 1.25,
+            factorY: 1.25,
+            wheel: true,
+            needshift: true,
+            eps: 0.1
+        }
+    });
+    var frente = '@Url.Content("~/Content/images/nuevogif.gif")';
 
-    var sliderBox = JXG.JSXGraph.initBoard('sliderBox', { boundingbox: [-(minY * (maxX - minX)), 5, minY * (maxX - minX), -5], axis: false, grid: true, shownavigation: true, showCopyright: false, keepAspectRatio: true });
-    var urlImg = "https://vignette4.wikia.nocookie.net/kirby/images/0/01/Kirby_Artwork_Caminando_%28KA%29.png/revision/latest?cb=20100808233646";
+    var camina = '@Url.Content("~/Content/images/nuevocam.gif")';
+    var volt = '@Url.Content("~/Content/images/volte.gif")';
+    var inverso = '@Url.Content("~/Content/images/nuevoinver.gif")';
+
+
+
     // var slider = sliderBox.create('slider', [urlImg,[1,1],[1,1] ]);
-    var slider = sliderBox.create('slider', [[-(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0, -(minY * (maxX - minX))]], { ticks: { drawLabels: false, highlight: false, size: 5, opacity: 0.3 } });
-    var im = sliderBox.create('image', [urlImg, [function () { return slider.X(); }, function () { return slider.Y(); }], [5, 5]]);
-    // var im = sliderBox.create('image', [], [function() { return slider.X(); }], [1, 1]]);
+    var slider = sliderBox.create('slider', [[-50, 0], [50, 0], [-50, 0, 50]], { size: 3, opacity: 0.5, ticks: { drawLabels: false, highlight: true } });
+    var im = sliderBox.create('image',
+    [
+        function () {
+            if (slider.X() == 0) {
+                return frente;
+            }
+            else if (slider.X() > 0 && slider.X() < 0.15) {
+                return volt;
+            }
+            else if (slider.X() > 0.15 && slider.X() < (final - 0.01)) {
+                return camina;
+            }
+            else if (slider.X() < 0.15 && slider.X() > (final + 0.01)) {
+                return inverso;
+            }
+            else {
+                return frente;
+            }
+
+
+
+        },
+        [function () { return slider.X() - 0.55; }, function () { return slider.Y(); }], [1, 1]
+
+    ]);
 
     function SnapToGrid(x,y) {
         return [Math.round(x * 100) / 100, Math.round(y * 100) / 100];
@@ -609,20 +836,20 @@
 
     function updateAll() {
         updateGraphs();
-        updateFields();
-        updateText();
-        updateTable();
+       // updateFields();
+      //  updateText();
+      //  updateTable();
         firstUpdate = true;
     }
 
 
-    function updateTable() {
+    /*function updateTable() {
         numtable.value = linearIntPoint.Y();
         numtable2.value = linearSlopePoint.Y();
         numtable3.value = quadraticPoint.Y();
-    }
+    }*/
     
-    function updateFields() {
+   /* function updateFields() {
         numberField3.value = quadraticFunction.a;
         numberField.value = quadraticFunction.c;
         numberField2.value = quadraticFunction.b;
@@ -633,7 +860,7 @@
 
     function updateText() {
         FormulaDiv.innerHTML = quadraticFunction.ToString();
-    }
+    }*/
 
     function updateGraphs() {
         quadraticBoard.suspendUpdate();

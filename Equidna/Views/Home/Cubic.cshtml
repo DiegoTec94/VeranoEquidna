@@ -2,57 +2,78 @@
 @{
     ViewBag.Title = "Modelo cúbico";
 }
+<div class="col-xs-3">
+    <h1>Modelo cúbico</h1>
+</div> 
 
-<h1 align="center">Modelo cúbico</h1>
 
-<div> <h1 id="FormulaDisplayDiv" style="text-align: center; font-family: 'Walter Turncoat', cursive; font-size: 250%"></h1></div>
+   
+<!--<div> <h1 id="FormulaDisplayDiv" style="text-align: center; font-family: 'Walter Turncoat', cursive; font-size: 250%"></h1></divdiv>
 <div class="col-xs-12 " align="center">
     <input id="number" type="number" step="0.01" onchange="updateFromNumber();" />
     <input id="number1" type="number" step="0.01" onchange="updateFromNumber();" />
     <input id="number2" type="number" step="0.01" onchange="updateFromNumber();" />
     <input id="number3" type="number" step="0.01" onchange="updateFromNumber();" />
 </div>
-
-<div class="eq-c styc" align="center" data-toggle="validator">
+-->
+<div class="eq-c stec" align="left" data-toggle="validator">
     <i>x</i>(t) =
     <div class="fraction">
-        <span class="fup" id="nuevo"><i><input id="nom1" type="number" min="-99" max="99" style="text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; " onchange="updateFromNumberfraction();" value="1" /> </i></span>
+        <span class="fup" id="nuevo"><i><input id="nom1" type="number" min="-99" max="99" style="text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; " onchange="updateFromNumberfraction();"  /> </i></span>
 
-        <span class="fdn" id="nuevo2"><i><input id="nom2" type="number" min="1" max="99" style="text-align: center;  width:50px; border: none " onchange="updateFromNumberfraction();" value="1" /></i></span>
+        <span class="fdn" id="nuevo2"><i><input id="nom2" type="number" min="-99" max="99" style="text-align: center;  width:50px; border: none " onchange="updateFromNumberfraction();"/></i></span>
     </div>
     +
     <div class="fraction">
-        <span class="fup" id="nuevo7"><i> <input id="cua1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" value="1" /></i></span>
+        <span class="fup" id="nuevo7"><i> <input id="cua1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();"  /></i></span>
 
-        <span class="fdn" id="nuevo8"><i><input id="cua2" type="number" min="1" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" value="1" /></i></span>
+        <span class="fdn" id="nuevo8"><i><input id="cua2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" /></i></span>
     </div>
-    t<sup>3</sup>
+    t
     +
     <div class="fraction">
-        <span class="fup" id="nuevo3"><i> <input id="den1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" value="1" /></i></span>
+        <span class="fup" id="nuevo3"><i> <input id="den1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();"  /></i></span>
 
-        <span class="fdn" id="nuevo4"><i><input id="den2" type="number" min="1" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" value="1" /></i></span>
+        <span class="fdn" id="nuevo4"><i><input id="den2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();"  /></i></span>
     </div>
     t<sup>2</sup>
     +
     <div class="fraction">
-        <span class="fup" id="nuevo5"><i> <input id="tre1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" value="1" /></i></span>
+        <span class="fup" id="nuevo5"><i> <input id="tre1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();"  /></i></span>
 
-        <span class="fdn" id="nuevo6"><i><input id="tre2" type="number" min="1" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" value="1" /></i></span>
+        <span class="fdn" id="nuevo6"><i><input id="tre2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();"  /></i></span>
     </div>
-    t
-    <div class="help-block with-errors"></div>
+    t<sup>3</sup>
+    =
+    <i id="vamoaver1">
+
+    </i>
+
+    <i id="vamoaver2">
+
+    </i>
+    <i id="vamoaver3">
+
+    </i>
+    <i id="vamoaver4">
+
+    </i>
+ 
 </div>
 
-<div class="row" onload="updateGraph()">
-    <div class="col-xs-12" align="center">
-        <div id="sliderBox" class="jxgbox" style="width:100%;height:100px;"></div>
+<div class="row" align="center">
+
+    <section class="color-7" id="btn-click">
+        <div class="col-xs-12">
+        <div id="sliderBox" class="jxgbox" style="width: 100%; height: 200px; user-select: none; overflow: hidden; position: relative;"></div>
+         </div>
         <label for="startTime">Start time: <input name="startTime" type="number" value="0" min="-99" max="99" style="text-align: center; width: 30%;" readonly /></label>
         <label for="endTime">End time: <input name="endTime" type="number" min="-99" max="99" style="text-align: center; width: 30%;" value="0" /></label>
 
         <button id="start" onclick="Start()" class="btn btn-7 btn-7a icon-truck">Start</button>
-    </div>
-    </div>
+    </section>
+
+</div>
 <!--<div class="row">
     <div class="col-xs-3">
         <div class="container">
@@ -211,40 +232,34 @@
     <div class="col-xs-4">
         <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading" style="border: #17aa56 3px solid;">
-
                     <table class="table table-striped ">
+                
                         <thead>
+                        
+                            
                             <tr>
-
-
-                                <th class="text-center" style="text-align: left; font-weight: bold; font-family: 'Swanky and Moo Moo', cursive; font-size: 130%;">
-                                    VALOR INICIAL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t=0
-
-                                    <!--<h6 style="text-align: left; font-weight: bold; font-family: 'Swanky and Moo Moo', cursive; font-size: 120%; padding-bottom: 20px; margin-bottom: 20px;"></h6>
-                                    <h1></h1><br/>-->
-                                </th>
-                                <th class="text-center">
-                                    <div class="fraction" id="Formuvelo">
-
-                                    </div>
-
-                                </th>
+                                <td colspan="2" class="text-center" style="background-color:#17aa56">Valores Iniciales</td>
                             </tr>
-                        </thead>
-                    </table>
-                </div>
-                <table class="table table-striped ">
-                    <thead>
+                            <tr>
+                                <td class="col-xs-6"><input type="text" id="tiempo" class="form-control" style="text-align: center" value="t=0" readonly /></td>
+                                <td class="col-xs-6">
+                                    <i id="velocidad" style="font-size: 18px">
+
+                                    </i>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="2" style="background-color: #17aa56; text-align: center">Representación Numérica</td>
+                            </tr>
                         <tr>
-                            <th class="text-center" style="background-color: red;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   color: white;">t</th>
-                            <th class="text-center" style="background-color: red;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         color: white;">v</th>
+                            <th class="text-center" style="background-color: red; color: white;">t</th>
+                            <th class="text-center" style="background-color: red; color: white;">v</th>
 
                         </tr>
-                    </thead>
-                    <tbody style="border: #17aa56 3px solid;">
+                        </thead>
+                    <tbody>
                         <tr>
                             <td class="col-xs-6">
                                 <input type="number" id="x1" name='x1' step="0.01" class="form-control" style="text-align: center" />
@@ -343,39 +358,30 @@
         <div class="col-xs-4">
             <div class="row">
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="border: #17aa56 3px solid;">
-
-                        <table class="table table-striped ">
-                            <thead>
-                                <tr>
-
-                                    <th class="text-center" style="font-family: 'Swanky and Moo Moo', cursive; font-size: 125%;">
-                                        <div class="fraction" id="Formuposi">
-
-                                        </div>
-
-                                    </th>
-                                    <th class="text-center" style="font-family: 'Swanky and Moo Moo', cursive; font-size: 100%; padding-left: 20%">
-                                        t=0
-                                        <!--<h6 style="text-align: center; font-weight: bold"> </h6>-->
-
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-
-                    </div>
                     <table class="table table-striped ">
                         <thead>
                             <tr>
-                                <th class="text-center" style="background-color: blue;
-                                    color: white;">x</th>
-                                <th class="text-center" style="background-color: blue;
-                                    color: white;">t</th>
-
+                                <td colspan="2" class="text-center" style="background-color:#17aa56">Valores Iniciales</td>
                             </tr>
+                            <tr>
+                                <td class="col-xs-6"> <input type="text" id="tiempo" class="form-control" style="text-align: center" value="t=0" readonly /></td>
+                                <td class="col-xs-6">
+                                    <i id="posicion11" style="font-size: 18px">
+
+                                    </i>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="background-color: #17aa56;text-align: center"> Representación Numérica</td>
+                            </tr>
+                        <tr>
+                            <th class="text-center" style="background-color: blue; color: white;">t</th>
+                            <th class="text-center" style="background-color: blue; color: white;">x</th>
+
+                        </tr>
                         </thead>
-                        <tbody style="border: #17aa56 3px solid;">
+                        <tbody >
                             <tr>
                                 <td class="col-xs-6">
                                     <input type="number" id="hy1" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
@@ -462,7 +468,37 @@
             </div>
         </div>
     </div>
+<script>
+			var buttons7Click = Array.prototype.slice.call( document.querySelectorAll( '#btn-click button' ) ),
+				buttons9Click = Array.prototype.slice.call( document.querySelectorAll( 'button.btn-8g' ) ),
+				totalButtons7Click = buttons7Click.length,
+				totalButtons9Click = buttons9Click.length;
 
+			buttons7Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
+			buttons9Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
+
+			function activate() {
+				var self = this, activatedClass = 'btn-activated';
+
+				if( classie.has( this, 'btn-7h' ) ) {
+					// if it is the first of the two btn-7h then activatedClass = 'btn-error';
+					// if it is the second then activatedClass = 'btn-success'
+					activatedClass = buttons7Click.indexOf( this ) === totalButtons7Click-2 ? 'btn-error' : 'btn-success';
+				}
+				else if( classie.has( this, 'btn-8g' ) ) {
+					// if it is the first of the two btn-8g then activatedClass = 'btn-success3d';
+					// if it is the second then activatedClass = 'btn-error3d'
+					activatedClass = buttons9Click.indexOf( this ) === totalButtons9Click-2 ? 'btn-success3d' : 'btn-error3d';
+				}
+
+				if( !classie.has( this, activatedClass ) ) {
+					classie.add( this, activatedClass );
+					setTimeout( function() { classie.remove( self, activatedClass ) }, 1000 );
+				}
+			}
+
+
+</script>
 
     <script type='text/javascript'>
 
@@ -552,6 +588,10 @@
                 eps: 0.1
             }
         });
+
+        positionBoard.create('text', [-0.3, 8.3, "x"], { fontSize: 20 });
+        positionBoard.create('text', [8.5, -0.5, "t"], { fontSize: 20 });
+
         var velocityBoard = JXG.JSXGraph.initBoard('VelocityBoard', {
             boundingbox: [minX, maxY, maxX, minY], axis: true,
             grid: true,
@@ -567,12 +607,53 @@
             }
         });
 
-        var sliderBox = JXG.JSXGraph.initBoard('sliderBox', { boundingbox: [-(minY * (maxX - minX)), 5, minY * (maxX - minX), -5], axis: false, grid: true, shownavigation: true, showCopyright: false, keepAspectRatio: true });
-        var urlImg = "https://vignette4.wikia.nocookie.net/kirby/images/0/01/Kirby_Artwork_Caminando_%28KA%29.png/revision/latest?cb=20100808233646";
+        velocityBoard.create('text', [-0.3, 8.3, "v"], { fontSize: 20 });
+        velocityBoard.create('text', [8.5, -0.5, "t"], { fontSize: 20 });
+
+        var sliderBox = JXG.JSXGraph.initBoard('sliderBox', {
+            boundingbox: [-2, 1, 9, -1], axis: true, grid: true, shownavigation: true, keepAspectRatio: true, showClearTraces: true, keepaspectratio: false, zoom: {
+                factorX: 1.25,
+                factorY: 1.25,
+                wheel: true,
+                needshift: true,
+                eps: 0.1
+            }
+        });
+        var frente = '@Url.Content("~/Content/images/nuevogif.gif")';
+
+        var camina = '@Url.Content("~/Content/images/nuevocam.gif")';
+        var volt = '@Url.Content("~/Content/images/volte.gif")';
+        var inverso = '@Url.Content("~/Content/images/nuevoinver.gif")';
+
+
+
         // var slider = sliderBox.create('slider', [urlImg,[1,1],[1,1] ]);
-        var slider = sliderBox.create('slider', [[-(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0], [(minY * (maxX - minX)), 0, -(minY * (maxX - minX))]], { ticks: { drawLabels: false, highlight: false, size: 5, opacity: 0.3 } });
-        var im = sliderBox.create('image', [urlImg, [function () { return slider.X(); }, function () { return slider.Y(); }], [5, 5]]);
-        // var im = sliderBox.create('image', [], [function() { return slider.X(); }], [1, 1]]);
+        var slider = sliderBox.create('slider', [[-50, 0], [50, 0], [-50, 0, 50]], { size: 3, opacity: 0.5, ticks: { drawLabels: false, highlight: true } });
+        var im = sliderBox.create('image',
+        [
+            function () {
+                if (slider.X() == 0) {
+                    return frente;
+                }
+                else if (slider.X() > 0 && slider.X() < 0.15) {
+                    return volt;
+                }
+                else if (slider.X() > 0.15 && slider.X() < (final - 0.01)) {
+                    return camina;
+                }
+                else if (slider.X() < 0.15 && slider.X() > (final + 0.01)) {
+                    return inverso;
+                }
+                else {
+                    return frente;
+                }
+
+
+
+            },
+            [function () { return slider.X() - 0.55; }, function () { return slider.Y(); }], [1, 1]
+
+        ]);
 
         velocityBoard.highlightInfobox = function (x, y, el) {
             velocityBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
