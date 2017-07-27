@@ -11,15 +11,15 @@
          <div class="eq-c stec" align="center" data-toggle="validator">
              <i>x</i>(t) =
              <div class="fraction">
-                 <span class="fup" id="nuevo"><i><input id="nom1" type="number" min="-99" max="99" style="text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; " onchange="updateFromNumberfraction();" /> </i></span>
+                 <span class="fup" id="nuevo"><i><input id="nom1" type="number" min="-99" max="99" style="text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; " value="0" onchange="updateFromNumberfraction();" /> </i></span>
 
-                 <span class="fdn" id="nuevo2"><i><input id="nom2" type="number" min="-99" max="99" style="text-align: center;  width:50px; border: none " onchange="updateFromNumberfraction();" /></i></span>
+                 <span class="fdn" id="nuevo2"><i><input id="nom2" type="number" min="-99" max="99" style="text-align: center;  width:50px; border: none " onchange="updateFromNumberfraction();" value="1"/></i></span>
              </div>
              +
              <div class="fraction">
-                 <span class="fup" id="nuevo3"><i> <input id="den1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" /></i></span>
+                 <span class="fup" id="nuevo3"><i> <input id="den1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" value="1" /></i></span>
 
-                 <span class="fdn" id="nuevo4"><i><input id="den2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" /></i></span>
+                 <span class="fdn" id="nuevo4"><i><input id="den2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" value="1" /></i></span>
              </div>
              t
              =
@@ -902,7 +902,8 @@
                 'drag',
                 function () {
                     linearPoint.moveTo([0, linearPoint.Y()]);
-
+                    
+                  
 
                 }
             );
@@ -912,17 +913,23 @@
                 'drag',
                 function () {
                     constantPoint.moveTo([0, constantPoint.Y()]);
-
+                    
+                   
                 }
             );
 
+            
+           
             function updateFunction() {
 
-               // velocityFunction.a = constantPoint.Y();
-
-                //positionFunction = velocityFunction.integrate(linearPoint.Y());
+                
 
                 updateGraphs();
+
+
+                
+
+
                 positionBoard.removeObject(pintarPuntos);
                 positionBoard.removeObject(pintarotrosPuntos);
 
@@ -1134,8 +1141,8 @@
 
             function updateformhtml(parameters) {
                 if (visua==true) {
-                    vamoaver.innerHTML = velocityFunction.a;
-                    vamoaver2.innerHTML = positionFunction.b;
+                    vamoaver.innerHTML = "t";
+                  
                     fracciondem.value = 1;
                     fracciondem1.value = 1;
                     fraccionnom.value = 0;
@@ -1156,6 +1163,8 @@
                 velocityBoard.unsuspendUpdate();
              
             }
+
+            updateFromNumberfraction();
             updateGraphs();
             updateFunction();
             velocityBoard.on('update', updateFunction);

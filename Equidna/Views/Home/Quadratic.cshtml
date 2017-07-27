@@ -10,23 +10,23 @@
     <div class="eq-c stec" align="left" data-toggle="validator">
         <i>x</i>(t) =
         <div class="fraction">
-            <span class="fup" id="nuevo"><i><input id="nom1" type="number" min="-99" max="99" style="text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; " onchange="updateFromNumberfraction();"  /> </i></span>
+            <span class="fup" id="nuevo"><i><input id="nom1" type="number" min="-99" max="99" style="text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; " onchange="updateFromNumberfraction();" value="0" /> </i></span>
 
-            <span class="fdn" id="nuevo2"><i><input id="nom2" type="number" min="-99" max="99" style="text-align: center;  width:50px; border: none " onchange="updateFromNumberfraction();"  /></i></span>
+            <span class="fdn" id="nuevo2"><i><input id="nom2" type="number" min="-99" max="99" style="text-align: center;  width:50px; border: none " onchange="updateFromNumberfraction();" value="1" /></i></span>
         </div>
 
         +
         <div class="fraction">
-            <span class="fup" id="nuevo5"><i> <input id="tre1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" /></i></span>
+            <span class="fup" id="nuevo5"><i> <input id="tre1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" value="0" onchange="updateFromNumberfraction();" /></i></span>
 
-            <span class="fdn" id="nuevo6"><i><input id="tre2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();"  /></i></span>
+            <span class="fdn" id="nuevo6"><i><input id="tre2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" value="1" /></i></span>
         </div>
         t
         +
         <div class="fraction">
-            <span class="fup" id="nuevo3"><i> <input id="den1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" /></i></span>
+            <span class="fup" id="nuevo3"><i> <input id="den1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" value="1" onchange="updateFromNumberfraction();" /></i></span>
 
-            <span class="fdn" id="nuevo4"><i><input id="den2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" /></i></span>
+            <span class="fdn" id="nuevo4"><i><input id="den2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" value="1"/></i></span>
         </div>
         t<sup>2</sup>
         =
@@ -347,11 +347,12 @@
 
 
 
-
+   
     var currentTime = 0;
     var interval;
     var timeInterval = 50;
     var guidingLine;
+    var guidingLine2;
     var maxX = 9, minX = -1, maxY = 9, minY = -2;
     var startButton = document.getElementById("start");
     var numberField = document.getElementById("number");
@@ -370,15 +371,20 @@
     var vamoaver1 = document.getElementById("vamoaver1");
     var vamoaver2 = document.getElementById("vamoaver2");
     var vamoaver3 = document.getElementById("vamoaver3");
+    var valorvelocidad = document.getElementById("velocidad");
+    var valorposicion = document.getElementById("posicion11");
 
+    var final;
 
-
+    var lado = true;
 
     var firstUpdate = true;
 
 
 
     function updateFromNumberfraction() {
+        if(firstUpdate) {
+            firstUpdate = false;
 
         if (fraccionunode.value == 0) {
             alert("MENSAJE: ERROR");
@@ -418,19 +424,23 @@
             if (deno != 0) {
                 if (deno == 1) {
                     vamoaver1.innerHTML = "1";
-                  //  valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "1";
+                    valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= 1";
+                    //  valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "1";
                 }
                 else if (deno == -1) {
                     vamoaver1.innerHTML = "-1";
+                    valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= -1";
                     //valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "-1";
                 }
                 else {
                     if (deno < 0) {
-                        vamoaver1.innerHTML =deno.toString();
-                      //  valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + deno.toString();
+                        vamoaver1.innerHTML = deno.toString();
+                        valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + deno.toString();
+                        //  valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + deno.toString();
 
                     } else {
                         vamoaver1.innerHTML = deno.toString();
+                        valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + deno.toString();
                         //valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + deno.toString();
                     }
 
@@ -440,7 +450,8 @@
             }
             else {
                 vamoaver1.innerHTML = "";
-               // valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= 0";
+                valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= 0";
+                // valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= 0";
             }
 
         }
@@ -454,6 +465,12 @@
                 var jjj = document.getElementById("je");
                 jj.value = Math.abs(fraccionuno.value);
                 jjj.value = Math.abs(fraccionunode.value);
+
+                valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='valpo' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valso' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
+                var varpo = document.getElementById("valpo");
+                var varpofa = document.getElementById("valso");
+                varpo.value = Math.abs(fraccionuno.value);
+                varpofa.value = Math.abs(fraccionunode.value);
               //  valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "<a>-</a><div class='fraction'><span class='fup' ><i><input id='vv' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '   readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='vva' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' readonly> </input></i></span></div>";
                // var vv = document.getElementById("vv");
                 //var vva = document.getElementById("vva");
@@ -473,6 +490,13 @@
                 //var vvaj = document.getElementById("vva");
                 //vvj.value = fracciondem.value;
                 //vvaj.value = fracciondem1.value;
+                valorposicion
+                      .innerHTML =
+                      "x(0)=" + "x<sub>0</sub>= " + "<div class='fraction'><span class='fup' ><i><input id='valpo1' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valjo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
+                var varposi = document.getElementById("valpo1");
+                var varposix = document.getElementById("valjo");
+                varposi.value = fraccionuno.value;
+                varposix.value = fraccionunode.value;
             }
 
 
@@ -552,15 +576,19 @@
             if (nominatre != 0) {
                 if (nominatre == 1) {
                     vamoaver3.innerHTML = "+t";
+                    valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= 1";
 
                 }
                 else if (nominatre == -1) {
                     vamoaver3.innerHTML = "-t";
+                    valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= -1";
                 } else {
                     if (nominatre < 0) {
                         vamoaver3.innerHTML = nominatre.toString() + "t";
+                        valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= "+nominatre.toString();
                     } else {
                         vamoaver3.innerHTML = "+" + nominatre.toString() + "t";
+                        valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + nominatre.toString();
                     }
 
 
@@ -574,6 +602,7 @@
             else {
                 vamoaver3.innerHTML = "";
                 // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= 0";
+                valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= 0";
             }
 
         } else {
@@ -585,6 +614,12 @@
                 var ioo = document.getElementById("sooo");
                 ioo.value = Math.abs(fracciontresde.value);
                 qii.value = Math.abs(fracciontres.value);
+
+                valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "<a>-</a><div class='fraction'><span class='fup' ><i><input id='vv' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '   readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='vva' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' readonly> </input></i></span></div>";
+                var vv = document.getElementById("vv");
+                var vva = document.getElementById("vva");
+                vv.value = Math.abs(fracciontres.value);
+                vva.value = Math.abs(fracciontresde.value);
 
                 // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='valpo' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valso' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
                 //var varpo = document.getElementById("valpo");
@@ -600,6 +635,12 @@
                 var jooo = document.getElementById("jooo");
                 jiii.value = fracciontres.value;
                 jooo.value = fracciontresde.value;
+
+                valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "<div class='fraction'><span class='fup' ><i><input id='vv' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='vva' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
+                var vvj = document.getElementById("vv");
+                var vvaj = document.getElementById("vva");
+                vvj.value = fracciontres.value;
+                vvaj.value = fracciontresde.value;
                 // valorposicion
                 // .innerHTML =
                 //  "x(0)=" + "x<sub>0</sub>= " + "<div class='fraction'><span class='fup' ><i><input id='valpo1' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valjo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
@@ -622,6 +663,7 @@
         quadraticFunction.b = parseFloat(nominatre);
         linearFunction = quadraticFunction.derivate();
         updateAll();
+        }
     }
 
 
@@ -656,40 +698,93 @@
 
         }
     }*/
-
-    function Start()
-    {
+    function Start() {
         startButton.disabled = true;
+        final = parseFloat(quadraticFunction.b) + parseFloat(quadraticFunction.a * parseInt(document.getElementsByName("endTime")[0].value));
+        //  alert(final);
+
+        if (parseInt(document.getElementsByName("endTime")[0].value) < 0) {
+            lado = false;
+            // alert(parseInt(document.getElementsByName("endTime")[0].value));
+        } else if (parseInt(document.getElementsByName("endTime")[0].value) > 0) {
+            lado = true;
+            //alert(parseInt(document.getElementsByName("endTime")[0].value));
+        }
         currentTime = parseInt(document.getElementsByName("startTime")[0].value);
+
         interval = window.setInterval(Step, timeInterval);
         guidingLine = quadraticBoard.create('line',
-            [[currentTime, minY], [currentTime, maxY]],
-            { straightFirst: false, straightLast: false, strokeWidth: 2 });
+            [[currentTime, 60], [currentTime, -60]],
+            { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#8f918f' });
+        guidingLine2 = linearBoard.create('line',
+            [[currentTime, 60], [currentTime, -60]],
+            { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#8f918f' });
+
+
     }
 
-    function Step()
-    {
-        currentTime += timeInterval / 1000;
-        
-        if (currentTime >= parseInt(document.getElementsByName("endTime")[0].value))
-        {
-            clearInterval(interval);
-            quadraticBoard.removeObject(guidingLine);
-            startButton.disabled = false;
-        }
-        else
-        {
-            value = quadraticFunction.evaluate(currentTime);
-            slider.setValue(value);
-            sliderBox.update();
+    function Step() {
 
-            quadraticBoard.removeObject(guidingLine);
-            guidingLine = quadraticBoard.create('line',
-                [[currentTime, minY], [currentTime, maxY]],
-                { straightFirst: false, straightLast: false, strokeWidth: 2 });
+        if (lado == true) {
+            currentTime += timeInterval / 10000;
+            if (currentTime >= parseInt(document.getElementsByName("endTime")[0].value)) {
+                clearInterval(interval);
+                quadraticBoard.removeObject(guidingLine);
+                linearBoard.removeObject(guidingLine2);
+                startButton.disabled = false;
+                //sliderBox.update();
+            }
+            else {
+                value = quadraticFunction.evaluate(currentTime);
+                slider.setValue(value);
+                sliderBox.update();
+                quadraticBoard.removeObject(guidingLine);
+                linearBoard.removeObject(guidingLine2);
+                guidingLine = quadraticBoard.create('line',
+                    [[currentTime, 60], [currentTime, -60]],
+                    { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 3, strokeColor: '#cecece' });
+                guidingLine2 = linearBoard.create('line',
+                [[currentTime, 60], [currentTime, -60]],
+                { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 3, strokeColor: '#cecece' });
+            }
 
+        } else if (!lado) {
+            currentTime -= timeInterval / 10000;
+            if (currentTime <= parseInt(document.getElementsByName("endTime")[0].value)) {
+                clearInterval(interval);
+                quadraticBoard.removeObject(guidingLine);
+                linearBoard.removeObject(guidingLine2);
+                startButton.disabled = false;
+            } else {
+                value = quadraticFunction.evaluate(currentTime);
+                slider.setValue(value);
+                sliderBox.update();
+                quadraticBoard.removeObject(guidingLine);
+                linearBoard.removeObject(guidingLine2);
+                guidingLine = quadraticBoard.create('line',
+                    [[currentTime, 60], [currentTime, -60]],
+                    {
+                        straightFirst: false,
+                        straightLast: false,
+                        strokeWidth: 2,
+                        dash: 3,
+                        strokeColor: '#cecece'
+                    });
+                guidingLine2 = linearBoard.create('line',
+                    [[currentTime, 60], [currentTime, -60]],
+                    {
+                        straightFirst: false,
+                        straightLast: false,
+                        strokeWidth: 2,
+                        dash: 3,
+                        strokeColor: '#cecece'
+                    });
+            }
         }
+
+
     }
+  
 
     var quadraticFunction = new QuadraticFunction(0.5, 0, 0);
     var linearFunction = new LinearFunction(1, 0);
@@ -835,6 +930,7 @@
     }
 
     function updateAll() {
+        updateFromNumberfraction();
         updateGraphs();
        // updateFields();
       //  updateText();
@@ -863,6 +959,7 @@
     }*/
 
     function updateGraphs() {
+
         quadraticBoard.suspendUpdate();
         linearBoard.suspendUpdate();
         quadraticPoint.moveTo(SnapToGrid(0, quadraticFunction.c));
@@ -870,8 +967,9 @@
         linearSlopePoint.moveTo(SnapToGrid(1, linearFunction.evaluate(1)));
         quadraticBoard.unsuspendUpdate();
         linearBoard.unsuspendUpdate();
+        
     }
-
+    updateFromNumberfraction();
     updateFunctionFromGraph();
     quadraticBoard.on('update', updateFunctionFromGraph);
     linearBoard.on('update', updateFunctionFromGraph);
