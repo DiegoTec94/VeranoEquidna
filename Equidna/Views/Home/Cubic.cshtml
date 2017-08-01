@@ -242,7 +242,7 @@
                                 <td colspan="2" class="text-center" style="background-color:#17aa56">Valores Iniciales</td>
                             </tr>
                             <tr>
-                                <td class="col-xs-6"><input type="text" id="tiempo" class="form-control" style="text-align: center" value="t=0" readonly /></td>
+                                <td class="col-xs-6"><input type="text" id="tiempo2" class="form-control" style="text-align: center" value="t=0" readonly /></td>
                                 <td class="col-xs-6">
                                     <i id="velocidad" style="font-size: 18px">
 
@@ -473,6 +473,7 @@
 			var buttons7Click = Array.prototype.slice.call( document.querySelectorAll( '#btn-click button' ) ),
 				buttons9Click = Array.prototype.slice.call( document.querySelectorAll( 'button.btn-8g' ) ),
 				totalButtons7Click = buttons7Click.length,
+                classie,
 				totalButtons9Click = buttons9Click.length;
 
 			buttons7Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
@@ -608,29 +609,27 @@
             var nomi = parseFloat(fracciondos.value / fracciondosde.value);
             var nominatre = parseFloat(fracciontres.value / fracciontresde.value);
 
-            //uno
             if (deno - Math.floor(deno) === 0) {
                 if (deno != 0) {
                     if (deno == 1) {
                         vamoaver1.innerHTML = "1";
                         valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= 1";
-                        //  valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "1";
+                       
                     }
                     else if (deno == -1) {
                         vamoaver1.innerHTML = "-1";
                         valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= -1";
-                        //valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "-1";
-                    }
+                        }
                     else {
                         if (deno < 0) {
                             vamoaver1.innerHTML = deno.toString();
                             valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + deno.toString();
-                            //  valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + deno.toString();
+                          
 
                         } else {
                             vamoaver1.innerHTML = deno.toString();
                             valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + deno.toString();
-                            //valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + deno.toString();
+                         
                         }
 
                     }
@@ -640,7 +639,7 @@
                 else {
                     vamoaver1.innerHTML = "";
                     valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= 0";
-                    // valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= 0";
+                    
                 }
 
             }
@@ -660,12 +659,6 @@
                     var varpofa = document.getElementById("valso");
                     varpo.value = Math.abs(fraccionuno.value);
                     varpofa.value = Math.abs(fraccionunode.value);
-                    //  valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "<a>-</a><div class='fraction'><span class='fup' ><i><input id='vv' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '   readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='vva' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' readonly> </input></i></span></div>";
-                    // var vv = document.getElementById("vv");
-                    //var vva = document.getElementById("vva");
-                    // vv.value = Math.abs(fracciondem.value);
-                    //vva.value = Math.abs(fracciondem1.value);
-
                 } else {
                     vamoaver1
            .innerHTML =
@@ -674,11 +667,6 @@
                     var je = document.getElementById("je");
                     ju.value = fraccionuno.value;
                     je.value = fraccionunode.value;
-                    //  valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "<div class='fraction'><span class='fup' ><i><input id='vv' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='vva' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
-                    // var vvj = document.getElementById("vv");
-                    //var vvaj = document.getElementById("vva");
-                    //vvj.value = fracciondem.value;
-                    //vvaj.value = fracciondem1.value;
                     valorposicion
                           .innerHTML =
                           "x(0)=" + "x<sub>0</sub>= " + "<div class='fraction'><span class='fup' ><i><input id='valpo1' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valjo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
@@ -691,9 +679,6 @@
 
             }
 
-
-
-            //dos
             if (nomi - Math.floor(nomi) === 0) {
                 if (nomi != 0) {
                     if (nomi == 1) {
@@ -712,13 +697,11 @@
                             vamoaver2.innerHTML = "+"+nomi.toString() + "t<sup>2</sup>";
                         }
                     }
-                    // vamoaver2.innerHTML = nomi.toString();
-                    // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + nomi.toString();
+
                 }
 
                 else {
                     vamoaver2.innerHTML = "";
-                    // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= 0";
                 }
 
             }
@@ -731,12 +714,6 @@
                     var io = document.getElementById("so");
                     io.value = Math.abs(fracciondosde.value);
                     qi.value = Math.abs(fracciondos.value);
-
-                    // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='valpo' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valso' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
-                    //var varpo = document.getElementById("valpo");
-                    //var varpofa = document.getElementById("valso");
-                    // varpo.value = Math.abs(fraccionnom1.value);
-                    // varpofa.value = Math.abs(fraccionnom.value);
                 }
                 else {
                     vamoaver2
@@ -746,20 +723,11 @@
                     var jo = document.getElementById("jo");
                     ji.value = fracciondos.value;
                     jo.value = fracciondosde.value;
-                    // valorposicion
-                    // .innerHTML =
-                    //  "x(0)=" + "x<sub>0</sub>= " + "<div class='fraction'><span class='fup' ><i><input id='valpo1' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valjo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
-                    //  var varposi = document.getElementById("valpo1");
-                    //    var varposix = document.getElementById("valjo");
-                    //  varposi.value = fraccionnom.value;
-                    //    varposix.value = fraccionnom1.value;
+
                 }
 
 
             }
-
-
-            //tres
 
             if (nomido - Math.floor(nomido) === 0) {
                 if (nomido != 0) {
@@ -779,18 +747,14 @@
                             vamoaver3.innerHTML = "+" + nomido.toString() + "t";
                             valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + nomido.toString();
                         }
-
-
                     }
-                    // vamoaver2.innerHTML = nomi.toString();
-                    // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + nomi.toString();
                 }
 
 
 
                 else {
                     vamoaver3.innerHTML = "";
-                    // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= 0";
+               
                     valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= 0";
                 }
 
@@ -809,12 +773,6 @@
                     var vva = document.getElementById("vva");
                     vv.value = Math.abs(fracciondosantes.value);
                     vva.value = Math.abs(fracciondosdeantes.value);
-
-                    // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='valpo' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valso' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
-                    //var varpo = document.getElementById("valpo");
-                    //var varpofa = document.getElementById("valso");
-                    // varpo.value = Math.abs(fraccionnom1.value);
-                    // varpofa.value = Math.abs(fraccionnom.value);
                 }
                 else {
                     vamoaver3
@@ -830,13 +788,7 @@
                     var vvaj = document.getElementById("vva");
                     vvj.value = fracciondosantes.value;
                     vvaj.value = fracciondosdeantes.value;
-                    // valorposicion
-                    // .innerHTML =
-                    //  "x(0)=" + "x<sub>0</sub>= " + "<div class='fraction'><span class='fup' ><i><input id='valpo1' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valjo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
-                    //  var varposi = document.getElementById("valpo1");
-                    //    var varposix = document.getElementById("valjo");
-                    //  varposi.value = fraccionnom.value;
-                    //    varposix.value = fraccionnom1.value;
+
                 }
 
 
@@ -859,13 +811,11 @@
                             vamoaver4.innerHTML = "+" + nominatre.toString() + "t<sup>3</sup>";
                         }
                     }
-                    // vamoaver2.innerHTML = nomi.toString();
-                    // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + nomi.toString();
+
                 }
 
                 else {
                     vamoaver4.innerHTML = "";
-                    // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= 0";
                 }
 
             }
@@ -878,12 +828,6 @@
                     var iosu = document.getElementById("sosu");
                     iosu.value = Math.abs(fracciontresde.value);
                     qisu.value = Math.abs(fracciontres.value);
-
-                    // valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='valpo' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valso' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
-                    //var varpo = document.getElementById("valpo");
-                    //var varpofa = document.getElementById("valso");
-                    // varpo.value = Math.abs(fraccionnom1.value);
-                    // varpofa.value = Math.abs(fraccionnom.value);
                 }
                 else {
                     vamoaver4
@@ -893,25 +837,10 @@
                     var josu = document.getElementById("josu");
                     jisu.value = fracciontres.value;
                     josu.value = fracciontresde.value;
-                    // valorposicion
-                    // .innerHTML =
-                    //  "x(0)=" + "x<sub>0</sub>= " + "<div class='fraction'><span class='fup' ><i><input id='valpo1' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valjo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
-                    //  var varposi = document.getElementById("valpo1");
-                    //    var varposix = document.getElementById("valjo");
-                    //  varposi.value = fraccionnom.value;
-                    //    varposix.value = fraccionnom1.value;
                 }
 
 
             }
-
-            //  velocityFunction.a = parseFloat(deno);
-            // positionFunction = velocityFunction.integrate(nomi);
-            // updateFunction();
-
-
-            //var axisX = -velocityFunction.b / (2 * velocityFunction.a);
-            //var axisY = velocityFunction.evaluate(axisX);
 
 
             var axisX = float(-nomi (2 * nominatre ));
@@ -1023,11 +952,6 @@
         }
 
 
-
-        //
-
-      
-
         function SnapToGrid(x, y) {
             return [Math.round(x * 100) / 100, Math.round(y * 100) / 100]
         }
@@ -1100,7 +1024,7 @@
                 eps: 0.1
             }
         });
-
+   
         velocityBoard.create('text', [-0.3, 8.3, "v"], { fontSize: 20 });
         velocityBoard.create('text', [8.5, -0.5, "t"], { fontSize: 20 });
 
@@ -1131,9 +1055,6 @@
         var volt = '@Url.Content("~/Content/images/volte.gif")';
         var inverso = '@Url.Content("~/Content/images/nuevoinver.gif")';
 
-
-
-        // var slider = sliderBox.create('slider', [urlImg,[1,1],[1,1] ]);
         var slider = sliderBox.create('slider', [[-50, 0], [50, 0], [-50, 0, 50]], { size: 3, opacity: 0.5, ticks: { drawLabels: false, highlight: true } });
         var im = sliderBox.create('image',
         [
@@ -1251,33 +1172,14 @@
             velocityFunction.a = (n - c - m * velocityFunction.b) / (m * m);
             positionFunction = velocityFunction.integrate(cubicIntPoint.Y());
 
-           // updatenumbertext();
-           // updateTable();
             updateUI();
         }
-        //Update number
-      /*  function updatenumbertext() {
-            numberField.value = Math.round(positionFunction.a * 100) / 100;
-            numberField1.value = Math.round(positionFunction.b * 100) / 100;
-            numberField2.value = Math.round(velocityFunction.c * 100) / 100;
-            numberField3.value = Math.round(positionFunction.d * 100) / 100;
-        }*/
-        //Update table
-       /* function updateTable() {
 
-            numtable.value = Math.round(quadraticIntPoint.Y() * 100) / 100;
-            numtable2.value = Math.round(quadraticAxisPoint.X() * 100) / 100;
-            numtable3.value = Math.round(quadraticAxisPoint.Y() * 100) / 100;
-            numtable4.value = Math.round(quadraticSlopePoint.X() * 100) / 100;
-            numtable5.value = Math.round(quadraticSlopePoint.Y() * 100) / 100;
-            numtable6.value = Math.round(cubicIntPoint.Y() * 100) / 100;
-
-        }*/
 
         //  Update UI
         function updateUI() {
             updateGraph();
-           // FormulaDiv.innerHTML = positionFunction.ToString();
+           
         }
 
         function updateGraph() {

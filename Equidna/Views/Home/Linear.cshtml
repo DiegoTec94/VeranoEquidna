@@ -8,7 +8,7 @@
          <h1>Modelo lineal</h1>
      </div>
 
-         <div class="eq-c stec" align="center" data-toggle="validator">
+         <div class="eq-c stec" align="left" data-toggle="validator">
              <i>x</i>(t) =
              <div class="fraction">
                  <span class="fup" id="nuevo"><i><input id="nom1" type="number" min="-99" max="99" style="text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; " value="0" onchange="updateFromNumberfraction();" /> </i></span>
@@ -32,16 +32,8 @@
          </div>
 
 
- <!--<div><h1 id="FormulaDisplayDiv" style="text-align: center"></h1></div>
-<div class="col-xs-12" align="center">
-    <input id="number2"  type="number" step="0.01" style="text-align: center" onchange="updateFromNumber();" />
-    <input id="number" type="number" step="0.01"  style="text-align: center" onchange="updateFromNumber();" />
-</div>-->
-
 <div class="row" align="center">
-   <!--<img src="@Url.Content("~/Content/images/frente.png")"alt="IMAGES" />
-    <img src="@ViewBag.Imagen" alt="IMAGES"/>
-       --> 
+ 
     <section class="color-7" id="btn-click">
         <div class="col-xs-12 ">
         <div id="sliderBox" class="jxgbox " style='width:100% ;height:200px;user-select: none; overflow: hidden; position: relative;'></div>
@@ -181,83 +173,7 @@
         </div>
     </div>
     
-  <!--<div class="tbl-header col-xs-4" >
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-md-1 column">
-                    <table cellpadding="0" cellspacing="0" border="0" id="tab_logic">
-                        <thead>
-                        <tr>
-
-                            <th class="text-center" style="color: red">
-                                Tiempo
-                            </th>
-                            <th class="text-center" style="color: blue">
-                                Posición
-                            </th>
-
-
-                        </tr>
-                        </thead>
-                        
-                            <tbody class="tbl-content">
-                                <tr id='addr0'>
-
-                                    <td>
-                                        <input type="number" id="x2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
-                                    </td>
-                                    <td>
-                                        <input type="number" id="y1" step="0.01" name='mail0' style="text-align: center" class="form-control" />
-                                    </td>
-
-                                </tr>
-                                <tr id='addr0'>
-
-                                    <td>
-                                        <input type="number" id="x2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
-                                    </td>
-                                    <td>
-                                        <input type="number" id="y1" step="0.01" name='mail0' style="text-align: center" class="form-control" />
-                                    </td>
-
-                                </tr>
-                                <tr id='addr0'>
-
-                                    <td>
-                                        <input type="number" id="x2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
-                                    </td>
-                                    <td>
-                                        <input type="number" id="y1" step="0.01" name='mail0' style="text-align: center" class="form-control" />
-                                    </td>
-
-                                </tr>
-                                <tr id='addr0'>
-
-                                    <td>
-                                        <input type="number" id="x2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
-                                    </td>
-                                    <td>
-                                        <input type="number" id="y1" step="0.01" name='mail0' style="text-align: center" class="form-control" />
-                                    </td>
-
-                                </tr>
-                                <tr id='addr0'>
-
-                                    <td>
-                                        <input type="number" id="x2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
-                                    </td>
-                                    <td>
-                                        <input type="number" id="y1" step="0.01" name='mail0' style="text-align: center" class="form-control" />
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                      
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>-->  
+ 
 </div>
 
 <div class="row">
@@ -277,7 +193,7 @@
                             <td colspan="2" class="text-center" style="background-color:#17aa56">Valores Iniciales</td>
                         </tr>
                     <tr>
-                        <td class="col-xs-6"> <input type="text" id="tiempo" class="form-control" style="text-align: center" value="t=0" readonly /></td>
+                        <td class="col-xs-6"> <input type="text" id="tiempo2" class="form-control" style="text-align: center" value="t=0" readonly /></td>
                         <td class="col-xs-6">
                             <i id="posicion11" style="font-size: 18px">
 
@@ -385,43 +301,7 @@
 
 
 
-    <!--<div class="col-xs-4">
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-md-2 column">
-                    <table class="table table-bordered table-hover" id="tab_logic">
-                        <thead>
-                            <tr>
-
-                                <th class="text-center" style="color: red">
-                                    Tiempo
-                                </th>
-                                <th class="text-center" style="color: blue">
-                                    Posición
-                                </th>
-
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr id='addr0'>
-
-                                <td>
-                                    <input type="number" id="x1" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                                </td>
-                                <td>
-                                    <input type="number" id="y2" step="0.01" name='mail0' style="text-align: center" class="form-control" readonly />
-                                </td>
-
-                            </tr>
-                            <tr id='addr1'></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-    </div>-->
+  
 </div>
    
 
@@ -429,7 +309,7 @@
 			var buttons7Click = Array.prototype.slice.call( document.querySelectorAll( '#btn-click button' ) ),
 				buttons9Click = Array.prototype.slice.call( document.querySelectorAll( 'button.btn-8g' ) ),
 				totalButtons7Click = buttons7Click.length,
-				totalButtons9Click = buttons9Click.length;
+				totalButtons9Click = buttons9Click.length,classie;
 
 			buttons7Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
 			buttons9Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
@@ -456,9 +336,6 @@
 			
 			
 </script>
-
-
-
 
         <script type='text/javascript'>
 
@@ -671,35 +548,7 @@
                 updateFunction();
             }
 
-        /*    function updateFromNumber() {
-                //if (firstUpdate) {
-                //    firstUpdate = false;
-
-                velocityFunction.a = parseFloat(numberField2.value);
-                    //positionFunction.a = parseFloat(numberField2.value);
-              //  positionFunction.b = parseFloat(numberField.value);
-                positionFunction = velocityFunction.integrate(numberField.value);
-                 //velocityFunction = positionFunction.derivate();
-                updateFunction();
-               // }
-            }
-
-            function updateFromTable() {
-                if (firstUpdate) {
-                    firstUpdate = false;
-                    xxx = parseFloat(tablax1.value);
-                    updateFunction();
-                }
-
-            }
-            function updateFromXY() {
-                if (firstUpdate) {
-                    firstUpdate = false;
-
-                    updateFunction();
-                }
-
-            }*/
+      
 
             function Start() {
                 startButton.disabled = true;
@@ -874,7 +723,7 @@
                     wheel: true,
                     needshift: true,
                     eps: 0.1
-                },
+                }
 
             });
 
@@ -888,7 +737,7 @@
 
 
 
-            // var slider = sliderBox.create('slider', [urlImg,[1,1],[1,1] ]);
+         
             var slider = sliderBox.create('slider', [[-50, 0], [50, 0], [-50, 0, 50]], {size:3, opacity:0.5, ticks: { drawLabels: false, highlight:true} });
             var im = sliderBox.create('image',
             [
@@ -914,9 +763,7 @@
                 },
                 [function () { return slider.X() - 0.55; }, function () { return slider.Y(); }], [1, 0.01]
 
-            ]);// [frente, [function () { return slider.X(); }, function () { return slider.Y(); }], [5, 5]]);
-            // var im = sliderBox.create('image', [], [function() { return slider.X(); }], [1, 1]]);
-
+            ]);
             velocityBoard.highlightInfobox = function (x, y, el) {
                 velocityBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
             };
@@ -945,9 +792,6 @@
                 'drag',
                 function () {
                     linearPoint.moveTo([0, linearPoint.Y()]);
-                    
-                  
-
                 }
             );
 
@@ -976,25 +820,15 @@
                 positionBoard.removeObject(pintarPuntos);
                 positionBoard.removeObject(pintarotrosPuntos);
 
-                //velocityBoard.removeObject(pintarPuntos);
-                //velocityBoard.removeObject(pintarotrosPuntos);
-                //form
-
-
-                //input
+              
                 updatenumerfield();
-                //table
-                // updatetablenum();
-                //text html
+               
                 updateformhtml();
                 visua = false;
-                //positionBoard.update();
-                //velocityBoard.update();
+              
                 updateform2();
                 updateform();
-                //form2
-
-               // updateFromNumberfraction();
+              
                 checar();
 
                 positionBoard.update();
@@ -1020,41 +854,7 @@
 
 
 
-               // updateFromNumberfraction();
-
-
-            /*
-            //intento de fracciones
-          var numerador;
-            var denominador = 100;
-            numerador =.25 * 100;
-
-            function Simplificar() {
-                var m = mcd(this.numerador, this.denominador);
-                this.numerador /= m;
-                this.denominador /= m;
-            }
-
-            function mcd(a, b) {
-                var r = a % b;
-                if (r == 0) {
-                    return b;
-                }
-                else {
-                    return mcd(b, r);
-                }
-            }
-            alert(b + ' ' + r);
-
-            //fin de intento
-            */
-
-            /* function updatetablenum() {
-                 numtable.value = velocityFunction.a;
-                 numtable2.value = positionFunction.b;
-                 numtable.value = Math.round(numtable.value * 100) / 100;
-                 numtable2.value = Math.round(numtable2.value * 100) / 100;
-             }*/
+            
             function updateform(parameters) {
 
                 if (tablay1.value.length == 0) {
@@ -1066,11 +866,8 @@
                     tablafhy1.innerHTML = otronum.toString();
                     pintarPuntos = positionBoard.create('point', [tablax1.value, otronum], { size: 2, name: "", color: "Red", trace: true });
                     check = true;
-                    //velocityBoard.addChild(positionBoard);
 
                 }
-
-
 
             }
             function updateform2(parameters) {
@@ -1083,7 +880,7 @@
                     otro2 = ((parseFloat(tablay1.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
                     tablafhx1.innerHTML = otro2.toString();
                     pintarotrosPuntos = positionBoard.create('point', [otro2, tablay1.value], { size: 2, name: "", color: "Red", trace: true });
-                    //velocityBoard.addChild(positionBoard);
+                   
                     check = true;
                 }
                 if (tablay2.value.length == 0) {
@@ -1094,7 +891,7 @@
                     otro3 = ((parseFloat(tablay2.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
                     tablafhx2.innerHTML = otro3.toString();
                     pintarotrosPuntos = positionBoard.create('point', [otro3, tablay2.value], { size: 2, name: "", color: "Red", trace: true });
-                    //velocityBoard.addChild(positionBoard);
+                  
                     check = true;
                 }
                 if (tablay3.value.length == 0) {
@@ -1105,7 +902,7 @@
                     otro4 = ((parseFloat(tablay3.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
                     tablafhx3.innerHTML = otro4.toString();
                     pintarotrosPuntos = positionBoard.create('point', [otro4, tablay3.value], { size: 2, name: "", color: "Red", trace: true });
-                    //velocityBoard.addChild(positionBoard);
+                  
                     check = true;
                 }
                 if (tablay4.value.length == 0) {
@@ -1116,7 +913,7 @@
                     otro5 = ((parseFloat(tablay4.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
                     tablafhx4.innerHTML = otro5.toString();
                     pintarotrosPuntos = positionBoard.create('point', [otro5, tablay4.value], { size: 2, name: "", color: "Red", trace: true });
-                    //velocityBoard.addChild(positionBoard);
+                  
                     check = true;
                 }
                 if (tablay5.value.length == 0) {
@@ -1127,7 +924,7 @@
                     otro6 = ((parseFloat(tablay5.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
                     tablafhx5.innerHTML = otro6.toString();
                     pintarotrosPuntos = positionBoard.create('point', [otro6, tablay5.value], { size: 2, name: "", color: "Red", trace: true });
-                    //velocityBoard.addChild(positionBoard);
+                 
                     check = true;
                 }
                 if (tablay6.value.length == 0) {
@@ -1138,7 +935,7 @@
                     otro7 = ((parseFloat(tablay6.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
                     tablafhx6.innerHTML = otro7.toString();
                     pintarotrosPuntos = positionBoard.create('point', [otro7, tablay6.value], { size: 2, name: "", color: "Red", trace: true });
-                    //velocityBoard.addChild(positionBoard);
+                   
                     check = true;
                 }
                 if (tablay7.value.length == 0) {
@@ -1149,7 +946,7 @@
                     otro8 = ((parseFloat(tablay7.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
                     tablafhx7.innerHTML = otro8.toString();
                     pintarotrosPuntos = positionBoard.create('point', [otro8, tablay7.value], { size: 2, name: "", color: "Red", trace: true });
-                    //velocityBoard.addChild(positionBoard);
+                  
                     check = true;
                 }
                 if (tablay8.value.length == 0) {
@@ -1160,7 +957,7 @@
                     otro9 = ((parseFloat(tablay8.value) - parseFloat(numberField.value)) / parseFloat(numberField2.value));
                     tablafhx8.innerHTML = otro9.toString();
                     pintarotrosPuntos = positionBoard.create('point', [otro9, tablay8.value], { size: 2, name: "", color: "Red", trace: true });
-                    //velocityBoard.addChild(positionBoard);
+                  
                     check = true;
                 }
 
@@ -1173,10 +970,7 @@
                     pintarPuntos.setAttribute({ visible: false });
                     pintarotrosPuntos.setAttribute({ visible: false });
                 }
-                // board.clearTraces(pintarPuntos);
-
-                // tablax1.value = " ";
-                //tablay1.value = " ";
+             
 
 
             }
@@ -1201,7 +995,7 @@
                velocityBoard.suspendUpdate();
                 constantPoint.moveTo(SnapToGrid(0, velocityFunction.a));
                 linearPoint.moveTo(SnapToGrid(0, positionFunction.b));
-               // linearSlopePoint.moveTo(SnapToGrid(1, linearFunction.evaluate(1)));
+              
                 positionBoard.unsuspendUpdate();
                 velocityBoard.unsuspendUpdate();
              
@@ -1212,12 +1006,5 @@
             updateFunction();
             velocityBoard.on('update', updateFunction);
             positionBoard.on('update', updateFunction);
-
-            // positionBoard.on('update', checar);
-            //velocityBoard.on('update', checar);
-            // linearPoint.on('update', updateFunction);
-            //constantPoint.on('update', updateFunction);
-            // linearPoint.on('drag', updateFunction);
-            //constantPoint.on('drag', updateFunction);
 
         </script>
