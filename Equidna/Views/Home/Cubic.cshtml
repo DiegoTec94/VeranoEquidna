@@ -1033,6 +1033,23 @@
         }
 
         var FormulaDiv = document.getElementById("FormulaDisplayDiv");
+        JXG.Options.axis.ticks.majorHeight = 40;
+        JXG.Options.axis.ticks.minorHeight = 15;
+        JXG.Options.axis.ticks.minorTicks = 5;
+        JXG.Options.axis.ticks.strokeOpacity = 0.40;
+        JXG.Options.axis.ticks.ticksDistance = 1;
+        JXG.Options.axis.ticks.insertTicks = false;
+        JXG.Options.axis.ticks.strokeColor = '#666666';
+        JXG.Options.axis.ticks.label.offset = [-12 + 3, 4];
+        JXG.Options.axis.ticks.label.layer = 9;
+        JXG.Options.axis.margin = -4;
+        JXG.Options.axis.ticks.tickEndings = [0, 1];
+        JXG.Options.axis.ticks.highlightStrokeColor = '#888888';
+        JXG.Options.axis.highlightStrokeColor = '#2c64b2';
+        JXG.Options.axis.strokeColor = '#2c64b2';
+        JXG.Options.axis.strokeWidth = .8;
+        JXG.Options.axis.ticks.strokeWidth = 1;
+        JXG.Options.axis.highlightStrokeWidth = 1;
 
         var positionBoard = JXG.JSXGraph.initBoard('PositionBoard', {
             boundingbox: [minX, maxY, maxX, minY], axis: true,
@@ -1051,6 +1068,23 @@
 
         positionBoard.create('text', [-0.3, 8.3, "x"], { fontSize: 20 });
         positionBoard.create('text', [8.5, -0.5, "t"], { fontSize: 20 });
+        JXG.Options.axis.ticks.majorHeight = 40;
+        JXG.Options.axis.ticks.minorHeight = 15;
+        JXG.Options.axis.ticks.minorTicks = 5;
+        JXG.Options.axis.ticks.strokeOpacity = 0.40;
+        JXG.Options.axis.ticks.ticksDistance = 1;
+        JXG.Options.axis.ticks.insertTicks = false;
+        JXG.Options.axis.ticks.strokeColor = '#666666';
+        JXG.Options.axis.ticks.label.offset = [-12 + 3, 4];
+        JXG.Options.axis.ticks.label.layer = 9;
+        JXG.Options.axis.margin = -4;
+        JXG.Options.axis.ticks.tickEndings = [0, 1];
+        JXG.Options.axis.ticks.highlightStrokeColor = '#888888';
+        JXG.Options.axis.highlightStrokeColor = '#2c64b2';
+        JXG.Options.axis.strokeColor = '#2c64b2';
+        JXG.Options.axis.strokeWidth = .8;
+        JXG.Options.axis.ticks.strokeWidth = 1;
+        JXG.Options.axis.highlightStrokeWidth = 1;
 
         var velocityBoard = JXG.JSXGraph.initBoard('VelocityBoard', {
             boundingbox: [minX, maxY, maxX, minY], axis: true,
@@ -1070,15 +1104,27 @@
         velocityBoard.create('text', [-0.3, 8.3, "v"], { fontSize: 20 });
         velocityBoard.create('text', [8.5, -0.5, "t"], { fontSize: 20 });
 
+        JXG.Options.axis.ticks.minorHeight = 8;
+        JXG.Options.axis.ticks.minorTicks = 5;
+        JXG.Options.axis.ticks.majorHeight = 20;
+        JXG.Options.axis.ticks.insertTicks = false;
+        JXG.Options.axis.ticks.ticksDistance = 1;
+        JXG.Options.axis.ticks.strokeWidth = 2.5;
+        JXG.Options.axis.ticks.tickEndings = [0, 2];
+
         var sliderBox = JXG.JSXGraph.initBoard('sliderBox', {
-            boundingbox: [-2, 1, 9, -1], axis: true, grid: true, shownavigation: true, keepAspectRatio: true, showClearTraces: true, keepaspectratio: false, zoom: {
+            boundingbox: [-2, -0.01, 9, 0.01], axis: true, grid: true, shownavigation: true, keepAspectRatio: true, showClearTraces: true, keepaspectratio: false, zoom: {
                 factorX: 1.25,
                 factorY: 1.25,
                 wheel: true,
                 needshift: true,
                 eps: 0.1
-            }
+            },
+
         });
+
+
+      
         var frente = '@Url.Content("~/Content/images/nuevogif.gif")';
 
         var camina = '@Url.Content("~/Content/images/nuevocam.gif")';
@@ -1111,7 +1157,7 @@
 
 
             },
-            [function () { return slider.X() - 0.55; }, function () { return slider.Y(); }], [1, 1]
+            [function () { return slider.X() - 0.55; }, function () { return slider.Y(); }], [1, 0.01]
 
         ]);
 
