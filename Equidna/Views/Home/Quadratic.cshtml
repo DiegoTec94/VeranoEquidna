@@ -1,6 +1,10 @@
 ﻿@{
     ViewBag.Title = "Modelo cuadrático (Sin decimales)";
 }
+
+<div id="vamosachecar">
+    
+</div>
 <div class="col-xs-4">
     <h1>Modelo cuadrático</h1>
 </div>
@@ -373,7 +377,7 @@
     var vamoaver3 = document.getElementById("vamoaver3");
     var valorvelocidad = document.getElementById("velocidad");
     var valorposicion = document.getElementById("posicion11");
-
+    var headk = document.getElementById("vamosachecar");
     var final;
 
     var lado = true;
@@ -508,19 +512,19 @@
         if (nomi - Math.floor(nomi) === 0) {
             if (nomi != 0) {
                 if (nomi == 1) {
-                    vamoaver2.innerHTML = "+t<sup>2</sup>";
+                    vamoaver2.innerHTML = "+ t<sup>2</sup>";
 
                 }
 
                 else if (nomi == -1) {
-                    vamoaver2.innerHTML = "-t<sup>2</sup>";
+                    vamoaver2.innerHTML = "- t<sup>2</sup>";
                 }
 
                 else {
                     if (nomi < 0) {
-                        vamoaver2.innerHTML = nomi.toString() + "t<sup>2</sup>";
+                        vamoaver2.innerHTML = nomi.toString() + " t<sup>2</sup>";
                     } else {
-                        vamoaver2.innerHTML = "+"+nomi.toString() + "t<sup>2</sup>";
+                        vamoaver2.innerHTML = "+"+nomi.toString() + " t<sup>2</sup>";
                     }
                 }
                // vamoaver2.innerHTML = nomi.toString();
@@ -791,6 +795,25 @@
 
     var FormulaDiv = document.getElementById("FormulaDisplayDiv");
 
+    
+    JXG.Options.axis.ticks.majorHeight = 40;
+    JXG.Options.axis.ticks.minorHeight = 15;
+    JXG.Options.axis.ticks.minorTicks = 5;
+    JXG.Options.axis.ticks.strokeOpacity = 0.40;
+    JXG.Options.axis.ticks.ticksDistance = 1;
+    JXG.Options.axis.ticks.insertTicks = false;
+    JXG.Options.axis.ticks.strokeColor = '#666666';
+    JXG.Options.axis.ticks.label.offset = [-12 + 3, 4];
+    JXG.Options.axis.ticks.label.layer = 9;
+    JXG.Options.axis.margin = -4;
+    JXG.Options.axis.ticks.tickEndings = [0, 1];
+    JXG.Options.axis.ticks.highlightStrokeColor = '#888888';
+    JXG.Options.axis.highlightStrokeColor = '#2c64b2';
+    JXG.Options.axis.strokeColor = '#2c64b2';
+    JXG.Options.axis.strokeWidth = .8;
+    JXG.Options.axis.ticks.strokeWidth = 1;
+    JXG.Options.axis.highlightStrokeWidth = 1;
+
     var quadraticBoard = JXG.JSXGraph.initBoard('PositionBoard', {
         boundingbox: [minX, maxY, maxX, minY],
         axis: true,
@@ -808,6 +831,23 @@
     });
     quadraticBoard.create('text', [-0.3, 8.3, "x"], { fontSize: 20 });
     quadraticBoard.create('text', [8.5, -0.5, "t"], { fontSize: 20 });
+    JXG.Options.axis.ticks.majorHeight = 40;
+    JXG.Options.axis.ticks.minorHeight = 15;
+    JXG.Options.axis.ticks.minorTicks = 5;
+    JXG.Options.axis.ticks.strokeOpacity = 0.40;
+    JXG.Options.axis.ticks.ticksDistance = 1;
+    JXG.Options.axis.ticks.insertTicks = false;
+    JXG.Options.axis.ticks.strokeColor = '#666666';
+    JXG.Options.axis.ticks.label.offset = [-12 + 3, 4];
+    JXG.Options.axis.ticks.label.layer = 9;
+    JXG.Options.axis.margin = -4;
+    JXG.Options.axis.ticks.tickEndings = [0, 1];
+    JXG.Options.axis.ticks.highlightStrokeColor = '#888888';
+    JXG.Options.axis.highlightStrokeColor = '#2c64b2';
+    JXG.Options.axis.strokeColor = '#2c64b2';
+    JXG.Options.axis.strokeWidth = .8;
+    JXG.Options.axis.ticks.strokeWidth = 1;
+    JXG.Options.axis.highlightStrokeWidth = 1;
     var linearBoard = JXG.JSXGraph.initBoard('VelocityBoard', {
         boundingbox: [minX, maxY, maxX, minY], axis: true,
         grid: true,
@@ -824,14 +864,25 @@
     });
     linearBoard.create('text', [-0.3, 8.3, "v"], { fontSize: 20 });
     linearBoard.create('text', [8.5, -0.5, "t"], { fontSize: 20 });
+    
+    JXG.Options.axis.ticks.minorHeight = 8;
+    JXG.Options.axis.ticks.minorTicks = 5;
+    JXG.Options.axis.ticks.majorHeight = 20;
+    JXG.Options.axis.ticks.insertTicks = false;
+    JXG.Options.axis.ticks.ticksDistance =1;
+    JXG.Options.axis.ticks.strokeWidth = 2.5;
+    JXG.Options.axis.ticks.tickEndings =[0,2];
+
+
     var sliderBox = JXG.JSXGraph.initBoard('sliderBox', {
-        boundingbox: [-2, 1, 9, -1], axis: true, grid: true, shownavigation: true, keepAspectRatio: true, showClearTraces: true, keepaspectratio: false, zoom: {
+        boundingbox: [-2,- 0.01, 9, 0.01], axis: true, grid: true, shownavigation: true, keepAspectRatio: true, showClearTraces: true, keepaspectratio: false, zoom: {
             factorX: 1.25,
             factorY: 1.25,
             wheel: true,
             needshift: true,
             eps: 0.1
-        }
+        },
+       
     });
     var frente = '@Url.Content("~/Content/images/nuevogif.gif")';
 
@@ -865,7 +916,7 @@
 
 
         },
-        [function () { return slider.X() - 0.55; }, function () { return slider.Y(); }], [1, 1]
+        [function () { return slider.X() - 0.55; }, function () { return slider.Y(); }], [1, 0.01]
 
     ]);
 
@@ -873,16 +924,20 @@
         return [Math.round(x * 100) / 100, Math.round(y * 100) / 100];
     }
 
-    quadraticPoint = quadraticBoard.create('point', [0, 0], { size: 2, name: "", color: "Blue" });
+    quadraticBoard.infobox.distanceX = 20;
+    quadraticBoard.infobox.distanceY = 15;
+    linearBoard.infobox.distanceX = 20;
+    linearBoard.infobox.distanceY = 15;
+    quadraticPoint = quadraticBoard.create('point', [0, 0], { size: 2, name: "", color: "Blue"});
     linearIntPoint = linearBoard.create('point', [0, 0], { size: 2, name: "", color: "Red" });
-    linearSlopePoint = linearBoard.create('point', [1, 1], { size: 2, name: "", color: "Red" });
+    linearSlopePoint = linearBoard.create('point', [1, 1], { size: 2, name: "", color: "Red", showInfobox: false });
 
     linearBoard.highlightInfobox = function (x, y, el) {
-        linearBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
+        linearBoard.infobox.setText('(' + el.X().toFixed(1) + ', ' + fracciontres.value+'/'+fracciontresde.value + ')');
     };
 
     quadraticBoard.highlightInfobox = function (x, y, el) {
-        quadraticBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
+        quadraticBoard.infobox.setText('(  0,'+fraccionuno.value+'/'+fraccionunode.value+')');
     };
 
     quadraticPoint.on(
@@ -925,12 +980,52 @@
             linearFunction.b = linearIntPoint.Y();
             quadraticFunction = linearFunction.integrate(quadraticPoint.Y());
 
-            updateAll();
+
+            updatehead();
         }
     }
 
-    function updateAll() {
+    function updatehead(parameters) {
+        var azulp = quadraticFunction.c;
+        var rojp = linearFunction.b;
+        var rojp1 =linearFunction.evaluate(1);
+         // alert(azulp);
+        simplifica(azulp * 100, 100);
+        
+       // headk.innerHTML = azulp + "-" + rojp + "-" + rojp1;
+       
+    }
+
+    function simplifica(nz, dz) {
+        var dividir=0;
+        var i;
+        for ( i =2 ; i <= nz; i++) {
+           
+            if(nz%i==0)
+        {
+                if(dz%i==0)
+        {
+                    dividir=i;
+                    break;
+        } 
+    }
+    }
+       
+    if(dividir!=0)
+    {
+        simplifica(nz/dividir,dz/dividir);
+    }
+    else {
+        fraccionuno.value = nz;
+        fraccionunode.value = dz;
         updateFromNumberfraction();
+    }
+    updateAll();
+    }
+
+    function updateAll() {
+        //updateFromNumberfraction();
+        
         updateGraphs();
        // updateFields();
       //  updateText();
@@ -938,6 +1033,7 @@
         firstUpdate = true;
     }
 
+   
 
     /*function updateTable() {
         numtable.value = linearIntPoint.Y();

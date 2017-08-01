@@ -909,9 +909,28 @@
             // positionFunction = velocityFunction.integrate(nomi);
             // updateFunction();
 
-          
-            positionFunction = velocityFunction.integrate(deno);
-            updateUI();
+
+            //var axisX = -velocityFunction.b / (2 * velocityFunction.a);
+            //var axisY = velocityFunction.evaluate(axisX);
+
+
+            var axisX = float(-nomi (2 * nominatre ));
+            var axisY = velocityFunction.evaluate(axisX);
+
+            positionBoard.suspendUpdate();
+            velocityBoard.suspendUpdate();
+
+            cubicIntPoint.moveTo([0, deno]);
+
+            quadraticIntPoint.moveTo([0, nomido]);
+
+           quadraticAxisPoint.moveTo([axisX, axisY]);
+            quadraticSlopePoint.moveTo([axisX * 2, nomido]);
+
+            velocityBoard.unsuspendUpdate();
+            velocityBoard.fullUpdate();
+            positionBoard.unsuspendUpdate();
+            positionBoard.fullUpdate();
 
         }
 
@@ -1180,7 +1199,7 @@
             var k = quadraticAxisPoint.Y();
             var m = quadraticSlopePoint.X();
             var n = quadraticSlopePoint.Y();
-
+           
             velocityFunction.c = c;
             velocityFunction.b = (m * m * (k - c) + h * h * (c - n)) / (m * h * (m - h));
             velocityFunction.a = (n - c - m * velocityFunction.b) / (m * m);
