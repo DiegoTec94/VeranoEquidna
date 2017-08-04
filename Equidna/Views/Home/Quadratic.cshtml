@@ -376,6 +376,8 @@
     var final;                  //determina donde se aran los cambios de imagenes del Slider
     var lado = true;            //Slider si va de forma positiva o negativa
     var firstUpdate = true;    // Para evitar actualizar muchas vecez evitar repetir
+    var fupdate = true; //primera asignacion
+
 
 
     // Aqui obtenemos lo del input principal para realizar las operaciones si es fraccion y como acomodar
@@ -939,8 +941,24 @@
     
         
         updateGraphs();
-     
+        updaprimer();
+        updatemovi();
         firstUpdate = true;
+    }
+    //movimiento del slider
+    function updatemovi(parameters) {
+        value = quadraticFunction.evaluate(currentTime);
+        slider.setValue(value);
+        sliderBox.update();
+    }
+
+    //primer actualizacion formula algebraica
+    function updaprimer(parameters) {
+        if (fupdate==true) {
+            fupdate = false;
+            vamoaver3.innerHTML = "t<sup>2</sup>";
+        }
+        
     }
 
     //actualizacion de graficas puntos
@@ -956,7 +974,7 @@
         
     }
     //actualizaciones cada que carga
-    updateFromNumberfraction();
+   // updateFromNumberfraction();
     updateFunctionFromGraph();
     quadraticBoard.on('update', updateFunctionFromGraph);
     linearBoard.on('update', updateFunctionFromGraph);

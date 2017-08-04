@@ -12,29 +12,29 @@
 <div class="eq-c stec" align="left" data-toggle="validator">
     <i>x</i>(t) =
     <div class="fraction">
-        <span class="fup" id="nuevo"><i><input id="nom1" type="number" min="-99" max="99" style="text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; " onchange="updateFromNumberfraction();" /> </i></span>
+        <span class="fup" id="nuevo"><i><input id="nom1" type="number" min="-99" max="99" style="text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; " value="0" onchange="updateFromNumberfraction();" /> </i></span>
 
-        <span class="fdn" id="nuevo2"><i><input id="nom2" type="number" min="-99" max="99" style="text-align: center;  width:50px; border: none " onchange="updateFromNumberfraction();" /></i></span>
+        <span class="fdn" id="nuevo2"><i><input id="nom2" type="number" min="-99" max="99" style="text-align: center;  width:50px; border: none " value="1", onchange="updateFromNumberfraction();" /></i></span>
     </div>
     +
     <div class="fraction">
-        <span class="fup" id="nuevo7"><i> <input id="cua1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" /></i></span>
+        <span class="fup" id="nuevo7"><i> <input id="cua1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" value="1" onchange="updateFromNumberfraction();" /></i></span>
 
-        <span class="fdn" id="nuevo8"><i><input id="cua2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" /></i></span>
+        <span class="fdn" id="nuevo8"><i><input id="cua2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" value="2" onchange="updateFromNumberfraction();" /></i></span>
     </div>
     t
     +
     <div class="fraction">
-        <span class="fup" id="nuevo3"><i> <input id="den1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" /></i></span>
+        <span class="fup" id="nuevo3"><i> <input id="den1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" value="1" onchange="updateFromNumberfraction();" /></i></span>
 
-        <span class="fdn" id="nuevo4"><i><input id="den2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" /></i></span>
+        <span class="fdn" id="nuevo4"><i><input id="den2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" value="1" onchange="updateFromNumberfraction();" /></i></span>
     </div>
     t<sup>2</sup>
     +
     <div class="fraction">
-        <span class="fup" id="nuevo5"><i> <input id="tre1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" /></i></span>
+        <span class="fup" id="nuevo5"><i> <input id="tre1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" value="2" onchange="updateFromNumberfraction();" /></i></span>
 
-        <span class="fdn" id="nuevo6"><i><input id="tre2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" /></i></span>
+        <span class="fdn" id="nuevo6"><i><input id="tre2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" value="1" onchange="updateFromNumberfraction();" /></i></span>
     </div>
     t<sup>3</sup>
     =
@@ -373,7 +373,7 @@
     var vamoaver4 = document.getElementById("vamoaver4");
     var valorvelocidad = document.getElementById("velocidad");
     var valorposicion = document.getElementById("posicion11");
-
+    var fristupdate = true;
     var value;
     var final;         //determina donde se aran los cambios de imagenes del Slider
     var lado = true;   //Slider si va de forma positiva o negativa
@@ -385,17 +385,12 @@
         if (firstUpdate) {
             firstUpdate = false;
             //
-
-
         }
     }
     //uptable
     function updateFromTable() {
         if (firstUpdate) {
             firstUpdate = false;
-
-
-
         }
     }
 
@@ -405,22 +400,18 @@
         if (fraccionunode.value == 0) {
             alert("MENSAJE: ERROR");
             fraccionunode.value = -1;
-
         }
         if (fracciondosde.value == 0) {
             alert("MENSAJE: ERROR");
             fracciondosde.value = -1;
-
         }
         if (fracciondosdeantes.value == 0) {
             alert("MENSAJE: ERROR");
             fracciondosdeantes.value = -1;
-
         }
         if (fracciontresde.value == 0) {
             alert("MENSAJE: ERROR");
             fracciontresde.value = -1;
-
         }
         //verificamos si los dos numeros son negativos y solo obtenemos su balor absoluto
         if (fraccionunode.value != fraccionuno.value && fraccionunode.value < 0 && fraccionuno.value < 0) {
@@ -452,7 +443,6 @@
                 if (deno == 1) {
                     vamoaver1.innerHTML = "1";
                     valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= 1";
-
                 }
                 else if (deno == -1) {
                     vamoaver1.innerHTML = "-1";
@@ -462,8 +452,6 @@
                     if (deno < 0) {
                         vamoaver1.innerHTML = deno.toString();
                         valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + deno.toString();
-
-
                     } else {
                         vamoaver1.innerHTML = deno.toString();
                         valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + deno.toString();
@@ -471,8 +459,6 @@
                     }
 
                 }
-
-
             }
             else {
                 vamoaver1.innerHTML = "";
@@ -514,8 +500,6 @@
                 varposi.value = fraccionuno.value;
                 varposix.value = fraccionunode.value;
             }
-
-
         }
         // el mismo proceso que arriba solo que con el siguiente punto o dato del input.
         if (nomi - Math.floor(nomi) === 0) {
@@ -564,8 +548,6 @@
                 jo.value = fracciondosde.value;
 
             }
-
-
         }
 
         if (nomido - Math.floor(nomido) === 0) {
@@ -588,9 +570,6 @@
                     }
                 }
             }
-
-
-
             else {
                 vamoaver3.innerHTML = "";
 
@@ -629,8 +608,6 @@
                 vvaj.value = fracciondosdeantes.value;
 
             }
-
-
         }
         if (nominatre - Math.floor(nominatre) === 0) {
             if (nominatre != 0) {
@@ -677,28 +654,11 @@
                 jisu.value = fracciontres.value;
                 josu.value = fracciontresde.value;
             }
-
-
         }
 
         // asignamos los valores y actualizamos la grafica con update
-        var axisX = float(-nomi(2 * nominatre));
-        var axisY = velocityFunction.evaluate(axisX);
 
-        positionBoard.suspendUpdate();
-        velocityBoard.suspendUpdate();
-
-        cubicIntPoint.moveTo([0, deno]);
-
-        quadraticIntPoint.moveTo([0, nomido]);
-
-        quadraticAxisPoint.moveTo([axisX, axisY]);
-        quadraticSlopePoint.moveTo([axisX * 2, nomido]);
-
-        velocityBoard.unsuspendUpdate();
-        velocityBoard.fullUpdate();
-        positionBoard.unsuspendUpdate();
-        positionBoard.fullUpdate();
+        
 
     }
 
@@ -893,11 +853,9 @@
             wheel: true,
             needshift: true,
             eps: 0.1
-        },
+        }
 
     });
-
-
     // imagenes del slider en .gif
     var frente = '@Url.Content("~/Content/images/nuevogif.gif")';
     var camina = '@Url.Content("~/Content/images/nuevocam.gif")';
@@ -1020,28 +978,49 @@
         velocityFunction.a = (n - c - m * velocityFunction.b) / (m * m);
         positionFunction = velocityFunction.integrate(cubicIntPoint.Y());
         // actualizar control
+        Firstupdate();
         updateUI();
     }
 
+   function Firstupdate()
+    {
+        if (fristupdate==true) {
+            vamoaver3
+               .innerHTML =
+               "<div class='fraction'><span class='fup' ><i><input id='jiii' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='jooo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>t";
+            var jiii = document.getElementById("jiii");
+            var jooo = document.getElementById("jooo");
+            jiii.value = fracciondosantes.value;
+            jooo.value = fracciondosdeantes.value;
+            vamoaver2.innerHTML = "+ t<sup>2</sup> ";
+            vamoaver4.innerHTML = "+ 2t<sup>3</sup>";
+        }
+        
+    }
 
     //  Update UI
     function updateUI() {
         updateGraph();
+        updatemovi();
 
+    }
+
+    function updatemovi(parameters) {
+        value = positionFunction.evaluate(currentTime);
+        slider.setValue(value);
+        sliderBox.update();
+        
     }
     //movimiento de los puntos dragg asignacion ah funcion
     function updateGraph() {
         var axisX = -velocityFunction.b / (2 * velocityFunction.a);
         var axisY = velocityFunction.evaluate(axisX);
-
         positionBoard.suspendUpdate();
         velocityBoard.suspendUpdate();
-
         cubicIntPoint.moveTo([0, positionFunction.d]);
         quadraticIntPoint.moveTo([0, velocityFunction.c]);
         quadraticAxisPoint.moveTo([axisX, axisY]);
         quadraticSlopePoint.moveTo([axisX * 2, velocityFunction.c]);
-
         velocityBoard.unsuspendUpdate();
         velocityBoard.fullUpdate();
         positionBoard.unsuspendUpdate();
@@ -1049,7 +1028,6 @@
     }
     //cada que actualiza pagina o inicia update
     updateFunction();
-
     positionBoard.on('update', updateFunction);
     velocityBoard.on('update', updateFunction);
 </script>
