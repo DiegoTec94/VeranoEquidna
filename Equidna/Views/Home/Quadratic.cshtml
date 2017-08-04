@@ -1,15 +1,17 @@
 ﻿@{
-    ViewBag.Title = "Modelo cuadrático (Sin decimales)";
+    ViewBag.Title = "Modelo cuadrático";
 }
 
 <div id="vamosachecar">
     
 </div>
+
+<!--Titulo HTML-->
 <div class="col-xs-4">
     <h1>Modelo cuadrático</h1>
 </div>
 
-    
+    <!--Interpretacion Algebraica // con fracciones-->
     <div class="eq-c stec" align="left" data-toggle="validator">
         <i>x</i>(t) =
         <div class="fraction">
@@ -33,6 +35,7 @@
         </div>
         t<sup>2</sup>
         =
+        <!--Aqui se resive despues de verificar que sea entero o fraccion actualiza-->
         <i id="vamoaver1">
             
         </i>
@@ -47,7 +50,7 @@
     
 
 
-
+<!-- Slider y button dentro de una seccion -->
 <div class="row" align="center">
     <section class="color-7" id="btn-click">
         <div class="col-xs-12">
@@ -61,7 +64,7 @@
     </section>
 </div>
 
-
+<!--Grafica & tabla pantalla dividida-->
 <div class="row">
     <div class="col-xs-8">
         <div id='VelocityBoard' class='jxgbox graphbox' style='user-select: none; overflow: hidden; position: relative;'></div>
@@ -70,7 +73,7 @@
     <div class="col-xs-4">
         <div class="row">
             <div class="panel panel-default">
-         
+                <!--Valores Iniciales de la tabla-->
                 <table class="table table-striped ">
                     <thead>
                         <tr>
@@ -305,45 +308,44 @@
     </div>
 </div>
 
+
+
+<!--Script de button-->
 <script>
-			var buttons7Click = Array.prototype.slice.call( document.querySelectorAll( '#btn-click button' ) ),
-				buttons9Click = Array.prototype.slice.call( document.querySelectorAll( 'button.btn-8g' ) ),
-				totalButtons7Click = buttons7Click.length,
-                classie,
-				totalButtons9Click = buttons9Click.length;
+    var buttons7Click = Array.prototype.slice.call( document.querySelectorAll( '#btn-click button' ) ),
+        buttons9Click = Array.prototype.slice.call( document.querySelectorAll( 'button.btn-8g' ) ),
+        totalButtons7Click = buttons7Click.length,
+        classie,
+        totalButtons9Click = buttons9Click.length;
 
-			buttons7Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
-			buttons9Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
+    buttons7Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
+    buttons9Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
 
-			function activate() {
-				var self = this, activatedClass = 'btn-activated';
+    function activate() {
+        var self = this, activatedClass = 'btn-activated';
 
-				if( classie.has( this, 'btn-7h' ) ) {
-					// if it is the first of the two btn-7h then activatedClass = 'btn-error';
-					// if it is the second then activatedClass = 'btn-success'
-					activatedClass = buttons7Click.indexOf( this ) === totalButtons7Click-2 ? 'btn-error' : 'btn-success';
-				}
-				else if( classie.has( this, 'btn-8g' ) ) {
-					// if it is the first of the two btn-8g then activatedClass = 'btn-success3d';
-					// if it is the second then activatedClass = 'btn-error3d'
-					activatedClass = buttons9Click.indexOf( this ) === totalButtons9Click-2 ? 'btn-success3d' : 'btn-error3d';
-				}
+        if( classie.has( this, 'btn-7h' ) ) {
+            // if it is the first of the two btn-7h then activatedClass = 'btn-error';
+            // if it is the second then activatedClass = 'btn-success'
+            activatedClass = buttons7Click.indexOf( this ) === totalButtons7Click-2 ? 'btn-error' : 'btn-success';
+        }
+        else if( classie.has( this, 'btn-8g' ) ) {
+            // if it is the first of the two btn-8g then activatedClass = 'btn-success3d';
+            // if it is the second then activatedClass = 'btn-error3d'
+            activatedClass = buttons9Click.indexOf( this ) === totalButtons9Click-2 ? 'btn-success3d' : 'btn-error3d';
+        }
 
-				if( !classie.has( this, activatedClass ) ) {
-					classie.add( this, activatedClass );
-					setTimeout( function() { classie.remove( self, activatedClass ) }, 1000 );
-				}
-			}
-
-
+        if( !classie.has( this, activatedClass ) ) {
+            classie.add( this, activatedClass );
+            setTimeout( function() { classie.remove( self, activatedClass ) }, 1000 );
+        }
+    }
 </script>
+
+<!--Scrip General todas las funciones-->
 <script type='text/javascript'>
-    
 
-
-
-
-
+    //Variables Globales;
    
     var currentTime = 0;
     var interval;
@@ -371,18 +373,16 @@
     var valorvelocidad = document.getElementById("velocidad");
     var valorposicion = document.getElementById("posicion11");
     var headk = document.getElementById("vamosachecar");
-    var final;
-
-    var lado = true;
-
-    var firstUpdate = true;
+    var final;                  //determina donde se aran los cambios de imagenes del Slider
+    var lado = true;            //Slider si va de forma positiva o negativa
+    var firstUpdate = true;    // Para evitar actualizar muchas vecez evitar repetir
 
 
-
+    // Aqui obtenemos lo del input principal para realizar las operaciones si es fraccion y como acomodar
     function updateFromNumberfraction() {
-        if(firstUpdate) {
+        if(firstUpdate) {   
             firstUpdate = false;
-
+            //Mensaje de error, el denominador no puede ser 0
         if (fraccionunode.value == 0) {
             alert("MENSAJE: ERROR");
             fraccionunode.value = -1;
@@ -398,7 +398,7 @@
             fracciontresde.value = -1;
 
         }
-
+            //verificamos si los dos numeros son negativos y solo obtenemos su balor absoluto
         if (fraccionunode.value != fraccionuno.value && fraccionunode.value < 0 && fraccionuno.value < 0) {
             fraccionunode.value = Math.abs(fraccionunode.value);
             fraccionuno.value = Math.abs(fraccionuno.value);
@@ -412,11 +412,15 @@
             fracciontresde.value = Math.abs(fracciontresde.value);
             fracciontres.value = Math.abs(fracciontres.value);
         }
+
+            //hacemos la operacion del numerador / el denominado y guardamos en variable
         var deno = parseFloat(fraccionuno.value / fraccionunode.value);
         var nomi = parseFloat(fracciondos.value / fracciondosde.value);
         var nominatre = parseFloat(fracciontres.value / fracciontresde.value);
-
+            // aqui hacemos asignacion ah la formula General de arriba despues del '=' y tambien ah los valores iniciales de la tabla
+            //verificamos que sea un numero entero y aqui dentro hacemos remplasos en numereos enteros y negativos
         if (deno - Math.floor(deno) === 0) {
+
             if (deno != 0) {
                 if (deno == 1) {
                     vamoaver1.innerHTML = "1";
@@ -435,13 +439,9 @@
                        
                     } else {
                         vamoaver1.innerHTML = deno.toString();
-                        valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + deno.toString();
-                        
+                        valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + deno.toString(); 
                     }
-
                 }
-
-
             }
             else {
                 vamoaver1.innerHTML = "";
@@ -450,6 +450,7 @@
             }
 
         }
+            // Sabiendo que es fraccion añadimos al HTML, para poder darle un formato de fraccion 
         else {
 
             if (fraccionuno.value < 0 || fraccionunode.value < 0) {
@@ -488,7 +489,7 @@
 
 
         }
-
+        // el mismo proceso que arriba solo que con el siguiente punto o dato del input.
         if (nomi - Math.floor(nomi) === 0) {
             if (nomi != 0) {
                 if (nomi == 1) {
@@ -603,7 +604,7 @@
 
 
         }
-
+           // asignamos los valores y actualizamosla grafica con update all
         quadraticFunction.a = parseFloat(nomi);
         quadraticFunction.c = parseFloat(deno);
         quadraticFunction.b = parseFloat(nominatre);
@@ -611,6 +612,9 @@
         updateAll();
         }
     }
+
+
+    //funcion  para el slider cuando se presiona el Start()
     function Start() {
         startButton.disabled = true;
         final = parseFloat(quadraticFunction.b) + parseFloat(quadraticFunction.a * parseInt(document.getElementsByName("endTime")[0].value));
@@ -772,6 +776,8 @@
     linearBoard.create('text', [-0.3, 8.3, "v"], { fontSize: 20 });
     linearBoard.create('text', [8.5, -0.5, "t"], { fontSize: 20 });
     
+
+    // informacion del slider
     JXG.Options.axis.ticks.minorHeight = 8;
     JXG.Options.axis.ticks.minorTicks = 5;
     JXG.Options.axis.ticks.majorHeight = 20;
@@ -780,7 +786,7 @@
     JXG.Options.axis.ticks.strokeWidth = 2.5;
     JXG.Options.axis.ticks.tickEndings =[0,2];
 
-
+    // se crea el slider
     var sliderBox = JXG.JSXGraph.initBoard('sliderBox', {
         boundingbox: [-2,- 0.01, 9, 0.01], axis: true, grid: true, shownavigation: true, keepAspectRatio: true, showClearTraces: true, keepaspectratio: false, zoom: {
             factorX: 1.25,
@@ -791,12 +797,14 @@
         },
        
     });
+
+    // imagenes del slider en .gif
     var frente = '@Url.Content("~/Content/images/nuevogif.gif")';
 
     var camina = '@Url.Content("~/Content/images/nuevocam.gif")';
     var volt = '@Url.Content("~/Content/images/volte.gif")';
     var inverso = '@Url.Content("~/Content/images/nuevoinver.gif")';
-
+    // 
     var slider = sliderBox.create('slider', [[-50, 0], [50, 0], [-50, 0, 50]], { size: 3, opacity: 0.5, ticks: { drawLabels: false, highlight: true } });
     var im = sliderBox.create('image',
     [
@@ -823,11 +831,12 @@
         [function () { return slider.X() - 0.55; }, function () { return slider.Y(); }], [1, 0.01]
 
     ]);
-
+    // delimita las decimales a .00 dos
     function SnapToGrid(x,y) {
         return [Math.round(x * 100) / 100, Math.round(y * 100) / 100];
     }
 
+    // informacion de puntos y creacion de los mismos
     quadraticBoard.infobox.distanceX = 20;
     quadraticBoard.infobox.distanceY = 15;
     linearBoard.infobox.distanceX = 20;
@@ -835,7 +844,7 @@
     quadraticPoint = quadraticBoard.create('point', [0, 0], { size: 2, name: "", color: "Blue"});
     linearIntPoint = linearBoard.create('point', [0, 0], { size: 2, name: "", color: "Red" });
     linearSlopePoint = linearBoard.create('point', [1, 1], { size: 2, name: "", color: "Red", showInfobox: false });
-
+    //informacion que se muestra ah pasar por los puntos
     linearBoard.highlightInfobox = function (x, y, el) {
         linearBoard.infobox.setText('(' + el.X().toFixed(1) + ', ' + fracciontres.value+'/'+fracciontresde.value + ')');
     };
@@ -843,7 +852,7 @@
     quadraticBoard.highlightInfobox = function (x, y, el) {
         quadraticBoard.infobox.setText('(  0,'+fraccionuno.value+'/'+fraccionunode.value+')');
     };
-
+    //movimiento de puntos
     quadraticPoint.on(
         'drag',
         function() { quadraticPoint.moveTo(SnapToGrid( 0, quadraticPoint.Y())) }
@@ -876,7 +885,7 @@
         [function (x) {return linearFunction.evaluate(x);}],
         {strokeColor: "Red"}
     );
-
+    //movimiento de los puntos dragg asignacion ah funcion
     function updateFunctionFromGraph() {
         if (firstUpdate) {
             firstUpdate = false;
@@ -888,7 +897,7 @@
             updatehead();
         }
     }
-
+    //asignacion de valor a variables despues de realizar el dragg
     function updatehead(parameters) {
         var azulp = quadraticFunction.c;
         var rojp = linearFunction.b;
@@ -897,7 +906,7 @@
         
        
     }
-
+    // simplifica el movimiento del drag en los puntos
     function simplifica(nz, dz) {
         var dividir=0;
         var i;
@@ -925,6 +934,7 @@
     updateAll();
     }
 
+    // control
     function updateAll() {
     
         
@@ -933,7 +943,7 @@
         firstUpdate = true;
     }
 
-
+    //actualizacion de graficas puntos
     function updateGraphs() {
 
         quadraticBoard.suspendUpdate();
@@ -945,6 +955,7 @@
         linearBoard.unsuspendUpdate();
         
     }
+    //actualizaciones cada que carga
     updateFromNumberfraction();
     updateFunctionFromGraph();
     quadraticBoard.on('update', updateFunctionFromGraph);

@@ -2,72 +2,61 @@
 @{
     ViewBag.Title = "Modelo cúbico";
 }
+
+<!--Titulo HTML-->
 <div class="col-xs-3">
     <h1>Modelo cúbico</h1>
-</div> 
-
-
-   
-<!--<div> <h1 id="FormulaDisplayDiv" style="text-align: center; font-family: 'Walter Turncoat', cursive; font-size: 250%"></h1></divdiv>
-<div class="col-xs-12 " align="center">
-    <input id="number" type="number" step="0.01" onchange="updateFromNumber();" />
-    <input id="number1" type="number" step="0.01" onchange="updateFromNumber();" />
-    <input id="number2" type="number" step="0.01" onchange="updateFromNumber();" />
-    <input id="number3" type="number" step="0.01" onchange="updateFromNumber();" />
 </div>
--->
+
+<!--Interpretacion Algebraica // con fracciones-->
 <div class="eq-c stec" align="left" data-toggle="validator">
     <i>x</i>(t) =
     <div class="fraction">
-        <span class="fup" id="nuevo"><i><input id="nom1" type="number" min="-99" max="99" style="text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; " onchange="updateFromNumberfraction();"  /> </i></span>
+        <span class="fup" id="nuevo"><i><input id="nom1" type="number" min="-99" max="99" style="text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; " onchange="updateFromNumberfraction();" /> </i></span>
 
-        <span class="fdn" id="nuevo2"><i><input id="nom2" type="number" min="-99" max="99" style="text-align: center;  width:50px; border: none " onchange="updateFromNumberfraction();"/></i></span>
+        <span class="fdn" id="nuevo2"><i><input id="nom2" type="number" min="-99" max="99" style="text-align: center;  width:50px; border: none " onchange="updateFromNumberfraction();" /></i></span>
     </div>
     +
     <div class="fraction">
-        <span class="fup" id="nuevo7"><i> <input id="cua1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();"  /></i></span>
+        <span class="fup" id="nuevo7"><i> <input id="cua1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" /></i></span>
 
         <span class="fdn" id="nuevo8"><i><input id="cua2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" /></i></span>
     </div>
     t
     +
     <div class="fraction">
-        <span class="fup" id="nuevo3"><i> <input id="den1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();"  /></i></span>
+        <span class="fup" id="nuevo3"><i> <input id="den1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" /></i></span>
 
-        <span class="fdn" id="nuevo4"><i><input id="den2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();"  /></i></span>
+        <span class="fdn" id="nuevo4"><i><input id="den2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" /></i></span>
     </div>
     t<sup>2</sup>
     +
     <div class="fraction">
-        <span class="fup" id="nuevo5"><i> <input id="tre1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();"  /></i></span>
+        <span class="fup" id="nuevo5"><i> <input id="tre1" type="number" min="-99" max="99" style="text-align: center;width:50px; border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0;" onchange="updateFromNumberfraction();" /></i></span>
 
-        <span class="fdn" id="nuevo6"><i><input id="tre2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();"  /></i></span>
+        <span class="fdn" id="nuevo6"><i><input id="tre2" type="number" min="-99" max="99" style="text-align: center ;width:50px ; border: none;" onchange="updateFromNumberfraction();" /></i></span>
     </div>
     t<sup>3</sup>
     =
+    <!--Aqui se resive despues de verificar que sea entero o fraccion actualiza-->
     <i id="vamoaver1">
-
     </i>
-    
     <i id="vamoaver3">
-
     </i>
     <i id="vamoaver2">
-
     </i>
-   
     <i id="vamoaver4">
-
     </i>
- 
+
 </div>
 
+<!-- Slider y button dentro de una seccion -->
 <div class="row" align="center">
 
     <section class="color-7" id="btn-click">
         <div class="col-xs-12">
-        <div id="sliderBox" class="jxgbox" style="width: 100%; height: 200px; user-select: none; overflow: hidden; position: relative;"></div>
-         </div>
+            <div id="sliderBox" class="jxgbox" style="width: 100%; height: 200px; user-select: none; overflow: hidden; position: relative;"></div>
+        </div>
         <label for="startTime">Start time: <input name="startTime" type="number" value="0" min="-99" max="99" style="text-align: center; width: 30%;" readonly /></label>
         <label for="endTime">End time: <input name="endTime" type="number" min="-99" max="99" style="text-align: center; width: 30%;" value="0" /></label>
 
@@ -75,273 +64,117 @@
     </section>
 
 </div>
-<!--<div class="row">
-    <div class="col-xs-3">
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-                    <table class="table table-bordered table-hover" id="tab_logic">
-                        <thead>
-                        <tr>
 
-                            <th class="text-center">
-                                X
-                            </th>
-                            <th class="text-center">
-                                Y
-                            </th>
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr id='addr0'>
-
-                            <td>
-                                <input type="text" name='name0' placeholder='X' class="form-control" value="0" style="text-align: center" readonly />
-                            </td>
-                            <td>
-                                <input type="number" id="table1" step="0.01" name='mail0' placeholder='Y' style="text-align: center" class="form-control" />
-                            </td>
-
-                        </tr>
-                        <tr id='addr1'></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="col-xs-3">
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-                    <table class="table table-bordered table-hover" id="tab_logic">
-                        <thead>
-                        <tr>
-
-                            <th class="text-center">
-                                X
-                            </th>
-                            <th class="text-center">
-                                Y
-                            </th>
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr id='addr0'>
-
-                            <td>
-                                <input type="number" id="table2" step="0.01" name='name0' placeholder='X' class="form-control" style="text-align: center"   />
-                            </td>
-                            <td>
-                                <input type="number" id="table3" step="0.01" name='mail0' placeholder='Y' style="text-align: center" class="form-control" />
-                            </td>
-
-                        </tr>
-                        <tr id='addr1'></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="col-xs-3">
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-                    <table class="table table-bordered table-hover" id="tab_logic">
-                        <thead>
-                        <tr>
-
-                            <th class="text-center">
-                                X
-                            </th>
-                            <th class="text-center">
-                                Y
-                            </th>
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr id='addr0'>
-
-                            <td>
-                                <input type="number"  id="table4" step="0.01" name='name0' placeholder='X' class="form-control" style="text-align: center" />
-                            </td>
-                            <td>
-                                <input type="number" id="table5" step="0.01" name='mail0' placeholder='Y' style="text-align: center" class="form-control" />
-                            </td>
-
-                        </tr>
-                        <tr id='addr1'></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-    </div>
-<div class="col-xs-3">
-    <div class="container">
-        <div class="row clearfix">
-            <div class="col-md-12 column">
-                <table class="table table-bordered table-hover" id="tab_logic">
-                    <thead>
-                        <tr>
-
-                            <th class="text-center">
-                                X
-                            </th>
-                            <th class="text-center">
-                                Y
-                            </th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id='addr0'>
-
-                            <td>
-                                <input type="text" name='name0' placeholder='X' class="form-control" style="text-align: center" value="0" readonly />
-                            </td>
-                            <td>
-                                <input type="number" id="table6" step="0.01" name='mail0' placeholder='Y' style="text-align: center" class="form-control" />
-                            </td>
-
-                        </tr>
-                        <tr id='addr1'></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-    </div>
-</div>-->
-
-    
-
-
-
+<!--Grafica & tabla pantalla dividida-->
 <div class="row">
     <div class="col-xs-8">
         <div id='VelocityBoard' class='jxgbox graphbox' style='user-select: none; overflow: hidden; position: relative;'></div>
     </div>
-
     <div class="col-xs-4">
         <div class="row">
             <div class="panel panel-default">
-                    <table class="table table-striped ">
-                
-                        <thead>
-                        
-                            
-                            <tr>
-                                <td colspan="2" class="text-center" style="background-color:#17aa56">Valores Iniciales</td>
-                            </tr>
-                            <tr>
-                                <td class="col-xs-6"><input type="text" id="tiempo2" class="form-control" style="text-align: center" value="t=0" readonly /></td>
-                                <td class="col-xs-6">
-                                    <i id="velocidad" style="font-size: 18px">
-
-                                    </i>
-                                </td>
-                            </tr>
-
-
-                            <tr>
-                                <td colspan="2" style="background-color: #17aa56; text-align: center">Representación Numérica</td>
-                            </tr>
-                        <tr>
-                            <th class="text-center" style="background-color: red; color: white;">t</th>
-                            <th class="text-center" style="background-color: red; color: white;">v</th>
-
-                        </tr>
-                        </thead>
+                <!--Valores Iniciales de la tabla-->
+                <table class="table table-striped ">
+                    <thead>
+                    <tr>
+                        <td colspan="2" class="text-center" style="background-color: #17aa56">Valores Iniciales</td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6"><input type="text" id="tiempo2" class="form-control" style="text-align: center" value="t=0" readonly/></td>
+                        <td class="col-xs-6">
+                            <i id="velocidad" style="font-size: 18px">
+                            </i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="background-color: #17aa56; text-align: center">Representación Numérica</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center" style="background-color: red; color: white;">t</th>
+                        <th class="text-center" style="background-color: red; color: white;">v</th>
+                    </tr>
+                    </thead>
                     <tbody>
-                        <tr>
-                            <td class="col-xs-6">
-                                <input type="number" id="x1" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="x1" name='x1' step="0.01" class="form-control" style="text-align: center"/>
 
 
-                            </td>
+                        </td>
 
-                            <td class="col-xs-6">
-                                <input type="number" id="hx1" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                        <td class="col-xs-6">
+                        <input type="number" id="hx1" name='x1' step="0.01" class="form-control" style="text-align: center" readonly/>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="x2" name='x1' step="0.01" class="form-control" style="text-align: center"/>
 
-                        </tr>
-                        <tr>
-                            <td class="col-xs-6">
-                                <input type="number" id="x2" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
 
-                            </td>
+                        <td class="col-xs-6">
+                            <input type="number" id="hx2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="x3" name='x1' step="0.01" class="form-control" style="text-align: center"/>
 
-                            <td class="col-xs-6">
-                                <input type="number" id="hx2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-6">
-                                <input type="number" id="x3" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
 
-                            </td>
+                        <td class="col-xs-6">
+                            <input type="number" id="hx3" name='x1' step="0.01" class="form-control" style="text-align: center" readonly/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="x4" name='x1' step="0.01" class="form-control" style="text-align: center"/>
 
-                            <td class="col-xs-6">
-                                <input type="number" id="hx3" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-6">
-                                <input type="number" id="x4" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
 
-                            </td>
+                        <td class="col-xs-6">
+                            <input type="number" id="hx4" name='x1' step="0.01" class="form-control" style="text-align: center" readonly/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="x5" name='x1' step="0.01" class="form-control" style="text-align: center"/>
 
-                            <td class="col-xs-6">
-                                <input type="number" id="hx4" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-6">
-                                <input type="number" id="x5" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
 
-                            </td>
+                        <td class="col-xs-6">
+                            <input type="number" id="hx5" name='x1' step="0.01" class="form-control" style="text-align: center" readonly/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="x6" name='x1' step="0.01" class="form-control" style="text-align: center"/>
 
-                            <td class="col-xs-6">
-                                <input type="number" id="hx5" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-6">
-                                <input type="number" id="x6" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
 
-                            </td>
+                        <td class="col-xs-6">
+                            <input type="number" id="hx6" name='x1' step="0.01" class="form-control" style="text-align: center" readonly/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="x7" name='x1' step="0.01" class="form-control" style="text-align: center"/>
 
-                            <td class="col-xs-6">
-                                <input type="number" id="hx6" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-6">
-                                <input type="number" id="x7" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
 
-                            </td>
+                        <td class="col-xs-6">
+                            <input type="number" id="hx7" name='x1' step="0.01" class="form-control" style="text-align: center" readonly/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="x8" name='x1' step="0.01" class="form-control" style="text-align: center"/>
 
-                            <td class="col-xs-6">
-                                <input type="number" id="hx7" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-6">
-                                <input type="number" id="x8" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
 
-                            </td>
-
-                            <td class="col-xs-6">
-                                <input type="number" id="hx8" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
-                            </td>
-                        </tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hx8" name='x1' step="0.01" class="form-control" style="text-align: center" readonly/>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -350,858 +183,873 @@
     </div>
 </div>
 
-    <div class="row">
-        <div class="col-xs-8">
-            <div id='PositionBoard' class='jxgbox graphbox' style='user-select: none; overflow: hidden; position: relative;'></div>
-        </div>
+<div class="row">
+    <div class="col-xs-8">
+        <div id='PositionBoard' class='jxgbox graphbox' style='user-select: none; overflow: hidden; position: relative;'></div>
+    </div>
+    <div class="col-xs-4">
+        <div class="row">
+            <div class="panel panel-default">
+                <table class="table table-striped ">
+                    <thead>
+                    <tr>
+                        <td colspan="2" class="text-center" style="background-color:#17aa56">Valores Iniciales</td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6"> <input type="text" id="tiempo" class="form-control" style="text-align: center" value="t=0" readonly /></td>
+                        <td class="col-xs-6">
+                            <i id="posicion11" style="font-size: 18px">
 
-        <!--  nueva tabla -->
-        <div class="col-xs-4">
-            <div class="row">
-                <div class="panel panel-default">
-                    <table class="table table-striped ">
-                        <thead>
-                            <tr>
-                                <td colspan="2" class="text-center" style="background-color:#17aa56">Valores Iniciales</td>
-                            </tr>
-                            <tr>
-                                <td class="col-xs-6"> <input type="text" id="tiempo" class="form-control" style="text-align: center" value="t=0" readonly /></td>
-                                <td class="col-xs-6">
-                                    <i id="posicion11" style="font-size: 18px">
+                            </i>
 
-                                    </i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="background-color: #17aa56;text-align: center"> Representación Numérica</td>
+                    </tr>
+                    <tr>
+                        <th class="text-center" style="background-color: blue; color: white;">t</th>
+                        <th class="text-center" style="background-color: blue; color: white;">x</th>
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" style="background-color: #17aa56;text-align: center"> Representación Numérica</td>
-                            </tr>
-                        <tr>
-                            <th class="text-center" style="background-color: blue; color: white;">t</th>
-                            <th class="text-center" style="background-color: blue; color: white;">x</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hy1" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
 
-                        </tr>
-                        </thead>
-                        <tbody >
-                            <tr>
-                                <td class="col-xs-6">
-                                    <input type="number" id="hy1" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                        </td>
 
-                                </td>
+                        <td class="col-xs-6">
+                        <input type="number" id="y1" name='x1' step="0.01" class="form-control" style="text-align: center" />
 
-                                <td class="col-xs-6">
-                                    <input type="number" id="y1" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hy2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
 
-                            </tr>
-                            <tr>
-                                <td class="col-xs-6">
-                                    <input type="number" id="hy2" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                        </td>
 
-                                </td>
+                        <td class="col-xs-6">
+                            <input type="number" id="y2" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hy3" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
 
-                                <td class="col-xs-6">
-                                    <input type="number" id="y2" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-xs-6">
-                                    <input type="number" id="hy3" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                        </td>
 
-                                </td>
+                        <td class="col-xs-6">
+                            <input type="number" id="y3" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hy4" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
 
-                                <td class="col-xs-6">
-                                    <input type="number" id="y3" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-xs-6">
-                                    <input type="number" id="hy4" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                        </td>
 
-                                </td>
+                        <td class="col-xs-6">
+                            <input type="number" id="y4" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hy5" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
 
-                                <td class="col-xs-6">
-                                    <input type="number" id="y4" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-xs-6">
-                                    <input type="number" id="hy5" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                        </td>
 
-                                </td>
+                        <td class="col-xs-6">
+                            <input type="number" id="y5" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hy6" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
 
-                                <td class="col-xs-6">
-                                    <input type="number" id="y5" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-xs-6">
-                                    <input type="number" id="hy6" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                        </td>
 
-                                </td>
+                        <td class="col-xs-6">
+                            <input type="number" id="y6" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hy7" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
 
-                                <td class="col-xs-6">
-                                    <input type="number" id="y6" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-xs-6">
-                                    <input type="number" id="hy7" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                        </td>
 
-                                </td>
+                        <td class="col-xs-6">
+                            <input type="number" id="y7" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-xs-6">
+                            <input type="number" id="hy8" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
+                        </td>
 
-                                <td class="col-xs-6">
-                                    <input type="number" id="y7" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-xs-6">
-                                    <input type="number" id="hy8" name='x1' step="0.01" class="form-control" style="text-align: center" readonly />
-                                </td>
-
-                                <td class="col-xs-6">
-                                    <input type="number" id="y8" name='x1' step="0.01" class="form-control" style="text-align: center" />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
+                        <td class="col-xs-6">
+                            <input type="number" id="y8" name='x1' step="0.01" class="form-control" style="text-align: center" />
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
+
         </div>
     </div>
+</div>
+
+<!--Script de button-->
 <script>
-			var buttons7Click = Array.prototype.slice.call( document.querySelectorAll( '#btn-click button' ) ),
-				buttons9Click = Array.prototype.slice.call( document.querySelectorAll( 'button.btn-8g' ) ),
-				totalButtons7Click = buttons7Click.length,
-                classie,
-				totalButtons9Click = buttons9Click.length;
+    var buttons7Click = Array.prototype.slice.call(document.querySelectorAll('#btn-click button')),
+        buttons9Click = Array.prototype.slice.call(document.querySelectorAll('button.btn-8g')),
+        totalButtons7Click = buttons7Click.length,
+        classie,
+        totalButtons9Click = buttons9Click.length;
 
-			buttons7Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
-			buttons9Click.forEach( function( el, i ) { el.addEventListener( 'click', activate, false ); } );
+    buttons7Click.forEach(function (el, i) { el.addEventListener('click', activate, false); });
+    buttons9Click.forEach(function (el, i) { el.addEventListener('click', activate, false); });
 
-			function activate() {
-				var self = this, activatedClass = 'btn-activated';
+    function activate() {
+        var self = this, activatedClass = 'btn-activated';
 
-				if( classie.has( this, 'btn-7h' ) ) {
-					// if it is the first of the two btn-7h then activatedClass = 'btn-error';
-					// if it is the second then activatedClass = 'btn-success'
-					activatedClass = buttons7Click.indexOf( this ) === totalButtons7Click-2 ? 'btn-error' : 'btn-success';
-				}
-				else if( classie.has( this, 'btn-8g' ) ) {
-					// if it is the first of the two btn-8g then activatedClass = 'btn-success3d';
-					// if it is the second then activatedClass = 'btn-error3d'
-					activatedClass = buttons9Click.indexOf( this ) === totalButtons9Click-2 ? 'btn-success3d' : 'btn-error3d';
-				}
+        if (classie.has(this, 'btn-7h')) {
+            // if it is the first of the two btn-7h then activatedClass = 'btn-error';
+            // if it is the second then activatedClass = 'btn-success'
+            activatedClass = buttons7Click.indexOf(this) === totalButtons7Click - 2 ? 'btn-error' : 'btn-success';
+        }
+        else if (classie.has(this, 'btn-8g')) {
+            // if it is the first of the two btn-8g then activatedClass = 'btn-success3d';
+            // if it is the second then activatedClass = 'btn-error3d'
+            activatedClass = buttons9Click.indexOf(this) === totalButtons9Click - 2 ? 'btn-success3d' : 'btn-error3d';
+        }
 
-				if( !classie.has( this, activatedClass ) ) {
-					classie.add( this, activatedClass );
-					setTimeout( function() { classie.remove( self, activatedClass ) }, 1000 );
-				}
-			}
+        if (!classie.has(this, activatedClass)) {
+            classie.add(this, activatedClass);
+            setTimeout(function () { classie.remove(self, activatedClass) }, 1000);
+        }
+    }
 
 
 </script>
 
-    <script type='text/javascript'>
+<!--Scrip General todas las funciones-->
+<script type='text/javascript'>
 
-        var currentTime = 0;
-        var interval;
-        var timeInterval = 50;
-        var guidingLine;
-        var guidingLine2;
-        var maxX = 9, minX = -1, maxY = 9, minY = -2;
-        var startButton = document.getElementById("start");
-        var numberField = document.getElementById("number");
-        var numberField1 = document.getElementById("number1");
-        var numberField2 = document.getElementById("number2");
-        var numberField3 = document.getElementById("number3");
+    //Variables Globales;
+    var currentTime = 0;
+    var interval;
+    var timeInterval = 50;
+    var guidingLine;
+    var guidingLine2;
+    var maxX = 9, minX = -1, maxY = 9, minY = -2;
+    var startButton = document.getElementById("start");
+    var numberField = document.getElementById("number");
+    var numberField1 = document.getElementById("number1");
+    var numberField2 = document.getElementById("number2");
+    var numberField3 = document.getElementById("number3");
 
-        var numtable = document.getElementById("table1");
-        var numtable2 = document.getElementById("table2");
-        var numtable3 = document.getElementById("table3");
-        var numtable4 = document.getElementById("table4");
-        var numtable5 = document.getElementById("table5");
-        var numtable6 = document.getElementById("table6");
+    var numtable = document.getElementById("table1");
+    var numtable2 = document.getElementById("table2");
+    var numtable3 = document.getElementById("table3");
+    var numtable4 = document.getElementById("table4");
+    var numtable5 = document.getElementById("table5");
+    var numtable6 = document.getElementById("table6");
 
-        //
-        var fraccionuno = document.getElementById("nom1");
-        var fraccionunode = document.getElementById("nom2");
-        var fracciondosantes = document.getElementById("cua1");
-        var fracciondosdeantes = document.getElementById("cua2");
-        var fracciondos = document.getElementById("den1");
-        var fracciondosde = document.getElementById("den2");
-        var fracciontres = document.getElementById("tre1");
-        var fracciontresde = document.getElementById("tre2");
-        var vamoaver1 = document.getElementById("vamoaver1");
-        var vamoaver2 = document.getElementById("vamoaver2");
-        var vamoaver3 = document.getElementById("vamoaver3");
-        var vamoaver4 = document.getElementById("vamoaver4");
-        var valorvelocidad = document.getElementById("velocidad");
-        var valorposicion = document.getElementById("posicion11");
+    //
+    var fraccionuno = document.getElementById("nom1");
+    var fraccionunode = document.getElementById("nom2");
+    var fracciondosantes = document.getElementById("cua1");
+    var fracciondosdeantes = document.getElementById("cua2");
+    var fracciondos = document.getElementById("den1");
+    var fracciondosde = document.getElementById("den2");
+    var fracciontres = document.getElementById("tre1");
+    var fracciontresde = document.getElementById("tre2");
+    var vamoaver1 = document.getElementById("vamoaver1");
+    var vamoaver2 = document.getElementById("vamoaver2");
+    var vamoaver3 = document.getElementById("vamoaver3");
+    var vamoaver4 = document.getElementById("vamoaver4");
+    var valorvelocidad = document.getElementById("velocidad");
+    var valorposicion = document.getElementById("posicion11");
 
-        var value;
-        var final;
-        var lado = true;
-
-
-        var firstUpdate = true;
-        //upnumber
-        function updateFromNumber() {
-            if (firstUpdate) {
-                firstUpdate = false;
-                //
+    var value;
+    var final;         //determina donde se aran los cambios de imagenes del Slider
+    var lado = true;   //Slider si va de forma positiva o negativa
 
 
-            }
+    var firstUpdate = true; // Para evitar actualizar muchas vecez evitar repetir
+    //upnumber
+    function updateFromNumber() {
+        if (firstUpdate) {
+            firstUpdate = false;
+            //
+
+
         }
-        //uptable
-        function updateFromTable() {
-            if (firstUpdate) {
-                firstUpdate = false;
+    }
+    //uptable
+    function updateFromTable() {
+        if (firstUpdate) {
+            firstUpdate = false;
 
 
 
-            }
+        }
+    }
+
+    // Aqui obtenemos lo del input principal para realizar las operaciones si es fraccion y como acomodar
+    function updateFromNumberfraction() {
+        //Mensaje de error, el denominador no puede ser 0
+        if (fraccionunode.value == 0) {
+            alert("MENSAJE: ERROR");
+            fraccionunode.value = -1;
+
+        }
+        if (fracciondosde.value == 0) {
+            alert("MENSAJE: ERROR");
+            fracciondosde.value = -1;
+
+        }
+        if (fracciondosdeantes.value == 0) {
+            alert("MENSAJE: ERROR");
+            fracciondosdeantes.value = -1;
+
+        }
+        if (fracciontresde.value == 0) {
+            alert("MENSAJE: ERROR");
+            fracciontresde.value = -1;
+
+        }
+        //verificamos si los dos numeros son negativos y solo obtenemos su balor absoluto
+        if (fraccionunode.value != fraccionuno.value && fraccionunode.value < 0 && fraccionuno.value < 0) {
+            fraccionunode.value = Math.abs(fraccionunode.value);
+            fraccionuno.value = Math.abs(fraccionuno.value);
+        }
+        if (fracciondosantes.value != fracciondosdeantes.value && fracciondosantes.value < 0 && fracciondosdeantes.value < 0) {
+            fracciondosantes.value = Math.abs(fracciondosantes.value);
+            fracciondosdeantes.value = Math.abs(fracciondosdeantes.value);
+        }
+        if (fracciondos.value != fracciondosde.value && fracciondos.value < 0 && fracciondosde.value < 0) {
+            fracciondos.value = Math.abs(fracciondos.value);
+            fracciondosde.value = Math.abs(fracciondosde.value);
+        }
+        if (fracciontresde.value != fracciontres.value && fracciontresde.value < 0 && fracciontres.value < 0) {
+            fracciontresde.value = Math.abs(fracciontresde.value);
+            fracciontres.value = Math.abs(fracciontres.value);
         }
 
+        //hacemos la operacion del numerador / el denominado y guardamos en variable
+        var deno = parseFloat(fraccionuno.value / fraccionunode.value);  //posicion
+        var nomido = parseFloat(fracciondosantes.value / fracciondosdeantes.value);  //lin
+        var nomi = parseFloat(fracciondos.value / fracciondosde.value);
+        var nominatre = parseFloat(fracciontres.value / fracciontresde.value);
+        // aqui hacemos asignacion ah la formula General de arriba despues del '=' y tambien ah los valores iniciales de la tabla
+        //verificamos que sea un numero entero y aqui dentro hacemos remplasos en numereos enteros y negativos
+        if (deno - Math.floor(deno) === 0) {
+            if (deno != 0) {
+                if (deno == 1) {
+                    vamoaver1.innerHTML = "1";
+                    valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= 1";
 
-        function updateFromNumberfraction() {
-            if (fraccionunode.value == 0) {
-                alert("MENSAJE: ERROR");
-                fraccionunode.value = -1;
-
-            }
-            if (fracciondosde.value == 0) {
-                alert("MENSAJE: ERROR");
-                fracciondosde.value = -1;
-
-            }
-            if (fracciondosdeantes.value == 0) {
-                alert("MENSAJE: ERROR");
-                fracciondosdeantes.value = -1;
-
-            }
-            if (fracciontresde.value == 0) {
-                alert("MENSAJE: ERROR");
-                fracciontresde.value = -1;
-
-            }
-
-            if (fraccionunode.value != fraccionuno.value && fraccionunode.value < 0 && fraccionuno.value < 0) {
-                fraccionunode.value = Math.abs(fraccionunode.value);
-                fraccionuno.value = Math.abs(fraccionuno.value);
-            }
-            if (fracciondosantes.value != fracciondosdeantes.value && fracciondosantes.value < 0 && fracciondosdeantes.value < 0) {
-                fracciondosantes.value = Math.abs(fracciondosantes.value);
-                fracciondosdeantes.value = Math.abs(fracciondosdeantes.value);
-            }
-            if (fracciondos.value != fracciondosde.value && fracciondos.value < 0 && fracciondosde.value < 0) {
-                fracciondos.value = Math.abs(fracciondos.value);
-                fracciondosde.value = Math.abs(fracciondosde.value);
-            }
-            if (fracciontresde.value != fracciontres.value && fracciontresde.value < 0 && fracciontres.value < 0) {
-                fracciontresde.value = Math.abs(fracciontresde.value);
-                fracciontres.value = Math.abs(fracciontres.value);
-            }
-
-            var deno = parseFloat(fraccionuno.value / fraccionunode.value);  //posicion
-            var nomido = parseFloat(fracciondosantes.value / fracciondosdeantes.value);  //lin
-            var nomi = parseFloat(fracciondos.value / fracciondosde.value);
-            var nominatre = parseFloat(fracciontres.value / fracciontresde.value);
-
-            if (deno - Math.floor(deno) === 0) {
-                if (deno != 0) {
-                    if (deno == 1) {
-                        vamoaver1.innerHTML = "1";
-                        valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= 1";
-                       
-                    }
-                    else if (deno == -1) {
-                        vamoaver1.innerHTML = "-1";
-                        valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= -1";
-                        }
-                    else {
-                        if (deno < 0) {
-                            vamoaver1.innerHTML = deno.toString();
-                            valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + deno.toString();
-                          
-
-                        } else {
-                            vamoaver1.innerHTML = deno.toString();
-                            valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + deno.toString();
-                         
-                        }
-
-                    }
-
-
+                }
+                else if (deno == -1) {
+                    vamoaver1.innerHTML = "-1";
+                    valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= -1";
                 }
                 else {
-                    vamoaver1.innerHTML = "";
-                    valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= 0";
-                    
-                }
-
-            }
-            else {
-
-                if (fraccionuno.value < 0 || fraccionunode.value < 0) {
-                    vamoaver1
-    .innerHTML =
-    "<a>-</a><div class='fraction'><span class='fup' ><i><input id='ju' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='je' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
-                    var jj = document.getElementById("ju");
-                    var jjj = document.getElementById("je");
-                    jj.value = Math.abs(fraccionuno.value);
-                    jjj.value = Math.abs(fraccionunode.value);
-
-                    valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='valpo' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valso' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
-                    var varpo = document.getElementById("valpo");
-                    var varpofa = document.getElementById("valso");
-                    varpo.value = Math.abs(fraccionuno.value);
-                    varpofa.value = Math.abs(fraccionunode.value);
-                } else {
-                    vamoaver1
-           .innerHTML =
-           "<div class='fraction'><span class='fup' ><i><input id='ju' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='je' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
-                    var ju = document.getElementById("ju");
-                    var je = document.getElementById("je");
-                    ju.value = fraccionuno.value;
-                    je.value = fraccionunode.value;
-                    valorposicion
-                          .innerHTML =
-                          "x(0)=" + "x<sub>0</sub>= " + "<div class='fraction'><span class='fup' ><i><input id='valpo1' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valjo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
-                    var varposi = document.getElementById("valpo1");
-                    var varposix = document.getElementById("valjo");
-                    varposi.value = fraccionuno.value;
-                    varposix.value = fraccionunode.value;
-                }
+                    if (deno < 0) {
+                        vamoaver1.innerHTML = deno.toString();
+                        valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + deno.toString();
 
 
-            }
-
-            if (nomi - Math.floor(nomi) === 0) {
-                if (nomi != 0) {
-                    if (nomi == 1) {
-                        vamoaver2.innerHTML = "+t<sup>2</sup>";
-
-                    }
-
-                    else if (nomi == -1) {
-                        vamoaver2.innerHTML = "-t<sup>2</sup>";
-                    }
-
-                    else {
-                        if (nomi < 0) {
-                            vamoaver2.innerHTML = nomi.toString() + "t<sup>2</sup>";
-                        } else {
-                            vamoaver2.innerHTML = "+"+nomi.toString() + "t<sup>2</sup>";
-                        }
-                    }
-
-                }
-
-                else {
-                    vamoaver2.innerHTML = "";
-                }
-
-            }
-            else {
-                if (fracciondos.value < 0 || fracciondosde.value < 0) {
-                    vamoaver2
-                        .innerHTML =
-                        "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='js' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='so' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>t<sup>2</sup>";
-                    var qi = document.getElementById("js");
-                    var io = document.getElementById("so");
-                    io.value = Math.abs(fracciondosde.value);
-                    qi.value = Math.abs(fracciondos.value);
-                }
-                else {
-                    vamoaver2
-                    .innerHTML =
-                    "<a> + </a> <div class='fraction'><span class='fup' ><i><input id='ji' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='jo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span> </div>t<sup>2</sup>";
-                    var ji = document.getElementById("ji");
-                    var jo = document.getElementById("jo");
-                    ji.value = fracciondos.value;
-                    jo.value = fracciondosde.value;
-
-                }
-
-
-            }
-
-            if (nomido - Math.floor(nomido) === 0) {
-                if (nomido != 0) {
-                    if (nomido == 1) {
-                        vamoaver3.innerHTML = "+t";
-                        valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= 1";
-
-                    }
-                    else if (nomido == -1) {
-                        vamoaver3.innerHTML = "-t";
-                        valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= -1";
                     } else {
-                        if (nomido < 0) {
-                            vamoaver3.innerHTML = nomido.toString() + "t";
-                            valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= "+nomido.toString();
-                        } else {
-                            vamoaver3.innerHTML = "+" + nomido.toString() + "t";
-                            valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + nomido.toString();
-                        }
+                        vamoaver1.innerHTML = deno.toString();
+                        valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + deno.toString();
+
                     }
-                }
-
-
-
-                else {
-                    vamoaver3.innerHTML = "";
-               
-                    valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= 0";
-                }
-
-            } else {
-                if (fracciondosantes.value < 0 || fracciondosdeantes.value < 0) {
-                    vamoaver3
-                        .innerHTML =
-                        "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='jsss' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='sooo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>t";
-                    var qii = document.getElementById("jsss");
-                    var ioo = document.getElementById("sooo");
-                    ioo.value = Math.abs(fracciondosdeantes.value);
-                    qii.value = Math.abs(fracciondosantes.value);
-
-                    valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "<a>-</a><div class='fraction'><span class='fup' ><i><input id='vv' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '   readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='vva' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' readonly> </input></i></span></div>";
-                    var vv = document.getElementById("vv");
-                    var vva = document.getElementById("vva");
-                    vv.value = Math.abs(fracciondosantes.value);
-                    vva.value = Math.abs(fracciondosdeantes.value);
-                }
-                else {
-                    vamoaver3
-                    .innerHTML =
-                    "<a> + </a> <div class='fraction'><span class='fup' ><i><input id='jiii' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='jooo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>t";
-                    var jiii = document.getElementById("jiii");
-                    var jooo = document.getElementById("jooo");
-                    jiii.value = fracciondosantes.value;
-                    jooo.value = fracciondosdeantes.value;
-
-                    valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "<div class='fraction'><span class='fup' ><i><input id='vv' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='vva' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
-                    var vvj = document.getElementById("vv");
-                    var vvaj = document.getElementById("vva");
-                    vvj.value = fracciondosantes.value;
-                    vvaj.value = fracciondosdeantes.value;
 
                 }
 
 
             }
-            if (nominatre - Math.floor(nominatre) === 0) {
-                if (nominatre != 0) {
-                    if (nominatre == 1) {
-                        vamoaver4.innerHTML = "+t<sup>3</sup>";
+            else {
+                vamoaver1.innerHTML = "";
+                valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= 0";
 
-                    }
+            }
 
-                    else if (nominatre == -1) {
-                        vamoaver4.innerHTML = "-t<sup>3</sup>";
-                    }
+        }
+            // Sabiendo que es fraccion añadimos al HTML, para poder darle un formato de fraccion
+        else {
 
-                    else {
-                        if (nominatre < 0) {
-                            vamoaver4.innerHTML = nominatre.toString() + "t<sup>3</sup>";
-                        } else {
-                            vamoaver4.innerHTML = "+" + nominatre.toString() + "t<sup>3</sup>";
-                        }
-                    }
+            if (fraccionuno.value < 0 || fraccionunode.value < 0) {
+                vamoaver1
+.innerHTML =
+"<a>-</a><div class='fraction'><span class='fup' ><i><input id='ju' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='je' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
+                var jj = document.getElementById("ju");
+                var jjj = document.getElementById("je");
+                jj.value = Math.abs(fraccionuno.value);
+                jjj.value = Math.abs(fraccionunode.value);
 
+                valorposicion.innerHTML = "x(0)=" + "x<sub>0</sub>= " + "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='valpo' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valso' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
+                var varpo = document.getElementById("valpo");
+                var varpofa = document.getElementById("valso");
+                varpo.value = Math.abs(fraccionuno.value);
+                varpofa.value = Math.abs(fraccionunode.value);
+            } else {
+                vamoaver1
+       .innerHTML =
+       "<div class='fraction'><span class='fup' ><i><input id='ju' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='je' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
+                var ju = document.getElementById("ju");
+                var je = document.getElementById("je");
+                ju.value = fraccionuno.value;
+                je.value = fraccionunode.value;
+                valorposicion
+                      .innerHTML =
+                      "x(0)=" + "x<sub>0</sub>= " + "<div class='fraction'><span class='fup' ><i><input id='valpo1' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='valjo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
+                var varposi = document.getElementById("valpo1");
+                var varposix = document.getElementById("valjo");
+                varposi.value = fraccionuno.value;
+                varposix.value = fraccionunode.value;
+            }
+
+
+        }
+        // el mismo proceso que arriba solo que con el siguiente punto o dato del input.
+        if (nomi - Math.floor(nomi) === 0) {
+            if (nomi != 0) {
+                if (nomi == 1) {
+                    vamoaver2.innerHTML = "+t<sup>2</sup>";
+
+                }
+
+                else if (nomi == -1) {
+                    vamoaver2.innerHTML = "-t<sup>2</sup>";
                 }
 
                 else {
-                    vamoaver4.innerHTML = "";
+                    if (nomi < 0) {
+                        vamoaver2.innerHTML = nomi.toString() + "t<sup>2</sup>";
+                    } else {
+                        vamoaver2.innerHTML = "+" + nomi.toString() + "t<sup>2</sup>";
+                    }
                 }
 
+            }
+
+            else {
+                vamoaver2.innerHTML = "";
+            }
+
+        }
+        else {
+            if (fracciondos.value < 0 || fracciondosde.value < 0) {
+                vamoaver2
+                    .innerHTML =
+                    "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='js' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='so' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>t<sup>2</sup>";
+                var qi = document.getElementById("js");
+                var io = document.getElementById("so");
+                io.value = Math.abs(fracciondosde.value);
+                qi.value = Math.abs(fracciondos.value);
             }
             else {
-                if (fracciontres.value < 0 || fracciontresde.value < 0) {
-                    vamoaver4
-                        .innerHTML =
-                        "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='jssu' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='sosu' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>t<sup>3</sup>";
-                    var qisu = document.getElementById("jssu");
-                    var iosu = document.getElementById("sosu");
-                    iosu.value = Math.abs(fracciontresde.value);
-                    qisu.value = Math.abs(fracciontres.value);
+                vamoaver2
+                .innerHTML =
+                "<a> + </a> <div class='fraction'><span class='fup' ><i><input id='ji' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='jo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span> </div>t<sup>2</sup>";
+                var ji = document.getElementById("ji");
+                var jo = document.getElementById("jo");
+                ji.value = fracciondos.value;
+                jo.value = fracciondosde.value;
+
+            }
+
+
+        }
+
+        if (nomido - Math.floor(nomido) === 0) {
+            if (nomido != 0) {
+                if (nomido == 1) {
+                    vamoaver3.innerHTML = "+t";
+                    valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= 1";
+
                 }
-                else {
-                    vamoaver4
+                else if (nomido == -1) {
+                    vamoaver3.innerHTML = "-t";
+                    valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= -1";
+                } else {
+                    if (nomido < 0) {
+                        vamoaver3.innerHTML = nomido.toString() + "t";
+                        valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + nomido.toString();
+                    } else {
+                        vamoaver3.innerHTML = "+" + nomido.toString() + "t";
+                        valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + nomido.toString();
+                    }
+                }
+            }
+
+
+
+            else {
+                vamoaver3.innerHTML = "";
+
+                valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= 0";
+            }
+
+        } else {
+            if (fracciondosantes.value < 0 || fracciondosdeantes.value < 0) {
+                vamoaver3
                     .innerHTML =
-                    "<a> + </a> <div class='fraction'><span class='fup' ><i><input id='jisu' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='josu' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span> </div>t<sup>3</sup>";
-                    var jisu = document.getElementById("jisu");
-                    var josu = document.getElementById("josu");
-                    jisu.value = fracciontres.value;
-                    josu.value = fracciontresde.value;
-                }
+                    "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='jsss' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='sooo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>t";
+                var qii = document.getElementById("jsss");
+                var ioo = document.getElementById("sooo");
+                ioo.value = Math.abs(fracciondosdeantes.value);
+                qii.value = Math.abs(fracciondosantes.value);
 
+                valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "<a>-</a><div class='fraction'><span class='fup' ><i><input id='vv' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '   readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='vva' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' readonly> </input></i></span></div>";
+                var vv = document.getElementById("vv");
+                var vva = document.getElementById("vva");
+                vv.value = Math.abs(fracciondosantes.value);
+                vva.value = Math.abs(fracciondosdeantes.value);
+            }
+            else {
+                vamoaver3
+                .innerHTML =
+                "<a> + </a> <div class='fraction'><span class='fup' ><i><input id='jiii' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='jooo' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>t";
+                var jiii = document.getElementById("jiii");
+                var jooo = document.getElementById("jooo");
+                jiii.value = fracciondosantes.value;
+                jooo.value = fracciondosdeantes.value;
+
+                valorvelocidad.innerHTML = "v(0)=" + "v<sub>0</sub>= " + "<div class='fraction'><span class='fup' ><i><input id='vv' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='vva' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>";
+                var vvj = document.getElementById("vv");
+                var vvaj = document.getElementById("vva");
+                vvj.value = fracciondosantes.value;
+                vvaj.value = fracciondosdeantes.value;
 
             }
 
 
-            var axisX = float(-nomi (2 * nominatre ));
-            var axisY = velocityFunction.evaluate(axisX);
-
-            positionBoard.suspendUpdate();
-            velocityBoard.suspendUpdate();
-
-            cubicIntPoint.moveTo([0, deno]);
-
-            quadraticIntPoint.moveTo([0, nomido]);
-
-           quadraticAxisPoint.moveTo([axisX, axisY]);
-            quadraticSlopePoint.moveTo([axisX * 2, nomido]);
-
-            velocityBoard.unsuspendUpdate();
-            velocityBoard.fullUpdate();
-            positionBoard.unsuspendUpdate();
-            positionBoard.fullUpdate();
-
         }
+        if (nominatre - Math.floor(nominatre) === 0) {
+            if (nominatre != 0) {
+                if (nominatre == 1) {
+                    vamoaver4.innerHTML = "+t<sup>3</sup>";
 
-
-        function Start() {
-            startButton.disabled = true;
-            final = parseFloat(positionFunction.b) + parseFloat(positionFunction.a * parseInt(document.getElementsByName("endTime")[0].value));
-            //  alert(final);
-
-            if (parseInt(document.getElementsByName("endTime")[0].value) < 0) {
-                lado = false;
-                // alert(parseInt(document.getElementsByName("endTime")[0].value));
-            } else if (parseInt(document.getElementsByName("endTime")[0].value) > 0) {
-                lado = true;
-                //alert(parseInt(document.getElementsByName("endTime")[0].value));
-            }
-            currentTime = parseInt(document.getElementsByName("startTime")[0].value);
-
-            interval = window.setInterval(Step, timeInterval);
-            guidingLine = positionBoard.create('line',
-                [[currentTime, 60], [currentTime, -60]],
-                { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#8f918f' });
-            guidingLine2 = velocityBoard.create('line',
-                [[currentTime, 60], [currentTime, -60]],
-                { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#8f918f' });
-
-
-        }
-
-        function Step() {
-
-            if (lado == true) {
-                currentTime += timeInterval / 10000;
-                if (currentTime >= parseInt(document.getElementsByName("endTime")[0].value)) {
-                    clearInterval(interval);
-                    positionBoard.removeObject(guidingLine);
-                    velocityBoard.removeObject(guidingLine2);
-                    startButton.disabled = false;
-                    //sliderBox.update();
                 }
+
+                else if (nominatre == -1) {
+                    vamoaver4.innerHTML = "-t<sup>3</sup>";
+                }
+
                 else {
-                    value = positionFunction.evaluate(currentTime);
-                    slider.setValue(value);
-                    sliderBox.update();
-                    positionBoard.removeObject(guidingLine);
-                    velocityBoard.removeObject(guidingLine2);
-                    guidingLine = positionBoard.create('line',
-                        [[currentTime, 60], [currentTime, -60]],
-                        { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 3, strokeColor: '#cecece' });
-                    guidingLine2 = velocityBoard.create('line',
+                    if (nominatre < 0) {
+                        vamoaver4.innerHTML = nominatre.toString() + "t<sup>3</sup>";
+                    } else {
+                        vamoaver4.innerHTML = "+" + nominatre.toString() + "t<sup>3</sup>";
+                    }
+                }
+
+            }
+
+            else {
+                vamoaver4.innerHTML = "";
+            }
+
+        }
+        else {
+            if (fracciontres.value < 0 || fracciontresde.value < 0) {
+                vamoaver4
+                    .innerHTML =
+                    "<a> - </a> <div class='fraction'><span class='fup' ><i><input id='jssu' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='sosu' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span></div>t<sup>3</sup>";
+                var qisu = document.getElementById("jssu");
+                var iosu = document.getElementById("sosu");
+                iosu.value = Math.abs(fracciontresde.value);
+                qisu.value = Math.abs(fracciontres.value);
+            }
+            else {
+                vamoaver4
+                .innerHTML =
+                "<a> + </a> <div class='fraction'><span class='fup' ><i><input id='jisu' type='number' min='-99' max='99'   style='text-align: center;  width:50px;  border-bottom-color:black; border-top: 0; border-left: 0; border-right: 0; '  readonly> </input> </i></span><span class='bar'>/</span><span class='fdn' ><i><input id='josu' type='number'  min='1' max='99' style='text-align: center ;width:50px ; border: none;' value='2' readonly> </input></i></span> </div>t<sup>3</sup>";
+                var jisu = document.getElementById("jisu");
+                var josu = document.getElementById("josu");
+                jisu.value = fracciontres.value;
+                josu.value = fracciontresde.value;
+            }
+
+
+        }
+
+        // asignamos los valores y actualizamos la grafica con update
+        var axisX = float(-nomi(2 * nominatre));
+        var axisY = velocityFunction.evaluate(axisX);
+
+        positionBoard.suspendUpdate();
+        velocityBoard.suspendUpdate();
+
+        cubicIntPoint.moveTo([0, deno]);
+
+        quadraticIntPoint.moveTo([0, nomido]);
+
+        quadraticAxisPoint.moveTo([axisX, axisY]);
+        quadraticSlopePoint.moveTo([axisX * 2, nomido]);
+
+        velocityBoard.unsuspendUpdate();
+        velocityBoard.fullUpdate();
+        positionBoard.unsuspendUpdate();
+        positionBoard.fullUpdate();
+
+    }
+
+    //funcion  para el slider cuando se presiona el Start()
+    function Start() {
+        startButton.disabled = true;
+        final = parseFloat(positionFunction.b) + parseFloat(positionFunction.a * parseInt(document.getElementsByName("endTime")[0].value));
+        //  alert(final);
+
+        if (parseInt(document.getElementsByName("endTime")[0].value) < 0) {
+            lado = false;
+            // alert(parseInt(document.getElementsByName("endTime")[0].value));
+        } else if (parseInt(document.getElementsByName("endTime")[0].value) > 0) {
+            lado = true;
+            //alert(parseInt(document.getElementsByName("endTime")[0].value));
+        }
+        currentTime = parseInt(document.getElementsByName("startTime")[0].value);
+
+        interval = window.setInterval(Step, timeInterval);
+        guidingLine = positionBoard.create('line',
+            [[currentTime, 60], [currentTime, -60]],
+            { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#8f918f' });
+        guidingLine2 = velocityBoard.create('line',
+            [[currentTime, 60], [currentTime, -60]],
+            { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 2, strokeColor: '#8f918f' });
+
+
+    }
+    //parte de la funcion al momento de estar presionado el boton start
+    function Step() {
+
+        if (lado == true) {
+            currentTime += timeInterval / 10000;  //calculo del intervalo
+            if (currentTime >= parseInt(document.getElementsByName("endTime")[0].value)) {
+                clearInterval(interval);
+                positionBoard.removeObject(guidingLine);
+                velocityBoard.removeObject(guidingLine2);
+                startButton.disabled = false;
+                //sliderBox.update();
+            }
+                // se crean los aqui los movimientos remueven lineas de cada BOARD que muestran el
+                // lapso de tiempo y distancia recorida dentro de las curbas
+                // dependiendo el lado ya sea positivo o negativo hacia donde se dirige equidna
+            else {
+                value = positionFunction.evaluate(currentTime);
+                slider.setValue(value);
+                sliderBox.update();
+                positionBoard.removeObject(guidingLine);
+                velocityBoard.removeObject(guidingLine2);
+                guidingLine = positionBoard.create('line',
                     [[currentTime, 60], [currentTime, -60]],
                     { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 3, strokeColor: '#cecece' });
-                }
-
-            } else if (!lado) {
-                currentTime -= timeInterval / 10000;
-                if (currentTime <= parseInt(document.getElementsByName("endTime")[0].value)) {
-                    clearInterval(interval);
-                    positionBoard.removeObject(guidingLine);
-                    velocityBoard.removeObject(guidingLine2);
-                    startButton.disabled = false;
-                } else {
-                    value = positionFunction.evaluate(currentTime);
-                    slider.setValue(value);
-                    sliderBox.update();
-                    positionBoard.removeObject(guidingLine);
-                    velocityBoard.removeObject(guidingLine2);
-                    guidingLine = positionBoard.create('line',
-                        [[currentTime, 60], [currentTime, -60]],
-                        {
-                            straightFirst: false,
-                            straightLast: false,
-                            strokeWidth: 2,
-                            dash: 3,
-                            strokeColor: '#cecece'
-                        });
-                    guidingLine2 = velocityBoard.create('line',
-                        [[currentTime, 60], [currentTime, -60]],
-                        {
-                            straightFirst: false,
-                            straightLast: false,
-                            strokeWidth: 2,
-                            dash: 3,
-                            strokeColor: '#cecece'
-                        });
-                }
+                guidingLine2 = velocityBoard.create('line',
+                [[currentTime, 60], [currentTime, -60]],
+                { straightFirst: false, straightLast: false, strokeWidth: 2, dash: 3, strokeColor: '#cecece' });
             }
 
-
+        } else if (!lado) {
+            currentTime -= timeInterval / 10000;
+            if (currentTime <= parseInt(document.getElementsByName("endTime")[0].value)) {
+                clearInterval(interval);
+                positionBoard.removeObject(guidingLine);
+                velocityBoard.removeObject(guidingLine2);
+                startButton.disabled = false;
+            } else {
+                value = positionFunction.evaluate(currentTime);
+                slider.setValue(value);
+                sliderBox.update();
+                positionBoard.removeObject(guidingLine);
+                velocityBoard.removeObject(guidingLine2);
+                guidingLine = positionBoard.create('line',
+                    [[currentTime, 60], [currentTime, -60]],
+                    {
+                        straightFirst: false,
+                        straightLast: false,
+                        strokeWidth: 2,
+                        dash: 3,
+                        strokeColor: '#cecece'
+                    });
+                guidingLine2 = velocityBoard.create('line',
+                    [[currentTime, 60], [currentTime, -60]],
+                    {
+                        straightFirst: false,
+                        straightLast: false,
+                        strokeWidth: 2,
+                        dash: 3,
+                        strokeColor: '#cecece'
+                    });
+            }
         }
 
 
-        function SnapToGrid(x, y) {
-            return [Math.round(x * 100) / 100, Math.round(y * 100) / 100]
+    }
+
+    // delimita las decimales a .00 dos
+    function SnapToGrid(x, y) {
+        return [Math.round(x * 100) / 100, Math.round(y * 100) / 100]
+    }
+
+    var FormulaDiv = document.getElementById("FormulaDisplayDiv");
+
+
+    //configuracion y opciones de escalar color sobre positionboard
+    JXG.Options.axis.ticks.majorHeight = 40;
+    JXG.Options.axis.ticks.minorHeight = 15;
+    JXG.Options.axis.ticks.minorTicks = 5;
+    JXG.Options.axis.ticks.strokeOpacity = 0.40;
+    JXG.Options.axis.ticks.ticksDistance = 1;
+    JXG.Options.axis.ticks.insertTicks = false;
+    JXG.Options.axis.ticks.strokeColor = '#666666';
+    JXG.Options.axis.ticks.label.offset = [-12 + 3, 4];
+    JXG.Options.axis.ticks.label.layer = 9;
+    JXG.Options.axis.margin = -4;
+    JXG.Options.axis.ticks.tickEndings = [0, 1];
+    JXG.Options.axis.ticks.highlightStrokeColor = '#888888';
+    JXG.Options.axis.highlightStrokeColor = '#2c64b2';
+    JXG.Options.axis.strokeColor = '#2c64b2';
+    JXG.Options.axis.strokeWidth = .8;
+    JXG.Options.axis.ticks.strokeWidth = 1;
+    JXG.Options.axis.highlightStrokeWidth = 1;
+
+    var positionBoard = JXG.JSXGraph.initBoard('PositionBoard', {
+        boundingbox: [minX, maxY, maxX, minY], axis: true,
+        grid: true,
+        shownavigation: true,
+        keepAspectRatio: true,
+        showClearTraces: true,
+        keepaspectratio: false, zoom: {
+            factorX: 1.25,
+            factorY: 1.25,
+            wheel: true,
+            needshift: true,
+            eps: 0.1
         }
+    });
+    // texto en los ejes de positiconboard
+    positionBoard.create('text', [-0.3, 8.3, "x"], { fontSize: 20 });
+    positionBoard.create('text', [8.5, -0.5, "t"], { fontSize: 20 });
 
-        var FormulaDiv = document.getElementById("FormulaDisplayDiv");
-        JXG.Options.axis.ticks.majorHeight = 40;
-        JXG.Options.axis.ticks.minorHeight = 15;
-        JXG.Options.axis.ticks.minorTicks = 5;
-        JXG.Options.axis.ticks.strokeOpacity = 0.40;
-        JXG.Options.axis.ticks.ticksDistance = 1;
-        JXG.Options.axis.ticks.insertTicks = false;
-        JXG.Options.axis.ticks.strokeColor = '#666666';
-        JXG.Options.axis.ticks.label.offset = [-12 + 3, 4];
-        JXG.Options.axis.ticks.label.layer = 9;
-        JXG.Options.axis.margin = -4;
-        JXG.Options.axis.ticks.tickEndings = [0, 1];
-        JXG.Options.axis.ticks.highlightStrokeColor = '#888888';
-        JXG.Options.axis.highlightStrokeColor = '#2c64b2';
-        JXG.Options.axis.strokeColor = '#2c64b2';
-        JXG.Options.axis.strokeWidth = .8;
-        JXG.Options.axis.ticks.strokeWidth = 1;
-        JXG.Options.axis.highlightStrokeWidth = 1;
 
-        var positionBoard = JXG.JSXGraph.initBoard('PositionBoard', {
-            boundingbox: [minX, maxY, maxX, minY], axis: true,
-            grid: true,
-            shownavigation: true,
-            keepAspectRatio: true,
-            showClearTraces: true,
-            keepaspectratio: false, zoom: {
-                factorX: 1.25,
-                factorY: 1.25,
-                wheel: true,
-                needshift: true,
-                eps: 0.1
+    //opciones y configuracion de escalacion de velocityboard
+    JXG.Options.axis.ticks.majorHeight = 40;
+    JXG.Options.axis.ticks.minorHeight = 15;
+    JXG.Options.axis.ticks.minorTicks = 5;
+    JXG.Options.axis.ticks.strokeOpacity = 0.40;
+    JXG.Options.axis.ticks.ticksDistance = 1;
+    JXG.Options.axis.ticks.insertTicks = false;
+    JXG.Options.axis.ticks.strokeColor = '#666666';
+    JXG.Options.axis.ticks.label.offset = [-12 + 3, 4];
+    JXG.Options.axis.ticks.label.layer = 9;
+    JXG.Options.axis.margin = -4;
+    JXG.Options.axis.ticks.tickEndings = [0, 1];
+    JXG.Options.axis.ticks.highlightStrokeColor = '#888888';
+    JXG.Options.axis.highlightStrokeColor = '#2c64b2';
+    JXG.Options.axis.strokeColor = '#2c64b2';
+    JXG.Options.axis.strokeWidth = .8;
+    JXG.Options.axis.ticks.strokeWidth = 1;
+    JXG.Options.axis.highlightStrokeWidth = 1;
+    // parametros del board maxsimoy minimo en xy y otras configuraciones sobre zomm informacion teclas de navegacion
+    var velocityBoard = JXG.JSXGraph.initBoard('VelocityBoard', {
+        boundingbox: [minX, maxY, maxX, minY], axis: true,
+        grid: true,
+        shownavigation: true,
+        keepAspectRatio: true,
+        showClearTraces: true,
+        keepaspectratio: false, zoom: {
+            factorX: 1.25,
+            factorY: 1.25,
+            wheel: true,
+            needshift: true,
+            eps: 0.1
+        }
+    });
+    // texto dentro de velocity board
+    velocityBoard.create('text', [-0.3, 8.3, "v"], { fontSize: 20 });
+    velocityBoard.create('text', [8.5, -0.5, "t"], { fontSize: 20 });
+
+    // informacion del slider
+    JXG.Options.axis.ticks.minorHeight = 8;
+    JXG.Options.axis.ticks.minorTicks = 5;
+    JXG.Options.axis.ticks.majorHeight = 20;
+    JXG.Options.axis.ticks.insertTicks = false;
+    JXG.Options.axis.ticks.ticksDistance = 1;
+    JXG.Options.axis.ticks.strokeWidth = 2.5;
+    JXG.Options.axis.ticks.tickEndings = [0, 2];
+
+    // se crea el slider
+    var sliderBox = JXG.JSXGraph.initBoard('sliderBox', {
+        boundingbox: [-2, -0.01, 9, 0.01], axis: true, grid: true, shownavigation: true, keepAspectRatio: true, showClearTraces: true, keepaspectratio: false, zoom: {
+            factorX: 1.25,
+            factorY: 1.25,
+            wheel: true,
+            needshift: true,
+            eps: 0.1
+        },
+
+    });
+
+
+    // imagenes del slider en .gif
+    var frente = '@Url.Content("~/Content/images/nuevogif.gif")';
+    var camina = '@Url.Content("~/Content/images/nuevocam.gif")';
+    var volt = '@Url.Content("~/Content/images/volte.gif")';
+    var inverso = '@Url.Content("~/Content/images/nuevoinver.gif")';
+
+    // se anexan las imagenes en cada posicion negativa y positiva
+
+    var slider = sliderBox.create('slider', [[-50, 0], [50, 0], [-50, 0, 50]], { size: 3, opacity: 0.5, ticks: { drawLabels: false, highlight: true } });
+    var im = sliderBox.create('image',
+    [
+        function () {
+            if (slider.X() == 0) {
+                return frente;
             }
-        });
-
-        positionBoard.create('text', [-0.3, 8.3, "x"], { fontSize: 20 });
-        positionBoard.create('text', [8.5, -0.5, "t"], { fontSize: 20 });
-        JXG.Options.axis.ticks.majorHeight = 40;
-        JXG.Options.axis.ticks.minorHeight = 15;
-        JXG.Options.axis.ticks.minorTicks = 5;
-        JXG.Options.axis.ticks.strokeOpacity = 0.40;
-        JXG.Options.axis.ticks.ticksDistance = 1;
-        JXG.Options.axis.ticks.insertTicks = false;
-        JXG.Options.axis.ticks.strokeColor = '#666666';
-        JXG.Options.axis.ticks.label.offset = [-12 + 3, 4];
-        JXG.Options.axis.ticks.label.layer = 9;
-        JXG.Options.axis.margin = -4;
-        JXG.Options.axis.ticks.tickEndings = [0, 1];
-        JXG.Options.axis.ticks.highlightStrokeColor = '#888888';
-        JXG.Options.axis.highlightStrokeColor = '#2c64b2';
-        JXG.Options.axis.strokeColor = '#2c64b2';
-        JXG.Options.axis.strokeWidth = .8;
-        JXG.Options.axis.ticks.strokeWidth = 1;
-        JXG.Options.axis.highlightStrokeWidth = 1;
-
-        var velocityBoard = JXG.JSXGraph.initBoard('VelocityBoard', {
-            boundingbox: [minX, maxY, maxX, minY], axis: true,
-            grid: true,
-            shownavigation: true,
-            keepAspectRatio: true,
-            showClearTraces: true,
-            keepaspectratio: false, zoom: {
-                factorX: 1.25,
-                factorY: 1.25,
-                wheel: true,
-                needshift: true,
-                eps: 0.1
+            else if (slider.X() > 0 && slider.X() < 0.15) {
+                return volt;
             }
-        });
-   
-        velocityBoard.create('text', [-0.3, 8.3, "v"], { fontSize: 20 });
-        velocityBoard.create('text', [8.5, -0.5, "t"], { fontSize: 20 });
+            else if (slider.X() > 0.15 && slider.X() < (final - 0.01)) {
+                return camina;
+            }
+            else if (slider.X() < 0.15 && slider.X() > (final + 0.01)) {
+                return inverso;
+            }
+            else {
+                return frente;
+            }
+        },
+        [function () { return slider.X() - 0.55; }, function () { return slider.Y(); }], [1, 0.01]
 
-        JXG.Options.axis.ticks.minorHeight = 8;
-        JXG.Options.axis.ticks.minorTicks = 5;
-        JXG.Options.axis.ticks.majorHeight = 20;
-        JXG.Options.axis.ticks.insertTicks = false;
-        JXG.Options.axis.ticks.ticksDistance = 1;
-        JXG.Options.axis.ticks.strokeWidth = 2.5;
-        JXG.Options.axis.ticks.tickEndings = [0, 2];
+    ]);
+    //informacion que se muestra ah pasar por los puntos
+    velocityBoard.highlightInfobox = function (x, y, el) {
+        velocityBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
+    };
 
-        var sliderBox = JXG.JSXGraph.initBoard('sliderBox', {
-            boundingbox: [-2, -0.01, 9, 0.01], axis: true, grid: true, shownavigation: true, keepAspectRatio: true, showClearTraces: true, keepaspectratio: false, zoom: {
-                factorX: 1.25,
-                factorY: 1.25,
-                wheel: true,
-                needshift: true,
-                eps: 0.1
-            },
+    positionBoard.highlightInfobox = function (x, y, el) {
+        positionBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
+    };
 
-        });
+    var positionFunction = new CubicFunction(1 / 6, -1 / 2, 1 / 2, 0);
+    var velocityFunction = positionFunction.derivate();
 
+    positionBoard.create(
+        'functiongraph',
+        [function (x) { return positionFunction.evaluate(x); }],
+        { strokeColor: "Blue" }
+        );
 
-      
-        var frente = '@Url.Content("~/Content/images/nuevogif.gif")';
+    velocityBoard.create(
+        'functiongraph',
+        [function (x) { return velocityFunction.evaluate(x); }],
+        { strokeColor: "Red" }
+        );
 
-        var camina = '@Url.Content("~/Content/images/nuevocam.gif")';
-        var volt = '@Url.Content("~/Content/images/volte.gif")';
-        var inverso = '@Url.Content("~/Content/images/nuevoinver.gif")';
+    // informacion de puntos y creacion de los mismos
+    var quadraticAxisPoint = velocityBoard.create('point', [0, 0], { size: 2, name: "", color: "Red" });
+    var quadraticIntPoint = velocityBoard.create('point', [0, 0], { size: 2, name: "", color: "Red" });
+    var quadraticSlopePoint = velocityBoard.create('point', [0, 0], { size: 2, name: "", color: "Red" });
+    var cubicIntPoint = positionBoard.create('point', [0, 0], { size: 2, name: "", color: "Blue" });
 
-        var slider = sliderBox.create('slider', [[-50, 0], [50, 0], [-50, 0, 50]], { size: 3, opacity: 0.5, ticks: { drawLabels: false, highlight: true } });
-        var im = sliderBox.create('image',
-        [
-            function () {
-                if (slider.X() == 0) {
-                    return frente;
-                }
-                else if (slider.X() > 0 && slider.X() < 0.15) {
-                    return volt;
-                }
-                else if (slider.X() > 0.15 && slider.X() < (final - 0.01)) {
-                    return camina;
-                }
-                else if (slider.X() < 0.15 && slider.X() > (final + 0.01)) {
-                    return inverso;
-                }
-                else {
-                    return frente;
-                }
+    //  Initial setup
+    updateUI();
 
+    //  Add functionality to points.
+    //movimiento de puntos
+    var intOldY = quadraticIntPoint.Y();
+    quadraticIntPoint.on('mousedrag', function () {
+        var offset = quadraticIntPoint.Y() - intOldY;
+        quadraticIntPoint.moveTo([0, quadraticIntPoint.Y()]);
+        velocityBoard.suspendUpdate();
 
+        quadraticSlopePoint.moveTo([quadraticSlopePoint.X(), quadraticSlopePoint.Y() + offset]);
+        quadraticAxisPoint.moveTo([quadraticAxisPoint.X(), quadraticAxisPoint.Y() + offset]);
 
-            },
-            [function () { return slider.X() - 0.55; }, function () { return slider.Y(); }], [1, 0.01]
+        velocityBoard.unsuspendUpdate();
+        intOldY = quadraticIntPoint.Y();
+        axisOldY = quadraticAxisPoint.Y();
+    });
 
-        ]);
+    quadraticSlopePoint.on('mousedrag', function () {
+        velocityBoard.suspendUpdate();
 
-        velocityBoard.highlightInfobox = function (x, y, el) {
-            velocityBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
-        };
+        quadraticSlopePoint.moveTo([quadraticSlopePoint.X(), quadraticIntPoint.Y()]);
+        quadraticAxisPoint.moveTo([quadraticSlopePoint.X() / 2, quadraticAxisPoint.Y()]);
 
-        positionBoard.highlightInfobox = function (x, y, el) {
-            positionBoard.infobox.setText('(' + el.X().toFixed(2) + ', ' + el.Y().toFixed(2) + ')');
-        };
+        velocityBoard.unsuspendUpdate();
+        axisOldX = quadraticAxisPoint.X();
+    });
 
-        var positionFunction = new CubicFunction(1 / 6, -1 / 2, 1 / 2, 0);
-        var velocityFunction = positionFunction.derivate();
+    var axisOldX = quadraticAxisPoint.X();
+    var axisOldY = quadraticAxisPoint.Y();
+    quadraticAxisPoint.on('mousedrag', function () {
+        var offset = quadraticAxisPoint.X() - axisOldX;
+        velocityBoard.suspendUpdate();
 
-        positionBoard.create(
-            'functiongraph',
-            [function (x) { return positionFunction.evaluate(x); }],
-            { strokeColor: "Blue" }
-            );
+        quadraticAxisPoint.moveTo([quadraticAxisPoint.X(), axisOldY]);
+        quadraticIntPoint.moveTo([0, velocityFunction.evaluate(-offset)]);
+        quadraticSlopePoint.moveTo([quadraticAxisPoint.X() * 2, velocityFunction.evaluate(-offset)]);
 
-        velocityBoard.create(
-            'functiongraph',
-            [function (x) { return velocityFunction.evaluate(x); }],
-            { strokeColor: "Red" }
-            );
+        velocityBoard.unsuspendUpdate();
+        axisOldX = quadraticAxisPoint.X();
+        intOldY = quadraticIntPoint.Y();
+    });
 
-        //  Create the points.
-        var quadraticAxisPoint = velocityBoard.create('point', [0, 0], { size: 2, name: "", color: "Red" });
-        var quadraticIntPoint = velocityBoard.create('point', [0, 0], { size: 2, name: "", color: "Red" });
-        var quadraticSlopePoint = velocityBoard.create('point', [0, 0], { size: 2, name: "", color: "Red" });
-        var cubicIntPoint = positionBoard.create('point', [0, 0], { size: 2, name: "", color: "Blue" });
+    cubicIntPoint.on("mousedrag", function () {
+        cubicIntPoint.moveTo([0, cubicIntPoint.Y()]);
+    });
 
-        //  Initial setup
+    //  Update function
+    function updateFunction() {
+        var c = quadraticIntPoint.Y();
+        var h = quadraticAxisPoint.X();
+        var k = quadraticAxisPoint.Y();
+        var m = quadraticSlopePoint.X();
+        var n = quadraticSlopePoint.Y();
+
+        velocityFunction.c = c;
+        velocityFunction.b = (m * m * (k - c) + h * h * (c - n)) / (m * h * (m - h));
+        velocityFunction.a = (n - c - m * velocityFunction.b) / (m * m);
+        positionFunction = velocityFunction.integrate(cubicIntPoint.Y());
+        // actualizar control
         updateUI();
-
-        //  Add functionality to points.
-
-        var intOldY = quadraticIntPoint.Y();
-        quadraticIntPoint.on('mousedrag', function () {
-            var offset = quadraticIntPoint.Y() - intOldY;
-            quadraticIntPoint.moveTo([0, quadraticIntPoint.Y()]);
-            velocityBoard.suspendUpdate();
-
-            quadraticSlopePoint.moveTo([quadraticSlopePoint.X(), quadraticSlopePoint.Y() + offset]);
-            quadraticAxisPoint.moveTo([quadraticAxisPoint.X(), quadraticAxisPoint.Y() + offset]);
-
-            velocityBoard.unsuspendUpdate();
-            intOldY = quadraticIntPoint.Y();
-            axisOldY = quadraticAxisPoint.Y();
-        });
-
-        quadraticSlopePoint.on('mousedrag', function () {
-            velocityBoard.suspendUpdate();
-
-            quadraticSlopePoint.moveTo([quadraticSlopePoint.X(), quadraticIntPoint.Y()]);
-            quadraticAxisPoint.moveTo([quadraticSlopePoint.X() / 2, quadraticAxisPoint.Y()]);
-
-            velocityBoard.unsuspendUpdate();
-            axisOldX = quadraticAxisPoint.X();
-        });
-
-        var axisOldX = quadraticAxisPoint.X();
-        var axisOldY = quadraticAxisPoint.Y();
-        quadraticAxisPoint.on('mousedrag', function () {
-            var offset = quadraticAxisPoint.X() - axisOldX;
-            velocityBoard.suspendUpdate();
-
-            quadraticAxisPoint.moveTo([quadraticAxisPoint.X(), axisOldY])
-            quadraticIntPoint.moveTo([0, velocityFunction.evaluate(-offset)]);
-            quadraticSlopePoint.moveTo([quadraticAxisPoint.X() * 2, velocityFunction.evaluate(-offset)]);
-
-            velocityBoard.unsuspendUpdate();
-            axisOldX = quadraticAxisPoint.X();
-            intOldY = quadraticIntPoint.Y();
-        });
-
-        cubicIntPoint.on("mousedrag", function () {
-            cubicIntPoint.moveTo([0, cubicIntPoint.Y()]);
-        });
-
-        //  Update function
-        function updateFunction() {
-            var c = quadraticIntPoint.Y();
-            var h = quadraticAxisPoint.X();
-            var k = quadraticAxisPoint.Y();
-            var m = quadraticSlopePoint.X();
-            var n = quadraticSlopePoint.Y();
-           
-            velocityFunction.c = c;
-            velocityFunction.b = (m * m * (k - c) + h * h * (c - n)) / (m * h * (m - h));
-            velocityFunction.a = (n - c - m * velocityFunction.b) / (m * m);
-            positionFunction = velocityFunction.integrate(cubicIntPoint.Y());
-
-            updateUI();
-        }
+    }
 
 
-        //  Update UI
-        function updateUI() {
-            updateGraph();
-           
-        }
+    //  Update UI
+    function updateUI() {
+        updateGraph();
 
-        function updateGraph() {
-            var axisX = -velocityFunction.b / (2 * velocityFunction.a);
-            var axisY = velocityFunction.evaluate(axisX);
+    }
+    //movimiento de los puntos dragg asignacion ah funcion
+    function updateGraph() {
+        var axisX = -velocityFunction.b / (2 * velocityFunction.a);
+        var axisY = velocityFunction.evaluate(axisX);
 
-            positionBoard.suspendUpdate();
-            velocityBoard.suspendUpdate();
+        positionBoard.suspendUpdate();
+        velocityBoard.suspendUpdate();
 
-            cubicIntPoint.moveTo([0, positionFunction.d]);
-            quadraticIntPoint.moveTo([0, velocityFunction.c]);
-            quadraticAxisPoint.moveTo([axisX, axisY]);
-            quadraticSlopePoint.moveTo([axisX * 2, velocityFunction.c]);
+        cubicIntPoint.moveTo([0, positionFunction.d]);
+        quadraticIntPoint.moveTo([0, velocityFunction.c]);
+        quadraticAxisPoint.moveTo([axisX, axisY]);
+        quadraticSlopePoint.moveTo([axisX * 2, velocityFunction.c]);
 
-            velocityBoard.unsuspendUpdate();
-            velocityBoard.fullUpdate();
-            positionBoard.unsuspendUpdate();
-            positionBoard.fullUpdate();
-        }
+        velocityBoard.unsuspendUpdate();
+        velocityBoard.fullUpdate();
+        positionBoard.unsuspendUpdate();
+        positionBoard.fullUpdate();
+    }
+    //cada que actualiza pagina o inicia update
+    updateFunction();
 
-        updateFunction();
-
-        positionBoard.on('update', updateFunction);
-        velocityBoard.on('update', updateFunction);
-    </script>
+    positionBoard.on('update', updateFunction);
+    velocityBoard.on('update', updateFunction);
+</script>
